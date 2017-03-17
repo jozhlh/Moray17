@@ -60,19 +60,15 @@ public class RobotController : MonoBehaviour {
 
 			// if its hit anything
 			if (Physics.Raycast(ray, out hit) && !IsOverUi()) {
-				agent_.destination = hit.point;
+				if (hit.transform.tag == "Navable") {
+					agent_.destination = hit.point;
+				}
 			}
 		}
 
 		UpdateCurrentItem();
-
-		//TODO:: REMOVE Debug/Test Code
-		if (Input.GetMouseButtonDown(1)) {
-			DropCurrentItem();
-		}
 	}
-
-
+	
 	/// <summary>
 	/// Just before rendering, updates the camera to follow the robot.
 	/// </summary>
@@ -143,10 +139,7 @@ public class RobotController : MonoBehaviour {
 	/// </summary>
 	public void DropCurrentItem() {
 		if (currentItem_) {
-			currentItem_.transform.position = new Vector3(
-					transform.position.x,
-					currentItem_.InitialHeight(),
-					transform.position.z);
+			currentItem_.ItemDropped();
 			currentItem_ = null;
 		}
 		EmptyInventory();
@@ -206,7 +199,5 @@ public class RobotController : MonoBehaviour {
 		dropItem.interactable = false;
 		currentItemText.text = "Empty";
 	}
-
-
-
+	
 }
