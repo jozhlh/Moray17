@@ -15,9 +15,10 @@ public class Pickup : MonoBehaviour {
 
 	Vector3 droppedTargetPosition = Vector3.zero;
 
-	float minDropOffset = 2;
+	float minDropOffset = -1;
 
-	float maxDropOffset = 10;
+	float maxDropOffset = 1;
+	
 	/// <summary>
 	/// Saves initial pos and disables Popup
 	/// </summary>
@@ -37,7 +38,7 @@ public class Pickup : MonoBehaviour {
 	/// <summary>
 	/// Enables the popup.
 	/// </summary>
-	public void ShowPopUp() {		
+	public void ShowPopUp() {
 		interactableCanvas.enabled = true;
 	}
 
@@ -57,18 +58,43 @@ public class Pickup : MonoBehaviour {
 		return garbageName;
 	}
 
-
 	/// <summary>
 	/// Drops the item at a random position near the player.	
 	/// </summary>
 	public void ItemDropped() {
-		// TODO :: Replace with proper dropping, placeholder tempory.
-		transform.position = new Vector3(
-			transform.position.x,
-			initialPosition.y,
-			transform.position.z);
+		
+		droppedTargetPosition = transform.position + new Vector3(
+			Random.Range(minDropOffset, maxDropOffset),
+			0,
+			Random.Range(minDropOffset, maxDropOffset));
 
+		droppedTargetPosition = CalculateMoveToTarget(droppedTargetPosition);
+
+		transform.position = new Vector3(
+			droppedTargetPosition.x,
+			initialPosition.y,
+			droppedTargetPosition.z);
 	}
 
+	/// <summary>
+	/// Checks a target point to make sure its valid if it is not, it will move it back towards the player.
+	/// </summary>
+	/// <param name="targetPosition"> New Position to dop item to</param>
+	/// <returns></returns>
+	private Vector3 CalculateMoveToTarget(Vector3 targetPosition) {
+		Vector3 randomDirection = targetPosition - transform.position;
+		randomDirection.Normalize();
+		
+		RaycastHit hit;
+		Ray ray = new Ray(transform.position, randomDirection);
+		// if its hit anything
+		if (Physics.Raycast(ray, out hit)) {
+			if (hit.transform.tag != "Navable") {
+				targetPosition = hit.point -= randomDirection;
+			}
+		}
+		
+		return targetPosition;
+	}
 
 }
