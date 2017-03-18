@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: b14810e676c5e4649a1eb5ee60fc5655
-timeCreated: 1489807207
+guid: 7222dc36d3b38114591fdfe68939a813
+timeCreated: 1489864206
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
@@ -13,7 +13,7 @@ ModelImporter:
     3300000: default
     4300000: default
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
@@ -55,7 +55,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
