@@ -35,7 +35,7 @@ public class RobotController : MonoBehaviour {
 	/// </summary>
 	private void Start() {
 		agent_ = GetComponent<NavMeshAgent>();
-		EmptyInventory();
+		EmptyInventory();		
 	}
 
 	/// <summary>
@@ -236,7 +236,10 @@ public class RobotController : MonoBehaviour {
 		currentItemSensibleText.text = "Empty";
 	}
 
-
+	/// <summary>
+	/// Returns the current item in the inventory.
+	/// </summary>
+	/// <returns> Cna return null if not available. </returns>
 	public Pickup CurrentItem() {
 		return currentItem_;
 	}
