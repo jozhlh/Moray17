@@ -2,8 +2,12 @@
 
 public class Pickup : MonoBehaviour {
 
+	public enum ItemType { item1, item2, item3 , item4};
+
 	[SerializeField]
 	string garbageName = "DefaultName";
+	[SerializeField]
+	private ItemType itemType;
 
 	[SerializeField]
 	string sensibleName = "DefaultName";
@@ -85,7 +89,6 @@ public class Pickup : MonoBehaviour {
 			droppedTargetPosition.z);
 	}
 
-	/// <summary>
 	/// Checks a target point to make sure its valid if it is not, it will move it back towards the player.
 	/// </summary>
 	/// <param name="targetPosition"> New Position to dop item to</param>
@@ -93,7 +96,7 @@ public class Pickup : MonoBehaviour {
 	private Vector3 CalculateMoveToTarget(Vector3 targetPosition) {
 		Vector3 randomDirection = targetPosition - transform.position;
 		randomDirection.Normalize();
-		
+
 		RaycastHit hit;
 		Ray ray = new Ray(transform.position, randomDirection);
 		// if its hit anything
@@ -102,8 +105,16 @@ public class Pickup : MonoBehaviour {
 				targetPosition = hit.point -= randomDirection;
 			}
 		}
-		
+
 		return targetPosition;
+	}
+
+	/// <summary>
+	/// Returns the type of the item	
+	/// </summary>
+	public ItemType CheckItemType()
+	{
+		return itemType;
 	}
 
 	public void Respawn() {
@@ -114,4 +125,5 @@ public class Pickup : MonoBehaviour {
 	public bool HasRespawned() {
 		return hasRespawned;
 	}
+
 }
