@@ -7,7 +7,7 @@ public class Pickup : MonoBehaviour {
 	[SerializeField]
 	string garbageName = "DefaultName";
 	[SerializeField]
-	private ItemType itemType;
+	private ItemType itemType = ItemType.item1;
 
 	[SerializeField]
 	string sensibleName = "DefaultName";
@@ -27,6 +27,7 @@ public class Pickup : MonoBehaviour {
 	float maxDropOffset = 1;
 
 	bool hasRespawned = false;
+
 	/// <summary>
 	/// Saves initial pos and disables Popup
 	/// </summary>
@@ -117,11 +118,18 @@ public class Pickup : MonoBehaviour {
 		return itemType;
 	}
 
+	/// <summary>
+	/// Respawns the item at its initial position.
+	/// </summary>
 	public void Respawn() {
 		transform.position = initialPosition;
 		hasRespawned = true;
 	}
 
+	/// <summary>
+	/// Wether the item has been respawned yet.
+	/// </summary>
+	/// <returns> True if it has. </returns>
 	public bool HasRespawned() {
 		return hasRespawned;
 	}
