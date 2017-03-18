@@ -3,6 +3,10 @@
 public class RoomManager : MonoBehaviour {
 	private RoomControl[] rooms;
 
+	public Texture whiteTex;
+	public Texture redTex;
+	public Texture greenTex;
+
 	// Get all rooms that are children of the room manager
 	// Initialise them with their room number
 	void Start() {
@@ -32,10 +36,15 @@ public class RoomManager : MonoBehaviour {
 	/// Checks if all the rooms are fixed, if they are fires the Ship Fixed message.
 	/// </summary>
 	private void CheckShipFixed() {
+		bool hasBrokenRoom = false;
 		foreach (RoomControl room in rooms) {
 			if (!room.IsRoomFixed()) {
-				EventManager.ShipFixed();
+				hasBrokenRoom = true;
+			
 			}
+		}
+		if (!hasBrokenRoom) {
+			EventManager.ShipFixed();
 		}
 	}
 }
