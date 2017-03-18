@@ -7,13 +7,17 @@ public class ServicePort : MonoBehaviour {
 	Canvas interactableCanvas = null;
 
 	[SerializeField]
+	GameObject iconObject = null;
+
+	[SerializeField]
 	string roomName = "DefaultName";
 
 	/// <summary>
 	/// Disables Popup
 	/// </summary>
 	private void Start() {
-		interactableCanvas.enabled = false;
+		//interactableCanvas.enabled = false;
+		HidePopUp();
 	}
 
 	private void OnTriggerEnter(Collider other) {
@@ -37,6 +41,7 @@ public class ServicePort : MonoBehaviour {
 	/// </summary>
 	public void ShowPopUp() {
 		interactableCanvas.enabled = true;
+		iconObject.SetActive(true);
 	}
 
 	/// <summary>
@@ -44,6 +49,7 @@ public class ServicePort : MonoBehaviour {
 	/// </summary>
 	public void HidePopUp() {
 		interactableCanvas.enabled = false;
+		iconObject.SetActive(false);
 	}
 
 
