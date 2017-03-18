@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class RoomManager : MonoBehaviour
-{
+public class RoomManager : MonoBehaviour {
 	private RoomControl[] rooms;
 
 	public Texture whiteTex;
@@ -12,31 +9,37 @@ public class RoomManager : MonoBehaviour
 
 	// Get all rooms that are children of the room manager
 	// Initialise them with their room number
-	void Start ()
-	{
+	void Start() {
 		rooms = GetComponentsInChildren<RoomControl>();
-		for (int i = 0; i < rooms.Length; i++)
-		{
+		for (int i = 0; i < rooms.Length; i++) {
 			rooms[i].Initialise(i);
 		}
 	}
 
-	public int NumberOfRooms()
-	{
+	private void OnEnable() {
+		EventManager.OnPossibleGameCompletion += CheckShipFixed;
+	}
+
+	private void OnDisable() {
+		EventManager.OnPossibleGameCompletion -= CheckShipFixed;
+	}
+
+	public int NumberOfRooms() {
 		return rooms.Length;
 	}
 
-	public void BreakRoom(int roomNum)
-	{
+	public void BreakRoom(int roomNum) {
 		rooms[roomNum].Break();
 	}
 
-	public bool IsShipFixed() {
+	/// <summary>
+	/// Checks if all the rooms are fixed, if they are fires the Ship Fixed message.
+	/// </summary>
+	private void CheckShipFixed() {
 		foreach (RoomControl room in rooms) {
 			if (!room.IsRoomFixed()) {
-				return false;
+				EventManager.ShipFixed();
 			}
 		}
-		return true;
 	}
 }

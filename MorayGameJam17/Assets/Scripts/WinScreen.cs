@@ -3,9 +3,6 @@
 public class WinScreen : MonoBehaviour {
 
 	[SerializeField]
-	RoomManager roomManager = null;
-
-	[SerializeField]
 	GameObject winScreen = null;
 
 	[SerializeField]
@@ -13,24 +10,21 @@ public class WinScreen : MonoBehaviour {
 
 	private void Start() {
 		winScreen.SetActive(false);
-		Time.timeScale = 1;
 	}
 
 	private void OnEnable() {
-		EventManager.OnPossibleGameCompletion += OnPossibleFixedShip;
+		EventManager.OnGameCompletion += OnGameCompletion;
 	}
 
 	private void OnDisable() {
-		EventManager.OnPossibleGameCompletion -= OnPossibleFixedShip;
+		EventManager.OnGameCompletion -= OnGameCompletion;
 	}
 
-	private void OnPossibleFixedShip() {
-		if (roomManager.IsShipFixed()) {
-			// Start lerp towards Beacon.
-			// Disable win screen and pause game.
-			Time.timeScale = 0;
-			winScreen.SetActive(true);
-			hud.SetActive(false);
-		}
+	/// <summary>
+	/// Displays the win screen when the game is completed, and hides the HUD.
+	/// </summary>
+	private void OnGameCompletion() {
+		winScreen.SetActive(true);
+		hud.SetActive(false);
 	}
 }

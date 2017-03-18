@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomControl : MonoBehaviour
@@ -18,14 +17,6 @@ public class RoomControl : MonoBehaviour
 	private bool isFixed = true;
 	int roomID;
 	private float greenTexDuration = 2.0f;
-
-	//TODO:: Remove Just Debug
-	private void Update() {
-		if (Input.GetMouseButtonDown(1)) {
-			isFixed = true;
-			EventManager.PossibleCompletion();
-		}
-	}
 
 	public void Initialise(int id) {
 		roomManager = GetComponentInParent<RoomManager>();

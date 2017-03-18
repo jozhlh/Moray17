@@ -2,7 +2,10 @@
 
 public class Pickup : MonoBehaviour {
 
-	public enum ItemType { item1, item2, item3 , item4};
+	public enum ItemType { item1, item2, item3, item4 };
+
+	[SerializeField]
+	PickUpIdleAnimation pickUpAnimation = null;
 
 	[SerializeField]
 	string garbageName = "DefaultName";
@@ -68,15 +71,19 @@ public class Pickup : MonoBehaviour {
 		if (hasRespawned) {
 			return sensibleName;
 		}
-		else { 
+		else {
 			return garbageName;
-		}		
+		}
+	}
+
+	public void ItemPickedUp() {
+		pickUpAnimation.PauseAnimation();
 	}
 
 	/// <summary>
 	/// Drops the item at a random position near the player.	
 	/// </summary>
-	public void ItemDropped() {		
+	public void ItemDropped() {
 		droppedTargetPosition = transform.position + new Vector3(
 			Random.Range(minDropOffset, maxDropOffset),
 			0,
@@ -88,6 +95,8 @@ public class Pickup : MonoBehaviour {
 			droppedTargetPosition.x,
 			initialPosition.y,
 			droppedTargetPosition.z);
+
+		pickUpAnimation.ResumeAnimation();
 	}
 
 	/// Checks a target point to make sure its valid if it is not, it will move it back towards the player.
@@ -113,8 +122,7 @@ public class Pickup : MonoBehaviour {
 	/// <summary>
 	/// Returns the type of the item	
 	/// </summary>
-	public ItemType CheckItemType()
-	{
+	public ItemType CheckItemType() {
 		return itemType;
 	}
 
@@ -123,6 +131,7 @@ public class Pickup : MonoBehaviour {
 	/// </summary>
 	public void Respawn() {
 		transform.position = initialPosition;
+		pickUpAnimation.ResumeAnimation();
 		hasRespawned = true;
 	}
 
