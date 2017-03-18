@@ -36,10 +36,15 @@ public class RoomManager : MonoBehaviour {
 	/// Checks if all the rooms are fixed, if they are fires the Ship Fixed message.
 	/// </summary>
 	private void CheckShipFixed() {
+		bool hasBrokenRoom = false;
 		foreach (RoomControl room in rooms) {
 			if (!room.IsRoomFixed()) {
-				EventManager.ShipFixed();
+				hasBrokenRoom = true;
+			
 			}
+		}
+		if (!hasBrokenRoom) {
+			EventManager.ShipFixed();
 		}
 	}
 }
