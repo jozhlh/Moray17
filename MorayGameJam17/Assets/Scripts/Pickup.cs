@@ -2,8 +2,12 @@
 
 public class Pickup : MonoBehaviour {
 
+	public enum ItemType { item1, item2, item3 , item4};
+
 	[SerializeField]
 	string garbageName = "DefaultName";
+	[SerializeField]
+	private ItemType itemType;
 
 	[SerializeField]
 	float itemHeightOffsetWhenPickedUp = 1.0f;
@@ -70,5 +74,16 @@ public class Pickup : MonoBehaviour {
 
 	}
 
+	/// <summary>
+	/// Returns the type of the item	
+	/// </summary>
+	public ItemType CheckItemType()
+	{
+		return itemType;
+	}
 
+	public void Respawn()
+	{
+		transform.position = initialPosition;
+	}
 }

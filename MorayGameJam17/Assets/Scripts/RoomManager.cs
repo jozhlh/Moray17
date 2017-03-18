@@ -11,7 +11,6 @@ public class RoomManager : MonoBehaviour
 	void Start ()
 	{
 		rooms = GetComponentsInChildren<RoomControl>();
-		Debug.Log("rooms: " + rooms.Length);
 		for (int i = 0; i < rooms.Length; i++)
 		{
 			rooms[i].Initialise(i);

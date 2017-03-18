@@ -7,7 +7,9 @@ public class RoomControl : MonoBehaviour
 	[SerializeField]
 	private int maxRoomsToBreak = 2;
 	[SerializeField]
-	private Item.ItemType correctItem;
+	private Pickup.ItemType correctItem;
+	[SerializeField]
+	private RobotController player = null;
 	[SerializeField]
 	private List<ItemResponse> incorrectResponses = null;
 	private RoomManager roomManager = null;
@@ -23,7 +25,7 @@ public class RoomControl : MonoBehaviour
 		incorrectResponses = new List<ItemResponse>();
 
 		// create a response for each availabe item type (- the correct item)
-		for (int i = 0; i < System.Enum.GetValues(typeof(Item.ItemType)).Length; i++)
+		for (int i = 0; i < System.Enum.GetValues(typeof(Pickup.ItemType)).Length; i++)
 		{
 			incorrectResponses.Add(new ItemResponse());
 		}
@@ -53,8 +55,9 @@ public class RoomControl : MonoBehaviour
 		}
 	}
 
-	public void CheckItem(Item.ItemType presentedItem)
+	public void CheckItem()
 	{
+		Pickup.ItemType presentedItem = player.CurrentItem().CheckItemType();
 		if (presentedItem == correctItem)
 		{
 			// success the room is fixed
@@ -69,6 +72,8 @@ public class RoomControl : MonoBehaviour
 				roomManager.BreakRoom(roomNum);
 			}
 		}
+		player.RespawnCurrentItem();
+		GetComponentInChildren<ServicePort>().HidePopUp();
 	}
 
 	public void Break()
