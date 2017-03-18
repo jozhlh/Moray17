@@ -1,18 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomControl : MonoBehaviour {
+public class RoomControl : MonoBehaviour
+{
+	private Renderer[] rend = null;
+
 	[SerializeField]
 	private int maxRoomsToBreak = 2;
 	[SerializeField]
 	private Pickup.ItemType correctItem = Pickup.ItemType.item1;
 	[SerializeField]
 	private RobotController player = null;
-	[SerializeField]
+//	[SerializeField]
 	private List<ItemResponse> incorrectResponses = null;
 	private RoomManager roomManager = null;
 	private bool isFixed = true;
 	int roomID;
+	private float greenTexDuration = 2.0f;
 
 	public void Initialise(int id) {
 		roomManager = GetComponentInParent<RoomManager>();
@@ -20,6 +25,7 @@ public class RoomControl : MonoBehaviour {
 		int iterator = 0;
 		int maxRooms = roomManager.NumberOfRooms();
 		incorrectResponses = new List<ItemResponse>();
+		rend = GetComponentsInChildren<Renderer>();
 
 		// create a response for each availabe item type (- the correct item)
 		for (int i = 0; i < System.Enum.GetValues(typeof(Pickup.ItemType)).Length; i++) {
@@ -45,15 +51,25 @@ public class RoomControl : MonoBehaviour {
 			// move to the next item type
 			iterator++;
 		}
+
+		foreach (Renderer r in rend)
+		{
+			r.material.mainTexture = roomManager.whiteTex;
+		}
+		
+		if (roomID == 0)
+		{
+			Break();
+		}
+		else{
+			isFixed = true;
+		}
 	}
 
 	public void CheckItem() {
 		Pickup.ItemType presentedItem = player.CurrentItem().CheckItemType();
 		if (presentedItem == correctItem) {
-			// success the room is fixed
-			isFixed = true;
-			// Tell everyone the ship might be fixed.
-			EventManager.PossibleCompletion();
+			FixRoom();
 		}
 		else {
 			// get a list of rooms to break and break them
@@ -78,6 +94,38 @@ public class RoomControl : MonoBehaviour {
 	/// Breaks the room.
 	/// </summary>
 	public void Break() {
+		foreach (Renderer r in rend)
+		{
+			r.material.mainTexture = roomManager.redTex;
+		}
 		isFixed = false;
 	}
+
+	private void FixRoom()
+	{
+			// success the room is fixed
+			isFixed = true;
+			// Tell everyone the ship might be fixed.
+			EventManager.PossibleCompletion();
+			// Change to the greenTexture
+			StartCoroutine(ShowGreenTex());
+	}
+
+	private IEnumerator ShowGreenTex()
+	{
+		foreach (Renderer r in rend)
+		{
+			r.material.mainTexture = roomManager.greenTex;
+		}
+
+		yield return new WaitForSeconds(greenTexDuration);
+
+		foreach (Renderer r in rend)
+		{
+			r.material.mainTexture = roomManager.whiteTex;
+		}
+
+		yield return null;
+	}
+
 }
