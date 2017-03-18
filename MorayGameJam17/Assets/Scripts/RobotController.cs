@@ -6,10 +6,6 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(NavMeshAgent))]
 public class RobotController : MonoBehaviour {
 
-	[Tooltip("Distance camera is offset from the bot.")]
-	[SerializeField]
-	Vector3 cameraOffset = Vector3.zero;
-
 	[Tooltip("Camera which will follow the player.")]
 	[SerializeField]
 	Camera sceneCamera = null;
@@ -30,6 +26,7 @@ public class RobotController : MonoBehaviour {
 
 	private Pickup collidedItem_ = null;
 
+	
 	/// <summary>
 	/// Sets up the navmeshagent and Hides the Inventory.
 	/// </summary>
@@ -70,18 +67,6 @@ public class RobotController : MonoBehaviour {
 		}
 
 		UpdateCurrentItem();
-
-
-	}
-
-	/// <summary>
-	/// Just before rendering, updates the camera to follow the robot.
-	/// </summary>
-	private void LateUpdate() {
-		sceneCamera.transform.position = new Vector3(
-			transform.position.x + cameraOffset.x,
-			sceneCamera.transform.position.y + cameraOffset.y,
-			transform.position.z + cameraOffset.z);
 	}
 
 	/// <summary>
@@ -146,6 +131,7 @@ public class RobotController : MonoBehaviour {
 	public void PickUpItem() {
 		if (collidedItem_) {
 			collidedItem_.HidePopUp();
+			collidedItem_.ItemPickedUp();
 			DropCurrentItem();
 			currentItem_ = collidedItem_;
 		}

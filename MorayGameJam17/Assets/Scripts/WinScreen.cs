@@ -26,6 +26,7 @@ public class WinScreen : MonoBehaviour {
 
 	private void OnPossibleFixedShip() {
 		if (roomManager.IsShipFixed()) {
+			EventManager.GameCompleted();
 			// Start lerp towards Beacon.
 			// Disable win screen and pause game.
 			Time.timeScale = 0;
