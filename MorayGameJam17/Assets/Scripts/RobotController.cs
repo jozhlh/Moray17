@@ -104,6 +104,12 @@ public class RobotController : MonoBehaviour {
 			collidedItem_ = collidedGameObject.GetComponent<Pickup>();
 			collidedItem_.ShowPopUp();
 		}
+		else if (collidedGameObject.tag == "Port") {
+			// remove the popup and remove the link to it
+			if (currentItem_) {
+				collidedGameObject.GetComponent<ServicePort>().ShowPopUp();
+			}
+		}
 	}
 
 	/// <summary>
@@ -118,6 +124,12 @@ public class RobotController : MonoBehaviour {
 			if (collidedItem_) {
 				collidedItem_.HidePopUp();
 				collidedItem_ = null;
+			}
+		}
+		else if (collidedGameObject.tag == "Port") {
+			// remove the popup and remove the link to it
+			if (currentItem_) {
+				collidedGameObject.GetComponent<ServicePort>().HidePopUp();
 			}
 		}
 	}
@@ -140,6 +152,17 @@ public class RobotController : MonoBehaviour {
 	public void DropCurrentItem() {
 		if (currentItem_) {
 			currentItem_.ItemDropped();
+			currentItem_ = null;
+		}
+		EmptyInventory();
+	}
+
+	/// <summary>
+	/// Drop the current item in the inventory.
+	/// </summary>
+	public void RespawnCurrentItem() {
+		if (currentItem_) {
+			currentItem_.Respawn();
 			currentItem_ = null;
 		}
 		EmptyInventory();
@@ -198,6 +221,11 @@ public class RobotController : MonoBehaviour {
 	private void EmptyInventory() {
 		dropItem.interactable = false;
 		currentItemText.text = "Empty";
+	}
+
+	public Pickup CurrentItem()
+	{
+		return currentItem_;
 	}
 	
 }
