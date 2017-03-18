@@ -13,6 +13,11 @@ public class EventManager : MonoBehaviour {
 	/// <summary>
 	/// Event to listen to for when the game is completed.
 	/// </summary>
+	public static event EventHandler OnCameraInPosition;
+
+	/// <summary>
+	/// Event to listen to for when the game is completed.
+	/// </summary>
 	public static event EventHandler OnGameCompletion;
 
 	/// <summary>
@@ -35,6 +40,16 @@ public class EventManager : MonoBehaviour {
 		// notify all listeners to event.
 		if (OnPossibleGameCompletion != null) {
 			OnPossibleGameCompletion();
+		}
+	}
+
+	/// <summary>
+	/// Should be called when the Camera is ready fro the distress signal to send.
+	/// </summary>
+	public static void CameraInPosition() {
+		// notify all listeners to event.
+		if (OnCameraInPosition != null) {
+			OnCameraInPosition();
 		}
 	}
 

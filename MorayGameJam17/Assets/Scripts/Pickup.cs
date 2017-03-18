@@ -5,7 +5,7 @@ public class Pickup : MonoBehaviour {
 	public enum ItemType { item1, item2, item3, item4 };
 
 	[SerializeField]
-	PickUpIdleAnimation pickUpAnimation = null;
+	IdleAnimation pickUpAnimation = null;
 
 	[SerializeField]
 	string garbageName = "DefaultName";

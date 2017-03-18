@@ -4,7 +4,7 @@
 /// PickUp Idle Animation script, gives nice rotation and scaling animation.
 /// </summary>
 [RequireComponent(typeof(MeshRenderer))]
-public class PickUpIdleAnimation : MonoBehaviour {
+public class IdleAnimation : MonoBehaviour {
 
 	[SerializeField]
 	[Tooltip("Used for end rotation, position and scale values.")]
