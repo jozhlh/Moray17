@@ -49,6 +49,7 @@ public class PickUpIdleAnimation : MonoBehaviour {
 
 	private bool wasAnimating_ = true;
 
+
 	/// <summary>
 	/// Store initial start and end points, and ensures tag is correctly set.
 	/// </summary>
