@@ -10,6 +10,9 @@ public class Pickup : MonoBehaviour {
 	private ItemType itemType;
 
 	[SerializeField]
+	string sensibleName = "DefaultName";
+
+	[SerializeField]
 	float itemHeightOffsetWhenPickedUp = 1.0f;
 
 	[SerializeField]
@@ -22,13 +25,15 @@ public class Pickup : MonoBehaviour {
 	float minDropOffset = -1;
 
 	float maxDropOffset = 1;
-	
+
+	bool hasRespawned = false;
 	/// <summary>
 	/// Saves initial pos and disables Popup
 	/// </summary>
 	private void Start() {
 		interactableCanvas.enabled = false;
 		initialPosition = transform.position;
+		name = garbageName;
 	}
 
 	/// <summary>
@@ -59,14 +64,18 @@ public class Pickup : MonoBehaviour {
 	/// </summary>
 	/// <returns></returns>
 	public string Name() {
-		return garbageName;
+		if (hasRespawned) {
+			return sensibleName;
+		}
+		else { 
+			return garbageName;
+		}		
 	}
 
 	/// <summary>
 	/// Drops the item at a random position near the player.	
 	/// </summary>
-	public void ItemDropped() {
-		
+	public void ItemDropped() {		
 		droppedTargetPosition = transform.position + new Vector3(
 			Random.Range(minDropOffset, maxDropOffset),
 			0,
@@ -87,7 +96,7 @@ public class Pickup : MonoBehaviour {
 	private Vector3 CalculateMoveToTarget(Vector3 targetPosition) {
 		Vector3 randomDirection = targetPosition - transform.position;
 		randomDirection.Normalize();
-		
+
 		RaycastHit hit;
 		Ray ray = new Ray(transform.position, randomDirection);
 		// if its hit anything
@@ -96,8 +105,9 @@ public class Pickup : MonoBehaviour {
 				targetPosition = hit.point -= randomDirection;
 			}
 		}
-		
+
 		return targetPosition;
+	}
 
 	/// <summary>
 	/// Returns the type of the item	
@@ -107,8 +117,13 @@ public class Pickup : MonoBehaviour {
 		return itemType;
 	}
 
-	public void Respawn()
-	{
+	public void Respawn() {
 		transform.position = initialPosition;
+		hasRespawned = true;
 	}
+
+	public bool HasRespawned() {
+		return hasRespawned;
+	}
+
 }
