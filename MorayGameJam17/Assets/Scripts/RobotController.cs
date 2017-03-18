@@ -70,6 +70,8 @@ public class RobotController : MonoBehaviour {
 		}
 
 		UpdateCurrentItem();
+
+
 	}
 
 	/// <summary>
@@ -124,8 +126,10 @@ public class RobotController : MonoBehaviour {
 		if (collidedGameObject.tag == "Item") {
 			// remove the popup and remove the link to it
 			if (collidedItem_) {
-				collidedItem_.HidePopUp();
-				collidedItem_ = null;
+				if (collidedGameObject.GetComponent<Pickup>() == collidedItem_) {
+					collidedItem_.HidePopUp();
+					collidedItem_ = null;
+				}
 			}
 		}
 		else if (collidedGameObject.tag == "Port") {

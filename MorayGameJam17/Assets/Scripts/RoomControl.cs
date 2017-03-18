@@ -15,6 +15,14 @@ public class RoomControl : MonoBehaviour {
 	private bool isFixed = true;
 	int roomID;
 
+	//TODO:: Remove Just Debug
+	private void Update() {
+		if (Input.GetMouseButtonDown(1)) {
+			isFixed = true;
+			EventManager.PossibleCompletion();
+		}
+	}
+
 	public void Initialise(int id) {
 		roomManager = GetComponentInParent<RoomManager>();
 		roomID = id;
@@ -53,6 +61,8 @@ public class RoomControl : MonoBehaviour {
 		if (presentedItem == correctItem) {
 			// success the room is fixed
 			isFixed = true;
+			// Tell everyone the ship might be fixed.
+			EventManager.PossibleCompletion();
 		}
 		else {
 			// get a list of rooms to break and break them
