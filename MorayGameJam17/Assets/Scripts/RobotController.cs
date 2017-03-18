@@ -6,10 +6,6 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(NavMeshAgent))]
 public class RobotController : MonoBehaviour {
 
-	[Tooltip("Camera which will follow the player.")]
-	[SerializeField]
-	Camera sceneCamera = null;
-
 	[SerializeField]
 	Button dropItem =null;
 
@@ -26,13 +22,13 @@ public class RobotController : MonoBehaviour {
 
 	private Pickup collidedItem_ = null;
 
-	
+
 	/// <summary>
 	/// Sets up the navmeshagent and Hides the Inventory.
 	/// </summary>
 	private void Start() {
 		agent_ = GetComponent<NavMeshAgent>();
-		EmptyInventory();		
+		EmptyInventory();
 	}
 
 	/// <summary>
@@ -94,7 +90,7 @@ public class RobotController : MonoBehaviour {
 			collidedItem_ = collidedGameObject.GetComponent<Pickup>();
 			collidedItem_.ShowPopUp();
 		}
-		else if (collidedGameObject.tag == "Port") {			
+		else if (collidedGameObject.tag == "Port") {
 			if (currentItem_) {
 				collidedGameObject.GetComponent<ServicePort>().ShowPopUp();
 			}

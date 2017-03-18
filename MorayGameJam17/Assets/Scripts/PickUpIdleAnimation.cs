@@ -52,7 +52,7 @@ public class PickUpIdleAnimation : MonoBehaviour {
 	/// <summary>
 	/// Store initial start and end points, and ensures tag is correctly set.
 	/// </summary>
-	private void Start() {		
+	private void Start() {
 		SetupPingPongTargets();
 	}
 	/// <summary>
@@ -97,16 +97,16 @@ public class PickUpIdleAnimation : MonoBehaviour {
 	/// Moves the collectable towards the set target with lerp(smoothstep(pingpong))).
 	/// Gives a nice dampened animation effect back and forth.
 	/// </summary>
-	private void PingPongMoveToTarget() {		
-		transform.position = CollectableLerp(pingPongMoveFrom_, pingPongMoveTo_, moveToTargetInterval);
+	private void PingPongMoveToTarget() {
+		transform.position = Vector3Lerp(pingPongMoveFrom_, pingPongMoveTo_, moveToTargetInterval);
 	}
 
 	/// <summary>
 	/// Rotates the collectable towards the set target with lerp(smoothstep(pingpong))).
 	/// Gives a nice dampened animation effect back and forth.
 	/// </summary>
-	private void PingPongRotateToTarget() {				
-		transform.rotation = Quaternion.Euler(CollectableLerp(pingPongRotateFrom_, pingPongRotateTo_, rotateToTargetInterval));		
+	private void PingPongRotateToTarget() {
+		transform.rotation = Quaternion.Euler(Vector3Lerp(pingPongRotateFrom_, pingPongRotateTo_, rotateToTargetInterval));
 	}
 
 	/// <summary>
@@ -114,7 +114,7 @@ public class PickUpIdleAnimation : MonoBehaviour {
 	/// Gives a nice dampened animation effect back and forth.
 	/// </summary>
 	private void PingPongScaleToTarget() {
-		transform.localScale = CollectableLerp(pingPongScaleFrom_, pingPongScaleTo_, scaleToTargetInterval);
+		transform.localScale = Vector3Lerp(pingPongScaleFrom_, pingPongScaleTo_, scaleToTargetInterval);
 	}
 
 	/// <summary>
@@ -125,7 +125,7 @@ public class PickUpIdleAnimation : MonoBehaviour {
 	/// <param name="from"> Point to lerp from. </param>
 	/// <param name="to"> Point to lerp towards. </param>
 	/// <param name="interval"> The amount of time in seconds it should take. </param>
-	private Vector3 CollectableLerp(Vector3 from, Vector3 to, float interval) {
+	private Vector3 Vector3Lerp(Vector3 from, Vector3 to, float interval) {
 		return Vector3.Lerp(from, to,
 			// Smooth step gives it nice dampening at start and end of bounce.
 			Mathf.SmoothStep(0f, 1f,

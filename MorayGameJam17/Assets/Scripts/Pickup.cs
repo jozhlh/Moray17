@@ -2,7 +2,7 @@
 
 public class Pickup : MonoBehaviour {
 
-	public enum ItemType { item1, item2, item3 , item4};
+	public enum ItemType { item1, item2, item3, item4 };
 
 	[SerializeField]
 	PickUpIdleAnimation pickUpAnimation = null;
@@ -71,9 +71,9 @@ public class Pickup : MonoBehaviour {
 		if (hasRespawned) {
 			return sensibleName;
 		}
-		else { 
+		else {
 			return garbageName;
-		}		
+		}
 	}
 
 	public void ItemPickedUp() {
@@ -122,8 +122,7 @@ public class Pickup : MonoBehaviour {
 	/// <summary>
 	/// Returns the type of the item	
 	/// </summary>
-	public ItemType CheckItemType()
-	{
+	public ItemType CheckItemType() {
 		return itemType;
 	}
 
@@ -131,8 +130,8 @@ public class Pickup : MonoBehaviour {
 	/// Respawns the item at its initial position.
 	/// </summary>
 	public void Respawn() {
-		pickUpAnimation.ResumeAnimation();
 		transform.position = initialPosition;
+		pickUpAnimation.ResumeAnimation();
 		hasRespawned = true;
 	}
 
