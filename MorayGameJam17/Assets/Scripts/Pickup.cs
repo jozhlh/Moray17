@@ -6,6 +6,9 @@ public class Pickup : MonoBehaviour {
 	string garbageName = "DefaultName";
 
 	[SerializeField]
+	string sensibleName = "DefaultName";
+
+	[SerializeField]
 	float itemHeightOffsetWhenPickedUp = 1.0f;
 
 	[SerializeField]
@@ -18,13 +21,15 @@ public class Pickup : MonoBehaviour {
 	float minDropOffset = -1;
 
 	float maxDropOffset = 1;
-	
+
+	bool hasRespawned = false;
 	/// <summary>
 	/// Saves initial pos and disables Popup
 	/// </summary>
 	private void Start() {
 		interactableCanvas.enabled = false;
 		initialPosition = transform.position;
+		name = garbageName;
 	}
 
 	/// <summary>
@@ -55,14 +60,18 @@ public class Pickup : MonoBehaviour {
 	/// </summary>
 	/// <returns></returns>
 	public string Name() {
-		return garbageName;
+		if (hasRespawned) {
+			return sensibleName;
+		}
+		else { 
+			return garbageName;
+		}		
 	}
 
 	/// <summary>
 	/// Drops the item at a random position near the player.	
 	/// </summary>
-	public void ItemDropped() {
-		
+	public void ItemDropped() {		
 		droppedTargetPosition = transform.position + new Vector3(
 			Random.Range(minDropOffset, maxDropOffset),
 			0,
@@ -97,4 +106,12 @@ public class Pickup : MonoBehaviour {
 		return targetPosition;
 	}
 
+	public void Respawn() {
+		transform.position = initialPosition;
+		hasRespawned = true;
+	}
+
+	public bool HasRespawned() {
+		return hasRespawned;
+	}
 }

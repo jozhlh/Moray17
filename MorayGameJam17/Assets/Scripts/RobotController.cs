@@ -18,7 +18,10 @@ public class RobotController : MonoBehaviour {
 	Button dropItem =null;
 
 	[SerializeField]
-	Text currentItemText =null;
+	Text currentItemAlienText =null;
+
+	[SerializeField]
+	Text currentItemSensibleText =null;
 
 	// Controls the navigation of the bot on the navmesh
 	private NavMeshAgent agent_ = null;
@@ -34,7 +37,7 @@ public class RobotController : MonoBehaviour {
 		agent_ = GetComponent<NavMeshAgent>();
 		EmptyInventory();
 	}
-	
+
 	/// <summary>
 	/// Add dropitem to button OnClick.
 	/// </summary>
@@ -67,8 +70,19 @@ public class RobotController : MonoBehaviour {
 		}
 
 		UpdateCurrentItem();
+
+		if (Input.GetMouseButtonDown(1)) {
+			if (currentItem_) {
+				if (currentItem_) {
+					currentItem_.ItemDropped();
+					currentItem_.Respawn();
+					currentItem_ = null;
+				}
+				EmptyInventory();
+			}
+		}
 	}
-	
+
 	/// <summary>
 	/// Just before rendering, updates the camera to follow the robot.
 	/// </summary>
@@ -125,7 +139,7 @@ public class RobotController : MonoBehaviour {
 	/// <summary>
 	/// Hides the collided items popup and sets it to the currently collected item
 	/// </summary>
-	public void PickUpItem() {		
+	public void PickUpItem() {
 		if (collidedItem_) {
 			collidedItem_.HidePopUp();
 			DropCurrentItem();
@@ -188,7 +202,15 @@ public class RobotController : MonoBehaviour {
 	private void ShowInventory() {
 		if (currentItem_) {
 			dropItem.interactable = true;
-			currentItemText.text = currentItem_.Name();
+			if (currentItem_.HasRespawned()) {
+				currentItemAlienText.enabled = false;
+				currentItemSensibleText.enabled = true;
+				currentItemSensibleText.text = currentItem_.Name();
+			}else {
+				currentItemSensibleText.enabled = false;
+				currentItemAlienText.enabled = true;
+				currentItemAlienText.text = currentItem_.Name();
+			}
 		}
 	}
 
@@ -197,7 +219,9 @@ public class RobotController : MonoBehaviour {
 	/// </summary>
 	private void EmptyInventory() {
 		dropItem.interactable = false;
-		currentItemText.text = "Empty";
+		currentItemAlienText.enabled = false;
+		currentItemSensibleText.enabled = true;
+		currentItemSensibleText.text = "Empty";
 	}
-	
+
 }
