@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class EventManager : MonoBehaviour {
+	public enum NameUpdateType { NewName, ShipName, WorldName };
 
 	public delegate void EventHandler();
 	/// <summary>
@@ -18,6 +19,14 @@ public class EventManager : MonoBehaviour {
 	/// Event to listen to for when the ship is fixed
 	/// </summary>
 	public static event EventHandler OnShipFixed;
+
+
+	public delegate void EventHandlerLocationName(NameUpdateType newNameType, string newName = "");
+
+	/// <summary>
+	/// Event to listen to for when locationNameChanges.
+	/// </summary>
+	public static event EventHandlerLocationName OnNameChanged;
 
 	/// <summary>
 	/// Should be called when a the ship might be fixed.
@@ -46,6 +55,13 @@ public class EventManager : MonoBehaviour {
 		// notify all listeners to event.
 		if (OnShipFixed != null) {
 			OnShipFixed();
+		}
+	}
+
+	public static void NameChanged(NameUpdateType newNameType, string newName = "") {
+		// notify all listeners to event.
+		if (OnNameChanged != null) {
+			OnNameChanged(newNameType, newName);
 		}
 	}
 }

@@ -1,16 +1,35 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ServicePort : MonoBehaviour {
 
 	[SerializeField]
 	Canvas interactableCanvas = null;
 
+	[SerializeField]
+	string roomName = "DefaultName";
 
 	/// <summary>
 	/// Disables Popup
 	/// </summary>
 	private void Start() {
 		interactableCanvas.enabled = false;
+	}
+
+	private void OnTriggerEnter(Collider other) {
+		if (other.tag == "Player") {
+			EventManager.NameChanged(EventManager.NameUpdateType.NewName, roomName);
+		}
+	}
+
+	private void OnTriggerExit(Collider other) {
+		if (other.tag == "Player") {
+			EventManager.NameChanged(EventManager.NameUpdateType.ShipName);			
+		}
+	}
+
+	public bool IsFixed() {
+		return GetComponentInParent<RoomControl>().IsRoomFixed();		
 	}
 
 	/// <summary>
