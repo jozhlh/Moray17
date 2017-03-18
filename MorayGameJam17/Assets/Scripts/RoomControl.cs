@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class RoomControl : MonoBehaviour
 {
-
-	[SerializeField]
-	private Renderer rend = null;
+	private Renderer[] rend = null;
 
 	[SerializeField]
 	private int maxRoomsToBreak = 2;
@@ -35,6 +33,7 @@ public class RoomControl : MonoBehaviour
 		int iterator = 0;
 		int maxRooms = roomManager.NumberOfRooms();
 		incorrectResponses = new List<ItemResponse>();
+		rend = GetComponentsInChildren<Renderer>();
 
 		// create a response for each availabe item type (- the correct item)
 		for (int i = 0; i < System.Enum.GetValues(typeof(Pickup.ItemType)).Length; i++) {
@@ -61,8 +60,11 @@ public class RoomControl : MonoBehaviour
 			iterator++;
 		}
 
-		rend.material.mainTexture = roomManager.whiteTex;
-
+		foreach (Renderer r in rend)
+		{
+			r.material.mainTexture = roomManager.whiteTex;
+		}
+		
 		if (roomID == 0)
 		{
 			Break();
@@ -100,7 +102,10 @@ public class RoomControl : MonoBehaviour
 	/// Breaks the room.
 	/// </summary>
 	public void Break() {
-		rend.material.mainTexture = roomManager.redTex;
+		foreach (Renderer r in rend)
+		{
+			r.material.mainTexture = roomManager.redTex;
+		}
 		isFixed = false;
 	}
 
@@ -116,11 +121,17 @@ public class RoomControl : MonoBehaviour
 
 	private IEnumerator ShowGreenTex()
 	{
-		rend.material.mainTexture = roomManager.greenTex;
+		foreach (Renderer r in rend)
+		{
+			r.material.mainTexture = roomManager.greenTex;
+		}
 
 		yield return new WaitForSeconds(greenTexDuration);
 
-		rend.material.mainTexture = roomManager.whiteTex;
+		foreach (Renderer r in rend)
+		{
+			r.material.mainTexture = roomManager.whiteTex;
+		}
 
 		yield return null;
 	}
