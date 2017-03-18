@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="120">
+	<RootPaths>
+		<ProjectRoot>D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="74596838" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Landscape_Outside_SoundBank</ObjectPath>
+			<ShortName>Landscape_Outside_SoundBank</ShortName>
+			<Path>Landscape_Outside_SoundBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="4004066390" Name="Landscape_Shuttle" ObjectPath="\Events\Default Work Unit\Ambient_States\Landscape_Shuttle"/>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2307324537" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Landscape_Inside_SoundBank</ObjectPath>
+			<ShortName>Landscape_Inside_SoundBank</ShortName>
+			<Path>Landscape_Inside_SoundBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="4277939909" Name="Landscape_Planet" ObjectPath="\Events\Default Work Unit\Ambient_States\Landscape_Planet"/>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2406554224" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Computer_System_SoundBank</ObjectPath>
+			<ShortName>Computer_System_SoundBank</ShortName>
+			<Path>Computer_System_SoundBank.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2454045173" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\UI_SoundBank</ObjectPath>
+			<ShortName>UI_SoundBank</ShortName>
+			<Path>UI_SoundBank.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2949117636" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Character_SoundBank</ObjectPath>
+			<ShortName>Character_SoundBank</ShortName>
+			<Path>Character_SoundBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3978245845" Name="PickUp" ObjectPath="\Events\Default Work Unit\Ambient_Events\Character\PickUp"/>
+				<Event Id="3120155140" Name="Player_Move_END" ObjectPath="\Events\Default Work Unit\Ambient_Events\Character\Player_Move_END"/>
+				<Event Id="1016620215" Name="Player_Move_START" ObjectPath="\Events\Default Work Unit\Ambient_Events\Character\Player_Move_START"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="432756880" Language="SFX">
+					<ShortName>Robot_Movement_START.L.wav</ShortName>
+					<Path>SFX\Robot_Movement_START.L_E6F7EEB8.wem</Path>
+				</File>
+				<File Id="709612573" Language="SFX">
+					<ShortName>SFX_SCI-FI_Something_01.L.wav</ShortName>
+					<Path>SFX\SFX_SCI-FI_Something_01.L_B3D8C90D.wem</Path>
+				</File>
+				<File Id="754470137" Language="SFX">
+					<ShortName>Robot_Movement_TRACKS.L.wav</ShortName>
+					<Path>SFX\Robot_Movement_TRACKS.L_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="865596875" Language="SFX">
+					<ShortName>Robot_Movement_END.L.wav</ShortName>
+					<Path>SFX\Robot_Movement_END.L_EB9343E3.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="3589812408" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Music_SoundBank</ObjectPath>
+			<ShortName>Music_SoundBank</ShortName>
+			<Path>Music_SoundBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="4261961893" Name="Error_Room_Music" ObjectPath="\Events\Default Work Unit\Music\Error_Room_Music"/>
+				<Event Id="1244594577" Name="Level_Music" ObjectPath="\Events\Default Work Unit\Music\Level_Music"/>
+			</IncludedEvents>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

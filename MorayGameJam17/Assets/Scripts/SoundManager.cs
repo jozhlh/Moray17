@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour {
 	void Start ()
 	{
 		Initialise();
+		PlayEvent("PickUp", gameObject);
 	}
 	
 	private void Initialise()
