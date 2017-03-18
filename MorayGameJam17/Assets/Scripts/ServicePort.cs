@@ -16,7 +16,7 @@ public class ServicePort : MonoBehaviour {
 	/// <summary>
 	/// Enables the popup.
 	/// </summary>
-	public void ShowPopUp() {		
+	public void ShowPopUp() {
 		interactableCanvas.enabled = true;
 	}
 

@@ -3,6 +3,6 @@
 public class DebugUi : MonoBehaviour {
 
 	public void FakeWin() {
-		EventManager.PossibleCompletion();
+		EventManager.ShipFixed();
 	}
 }
