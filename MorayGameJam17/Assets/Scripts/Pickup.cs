@@ -31,6 +31,8 @@ public class Pickup : MonoBehaviour {
 
 	bool hasRespawned = false;
 
+	private ParticleSystem dropEffect = null;
+
 	/// <summary>
 	/// Saves initial pos and disables Popup
 	/// </summary>
@@ -38,6 +40,7 @@ public class Pickup : MonoBehaviour {
 		interactableCanvas.enabled = false;
 		initialPosition = transform.position;
 		name = garbageName;
+		dropEffect = GetComponentInChildren<ParticleSystem>();
 	}
 
 	/// <summary>
@@ -97,6 +100,7 @@ public class Pickup : MonoBehaviour {
 			droppedTargetPosition.z);
 
 		pickUpAnimation.ResumeAnimation();
+		dropEffect.Play();
 	}
 
 	/// Checks a target point to make sure its valid if it is not, it will move it back towards the player.
