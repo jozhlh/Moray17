@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{AF77E1D6-6078-4AB8-979A-2FA2D2A75E66}" SchemaVersion="75">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{AF77E1D6-6078-4AB8-979A-2FA2D2A75E66}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{AF77E1D6-6078-4AB8-979A-2FA2D2A75E66}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="UI_SoundBank" ID="{5ECF393F-147E-4724-9BBE-2791F789FAC0}">
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Character_SoundBank" ID="{4729DB33-366C-41FF-BAE1-E293EF56572F}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Player_Move_END" ID="{26484614-7E7A-43AD-9BE8-71237EFD39B1}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Character" ID="{DED12653-B32B-4469-BBDF-4124B7782617}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Player_Move_START" ID="{16B7FC00-8456-4C76-936A-7AD6C93D8969}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="PickUp" ID="{979DF678-7111-4D1C-9F8C-811A36F33EF4}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Music_SoundBank" ID="{2EC91033-4C85-4991-B714-F1209591EC6C}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Error_Room_Music" ID="{D80866B4-BC19-43E7-9C91-300186650BC5}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Level_Music" ID="{F7099DB9-80E2-47B7-A535-48E5B15B4E95}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Landscape_Outside_SoundBank" ID="{91F29A69-076B-47F9-AFC3-4640AD35938E}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Landscape_Shuttle" ID="{BB28812A-E59B-4A1B-92C7-2EB9120CAC17}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Landscape_Inside_SoundBank" ID="{90197AD4-341E-4E41-BEEF-532B44AD0E77}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Landscape_Planet" ID="{F59A789C-931D-405F-9D89-62FD28425385}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Computer_System_SoundBank" ID="{0F5C7FAF-19D3-470C-AF7D-507CEDFA7E93}">
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>

@@ -1,0 +1,4 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1244594577	Level_Music			\Default Work Unit\Music\Level_Music	
+	4261961893	Error_Room_Music			\Default Work Unit\Music\Error_Room_Music	
+

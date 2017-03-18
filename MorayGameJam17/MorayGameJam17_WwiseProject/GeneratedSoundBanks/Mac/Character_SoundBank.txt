@@ -1,0 +1,19 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1016620215	Player_Move_START			\Default Work Unit\Ambient_Events\Character\Player_Move_START	
+	3120155140	Player_Move_END			\Default Work Unit\Ambient_Events\Character\Player_Move_END	
+	3978245845	PickUp			\Default Work Unit\Ambient_Events\Character\PickUp	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	4089865534	Robot_Tracks			\Default Work Unit\Robot_Tracks	
+
+Switch	ID	Name	Switch Group			Notes
+	175273672	Shuttle	Robot_Tracks			
+	286660663	Rubble	Robot_Tracks			
+	4248645337	Grass	Robot_Tracks			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	432756880	Robot_Movement_START_L	C:\Users\stewm\OneDrive\TranscendentGames\Audio\MorayGameJam17_WwiseProject\.cache\Mac\SFX\Robot_Movement_START.L_E6F7EEB8.wem		\Actor-Mixer Hierarchy\Default Work Unit\Character\Movement\Robot_Tracks_Rubble\Robot_Movement_START_L		63882
+	709612573	PickUp	C:\Users\stewm\OneDrive\TranscendentGames\Audio\MorayGameJam17_WwiseProject\.cache\Mac\SFX\SFX_SCI-FI_Something_01.L_B3D8C90D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Character\PickUp		9426
+	754470137	Robot_Movement_TRACKS_L	C:\Users\stewm\OneDrive\TranscendentGames\Audio\MorayGameJam17_WwiseProject\.cache\Mac\SFX\Robot_Movement_TRACKS.L_4B8CC0C5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Character\Movement\Robot_Tracks_Rubble\Robot_Movement_TRACKS_L		814656
+	865596875	Robot_Movement_END_L	C:\Users\stewm\OneDrive\TranscendentGames\Audio\MorayGameJam17_WwiseProject\.cache\Mac\SFX\Robot_Movement_END.L_EB9343E3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Character\Movement\Robot_Tracks_Rubble\Robot_Movement_END_L		49998
+

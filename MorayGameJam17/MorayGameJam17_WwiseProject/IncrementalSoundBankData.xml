@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IncrementalBankBuild Version="6" Flags="878078161">
+	<Platform GUID="{16C08EE0-886D-4821-9F92-3A2259C31CE2}">
+		<Banks>
+			<Language ID="0">
+				<File Name="Character" Hash="1379170524" Timestamp="131342560263685463"/>
+				<File Name="Character_SoundBank" Hash="3641530816" Timestamp="131343089418563481"/>
+				<File Name="Computer_System" Hash="2685666661" Timestamp="131342560263864421"/>
+				<File Name="Computer_System_SoundBank" Hash="3516701580" Timestamp="131343089418863131"/>
+				<File Name="Init" Hash="570371531" Timestamp="131343089418903235"/>
+				<File Name="Landscape_Inside" Hash="3159306378" Timestamp="131342561730936590"/>
+				<File Name="Landscape_Inside_SoundBank" Hash="4068764792" Timestamp="131343089418789085"/>
+				<File Name="Landscape_Outside" Hash="3737463832" Timestamp="131342561731036744"/>
+				<File Name="Landscape_Outside_SoundBank" Hash="880718073" Timestamp="131343089418713895"/>
+				<File Name="Music" Hash="2781227424" Timestamp="131342560264039335"/>
+				<File Name="Music_SoundBank" Hash="631171717" Timestamp="131343089418643697"/>
+				<File Name="UI" Hash="3080187280" Timestamp="131342560264089409"/>
+				<File Name="UI_SoundBank" Hash="1858993625" Timestamp="131343089418446459"/>
+			</Language>
+		</Banks>
+		<XMLInfo>
+			<Language ID="-1">
+				<File Name="" Hash="4135660670" Timestamp="131343092251545851"/>
+			</Language>
+		</XMLInfo>
+	</Platform>
+	<Platform GUID="{7EBA4EA1-4F50-4B76-9E00-F232B6EBFFBA}">
+		<Banks>
+			<Language ID="0">
+				<File Name="Character" Hash="1379170524" Timestamp="131342560266516861"/>
+				<File Name="Character_SoundBank" Hash="3641530816" Timestamp="131343089424094886"/>
+				<File Name="Computer_System" Hash="2685666661" Timestamp="131342560266561799"/>
+				<File Name="Computer_System_SoundBank" Hash="3516701580" Timestamp="131343089424204884"/>
+				<File Name="Init" Hash="1825663323" Timestamp="131343089424244986"/>
+				<File Name="Landscape_Inside" Hash="3159306378" Timestamp="131342561739613290"/>
+				<File Name="Landscape_Inside_SoundBank" Hash="4068764792" Timestamp="131343089424184826"/>
+				<File Name="Landscape_Outside" Hash="3737463832" Timestamp="131342561739643486"/>
+				<File Name="Landscape_Outside_SoundBank" Hash="880718073" Timestamp="131343089424159772"/>
+				<File Name="Music" Hash="2781227424" Timestamp="131342560266644042"/>
+				<File Name="Music_SoundBank" Hash="631171717" Timestamp="131343089424139701"/>
+				<File Name="UI" Hash="3080187280" Timestamp="131342560266664054"/>
+				<File Name="UI_SoundBank" Hash="1858993625" Timestamp="131343089424020244"/>
+			</Language>
+		</Banks>
+		<XMLInfo>
+			<Language ID="-1">
+				<File Name="" Hash="568213552" Timestamp="131343092255958775"/>
+			</Language>
+		</XMLInfo>
+	</Platform>
+	<Platform GUID="{A109496C-1A47-4E44-A23C-23D2CBD0E565}">
+		<Banks>
+			<Language ID="0">
+				<File Name="Character" Hash="1379170524" Timestamp="131342560265968099"/>
+				<File Name="Character_SoundBank" Hash="3641530816" Timestamp="131343089421426527"/>
+				<File Name="Computer_System" Hash="2685666661" Timestamp="131342560266007994"/>
+				<File Name="Computer_System_SoundBank" Hash="3516701580" Timestamp="131343089421627063"/>
+				<File Name="Init" Hash="4084687065" Timestamp="131343089421662719"/>
+				<File Name="Landscape_Inside" Hash="3159306378" Timestamp="131342561735416878"/>
+				<File Name="Landscape_Inside_SoundBank" Hash="4068764792" Timestamp="131343089421566896"/>
+				<File Name="Landscape_Outside" Hash="3737463832" Timestamp="131342561735446927"/>
+				<File Name="Landscape_Outside_SoundBank" Hash="880718073" Timestamp="131343089421526807"/>
+				<File Name="Music" Hash="2781227424" Timestamp="131342560266087663"/>
+				<File Name="Music_SoundBank" Hash="631171717" Timestamp="131343089421486692"/>
+				<File Name="UI" Hash="3080187280" Timestamp="131342560266112711"/>
+				<File Name="UI_SoundBank" Hash="1858993625" Timestamp="131343089421322732"/>
+			</Language>
+		</Banks>
+		<XMLInfo>
+			<Language ID="-1">
+				<File Name="" Hash="2354235890" Timestamp="131343092253788457"/>
+			</Language>
+		</XMLInfo>
+	</Platform>
+</IncrementalBankBuild>

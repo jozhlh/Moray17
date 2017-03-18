@@ -26,4 +26,13 @@ public class RoomManager : MonoBehaviour
 	{
 		rooms[roomNum].Break();
 	}
+
+	public bool IsShipFixed() {
+		foreach (RoomControl room in rooms) {
+			if (!room.IsRoomFixed()) {
+				return false;
+			}
+		}
+		return true;
+	}
 }

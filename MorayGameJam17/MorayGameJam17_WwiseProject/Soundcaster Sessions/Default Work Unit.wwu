@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{7EC4A48D-9830-4F7B-96C2-741821E7D77A}" SchemaVersion="75">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{7EC4A48D-9830-4F7B-96C2-741821E7D77A}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{7EC4A48D-9830-4F7B-96C2-741821E7D77A}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="TESTER" ID="{4BE322DC-E566-4742-9A70-F99E1F61DF49}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Player_Move_START" ID="{16B7FC00-8456-4C76-936A-7AD6C93D8969}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Player_Move_END" ID="{26484614-7E7A-43AD-9BE8-71237EFD39B1}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Grass" ID="{7546CFE3-9C44-4D06-8C3D-A13403434008}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>
