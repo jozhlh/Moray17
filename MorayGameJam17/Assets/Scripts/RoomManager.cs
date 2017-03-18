@@ -6,6 +6,10 @@ public class RoomManager : MonoBehaviour
 {
 	private RoomControl[] rooms;
 
+	public Texture whiteTex;
+	public Texture redTex;
+	public Texture greenTex;
+
 	// Get all rooms that are children of the room manager
 	// Initialise them with their room number
 	void Start ()

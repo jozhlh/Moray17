@@ -2,18 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomControl : MonoBehaviour {
+public class RoomControl : MonoBehaviour
+{
+
+	[SerializeField]
+	private Renderer rend = null;
+
 	[SerializeField]
 	private int maxRoomsToBreak = 2;
 	[SerializeField]
 	private Pickup.ItemType correctItem = Pickup.ItemType.item1;
 	[SerializeField]
 	private RobotController player = null;
-	[SerializeField]
+//	[SerializeField]
 	private List<ItemResponse> incorrectResponses = null;
 	private RoomManager roomManager = null;
 	private bool isFixed = true;
 	int roomID;
+	private float greenTexDuration = 2.0f;
 
 	//TODO:: Remove Just Debug
 	private void Update() {
@@ -54,15 +60,22 @@ public class RoomControl : MonoBehaviour {
 			// move to the next item type
 			iterator++;
 		}
+
+		rend.material.mainTexture = roomManager.whiteTex;
+
+		if (roomID == 0)
+		{
+			Break();
+		}
+		else{
+			isFixed = true;
+		}
 	}
 
 	public void CheckItem() {
 		Pickup.ItemType presentedItem = player.CurrentItem().CheckItemType();
 		if (presentedItem == correctItem) {
-			// success the room is fixed
-			isFixed = true;
-			// Tell everyone the ship might be fixed.
-			EventManager.PossibleCompletion();
+			FixRoom();
 		}
 		else {
 			// get a list of rooms to break and break them
@@ -87,6 +100,29 @@ public class RoomControl : MonoBehaviour {
 	/// Breaks the room.
 	/// </summary>
 	public void Break() {
+		rend.material.mainTexture = roomManager.redTex;
 		isFixed = false;
 	}
+
+	private void FixRoom()
+	{
+			// success the room is fixed
+			isFixed = true;
+			// Tell everyone the ship might be fixed.
+			EventManager.PossibleCompletion();
+			// Change to the greenTexture
+			StartCoroutine(ShowGreenTex());
+	}
+
+	private IEnumerator ShowGreenTex()
+	{
+		rend.material.mainTexture = roomManager.greenTex;
+
+		yield return new WaitForSeconds(greenTexDuration);
+
+		rend.material.mainTexture = roomManager.whiteTex;
+
+		yield return null;
+	}
+
 }
