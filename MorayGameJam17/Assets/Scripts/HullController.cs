@@ -23,8 +23,7 @@ public class HullController : MonoBehaviour {
 	bool isMoving = false;
 
 	void Start () {
-		transform.position = downTransform.position;
-		MoveUp();
+		hullModels.transform.position = upTransform.position;		
 	}
 
 	private void Update() {

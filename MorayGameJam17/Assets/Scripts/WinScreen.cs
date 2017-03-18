@@ -14,10 +14,12 @@ public class WinScreen : MonoBehaviour {
 
 	private void OnEnable() {
 		EventManager.OnGameCompletion += OnGameCompletion;
+		EventManager.OnShipFixed += OnShipFixed;
 	}
 
 	private void OnDisable() {
 		EventManager.OnGameCompletion -= OnGameCompletion;
+		EventManager.OnShipFixed -= OnShipFixed;
 	}
 
 	/// <summary>
@@ -25,6 +27,10 @@ public class WinScreen : MonoBehaviour {
 	/// </summary>
 	private void OnGameCompletion() {
 		winScreen.SetActive(true);
+		
+	}
+
+	private void OnShipFixed() {
 		hud.SetActive(false);
 	}
 }
