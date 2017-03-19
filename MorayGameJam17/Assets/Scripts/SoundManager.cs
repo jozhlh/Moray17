@@ -10,7 +10,8 @@ public class SoundManager : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		Initialise();
-		PlayEvent("PickUp", gameObject);
+		PlayEvent("Item_PopUp", gameObject);
+		
 	}
 
 	private void Initialise() {
@@ -21,29 +22,29 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	// Play Event
-	public void PlayEvent(string eventName, GameObject go) {
+	public static void PlayEvent(string eventName, GameObject go) {
 		AkSoundEngine.PostEvent(eventName, go);
 	}
 
 	// Stop Event
-	public void StopEvent(string eventName, int fadeOut, GameObject go) {
+	public static void StopEvent(string eventName, int fadeOut, GameObject go) {
 		uint eventID;
 		eventID = AkSoundEngine.GetIDFromString(eventName);
 		AkSoundEngine.ExecuteActionOnEvent(eventID, AkActionOnEventType.AkActionOnEventType_Stop, go, fadeOut, AkCurveInterpolation.AkCurveInterpolation_Sine);
 	}
 
 	// Stop All Events
-	public void StopAllEvents() {
+	public static void StopAllEvents() {
 		AkSoundEngine.StopAll();
 	}
 
 	// Switch States
-	public void SetSwitch(GameObject player, string switchName, string switchState) {
+	public static void SetSwitch(GameObject player, string switchName, string switchState) {
 		AkSoundEngine.SetSwitch(switchName, switchState, player);
 	}
 
 	// Set RTPCs
-	public void SetRTPC(GameObject player, string rtpcName, float rtpcValue) {
+	public static void SetRTPC(GameObject player, string rtpcName, float rtpcValue) {
 		AkSoundEngine.SetRTPCValue(rtpcName, rtpcValue);
 	}
 }
