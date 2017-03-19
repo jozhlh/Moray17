@@ -16,6 +16,7 @@ namespace AK
         static const AkUniqueID BROKEN_ROOM = 46622052U;
         static const AkUniqueID CRAFT_HYDRODOOR = 2408435514U;
         static const AkUniqueID ITEM_PICKUP = 566396871U;
+        static const AkUniqueID ITEM_POPDOWN = 2129524276U;
         static const AkUniqueID ITEM_POPUP = 796655887U;
         static const AkUniqueID ITEM_PORT_NEGATIVE = 3038503276U;
         static const AkUniqueID ITEM_PORT_POSITIVE = 2855366340U;
@@ -23,6 +24,8 @@ namespace AK
         static const AkUniqueID LANDSCAPE_PLANET = 4277939909U;
         static const AkUniqueID LANDSCAPE_SHUTTLE = 4004066390U;
         static const AkUniqueID LEVEL_MUSIC = 1244594577U;
+        static const AkUniqueID MENU_BUTTON_SELECT = 4007661982U;
+        static const AkUniqueID MENU_MUSIC = 4055567060U;
         static const AkUniqueID PLAYER_MOVE_END = 3120155140U;
         static const AkUniqueID PLAYER_MOVE_START = 1016620215U;
         static const AkUniqueID SONAR_BEAM = 2077633936U;

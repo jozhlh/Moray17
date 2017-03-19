@@ -6,11 +6,14 @@ Event	ID	Name			Wwise Object Path	Notes
 	1016620215	Player_Move_START			\Default Work Unit\Ambient_Events\Character\Player_Move_START	
 	1244594577	Level_Music			\Default Work Unit\Music\Level_Music	
 	2077633936	Sonar_Beam			\Default Work Unit\Ambient_Events\Sonar_Beam	
+	2129524276	Item_PopDown			\Default Work Unit\UI\Item_PopDown	
 	2408435514	Craft_HydroDoor			\Default Work Unit\Ambient_Events\Craft_HydroDoor	
 	2855366340	Item_Port_Positive			\Default Work Unit\UI\Item_Port_Positive	
 	3038503276	Item_Port_Negative			\Default Work Unit\UI\Item_Port_Negative	
 	3120155140	Player_Move_END			\Default Work Unit\Ambient_Events\Character\Player_Move_END	
 	4004066390	Landscape_Shuttle			\Default Work Unit\Ambient_States\Landscape_Shuttle	
+	4007661982	Menu_Button_Select			\Default Work Unit\UI\Menu_Button_Select	
+	4055567060	Menu_Music			\Default Work Unit\Music\Menu_Music	
 	4277939909	Landscape_Planet			\Default Work Unit\Ambient_States\Landscape_Planet	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
@@ -64,14 +67,17 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	84929860	ANIMALS_BIRD_TYPE_01_01	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\ANIMALS_BIRD_TYPE_01_01_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambient_States\Landscape_Outside_Planet\Planet_Ambience\Wildlife_Birds_01\ANIMALS_BIRD_TYPE_01_01		285760
 	85819484	125109__oddworld__sfx-trio-dtmf-01	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\125109__oddworld__sfx-trio-dtmf-01_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambient_States\Landscape_Inside_Shuttle\Computer_Room\Beeps\125109__oddworld__sfx-trio-dtmf-01		8174
 	114014606	Item_Positive	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\SFX_UI_VICTORY_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambient_Events\ItemScanner\Item_Positive		115008
+	115827830	MUSIC_MENU	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\MUSIC_MENU_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\Menu_Music\Menu_Music\Menu_Segment_2\MUSIC_MENU		6144064
 	115856118	Music_Layer_Melody_06_Verse	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\Music_Layer_Melody_06_Verse_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\Level_Music\Level_Music\Level_Verse_06\Music_Layer_Melody_06_Verse		768064
 	127193208	SFX_ROBOTIC_VOICE_07	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\SFX_ROBOTIC_VOICE_07_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Character\PickUp_Item_Robot_Lingo\SFX_ROBOTIC_VOICE_07		175168
 	153577514	363251_josepharaoh99_beeping-robot-or-machine	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\363251_josepharaoh99_beeping-robot-or-machine_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambient_States\Landscape_Inside_Shuttle\Computer_Room\Sweeps\363251_josepharaoh99_beeping-robot-or-machine		274748
 	156102763	SFX_ROBOTIC_VOICE_04	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\SFX_ROBOTIC_VOICE_04_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Character\PickUp_Item_Robot_Lingo\SFX_ROBOTIC_VOICE_04		168512
 	161343791	SFX_SCI-FI_ROBOT_MOVEMENT_INOUT_2	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\SFX_SCI-FI_ROBOT_MOVEMENT_INOUT_2_1AAA8A42.wem		\Actor-Mixer Hierarchy\Default Work Unit\Character\Movement\Robot_Tracks_Rubble\Robot_IN-OUT_Movement\SFX_SCI-FI_ROBOT_MOVEMENT_INOUT_2		26590
 	195230572	Item_Negative	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\SFX_ERROR_ALERT_03_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambient_Events\ItemScanner\Item_Negative		125504
+	211433198	PopDown_Item	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\SFX_SCI-FI_ITEM_PICKUP_PutDown_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\PopDown_Item		46144
 	219065458	SFX_ROBOTIC_VOICE_05	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\SFX_ROBOTIC_VOICE_05_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Character\PickUp_Item_Robot_Lingo\SFX_ROBOTIC_VOICE_05		176448
 	234583049	SFX_SCI-FI_ROBOT_MOVEMENT_INOUT_1	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\SFX_SCI-FI_ROBOT_MOVEMENT_INOUT_1_1B91245E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Character\Movement\Robot_Tracks_Rubble\Robot_IN-OUT_Movement\SFX_SCI-FI_ROBOT_MOVEMENT_INOUT_1		32912
+	305698870	Menu_Button_Select	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\SCIFI_beeps and sweeps_BUTTON_01_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu_Button_Select		57920
 	312008064	220181__gameaudio__computer-beep-1	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\220181__gameaudio__computer-beep-1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambient_States\Landscape_Inside_Shuttle\Computer_Room\Beeps\220181__gameaudio__computer-beep-1		88264
 	330753283	SFX_SCI-FI_ROBOT_MOVEMENT_INOUT_0	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\SFX_SCI-FI_ROBOT_MOVEMENT_INOUT_0_C0479808.wem		\Actor-Mixer Hierarchy\Default Work Unit\Character\Movement\Robot_Tracks_Rubble\Robot_IN-OUT_Movement\SFX_SCI-FI_ROBOT_MOVEMENT_INOUT_0		21592
 	413136043	Music_Layer_Melody_05_Verse	D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\SFX\Music_Layer_Melody_05_Verse_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\Level_Music\Level_Music\Level_Verse_05\Music_Layer_Melody_05_Verse		768064

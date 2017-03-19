@@ -3,7 +3,7 @@
 	<Platform GUID="{16C08EE0-886D-4821-9F92-3A2259C31CE2}">
 		<Banks>
 			<Language ID="0">
-				<File Name="Audio_Soundbank" Hash="1284486420" Timestamp="131343881393485970"/>
+				<File Name="Audio_Soundbank" Hash="3077745058" Timestamp="131343956245149571"/>
 				<File Name="Character" Hash="1379170524" Timestamp="131342560263685463"/>
 				<File Name="Character_SoundBank" Hash="3619711527" Timestamp="131343386782494285"/>
 				<File Name="Computer_System" Hash="2685666661" Timestamp="131342560263864421"/>
@@ -21,14 +21,14 @@
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="3132373779" Timestamp="131343881393618130"/>
+				<File Name="" Hash="1423148451" Timestamp="131343956245267513"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
 	<Platform GUID="{7EBA4EA1-4F50-4B76-9E00-F232B6EBFFBA}">
 		<Banks>
 			<Language ID="0">
-				<File Name="Audio_Soundbank" Hash="1284486420" Timestamp="131343881397587320"/>
+				<File Name="Audio_Soundbank" Hash="3077745058" Timestamp="131343956247610324"/>
 				<File Name="Character" Hash="1379170524" Timestamp="131342560266516861"/>
 				<File Name="Character_SoundBank" Hash="3619711527" Timestamp="131343386790953179"/>
 				<File Name="Computer_System" Hash="2685666661" Timestamp="131342560266561799"/>
@@ -46,14 +46,14 @@
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="3001432889" Timestamp="131343881397689741"/>
+				<File Name="" Hash="2830232753" Timestamp="131343956247710885"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
 	<Platform GUID="{A109496C-1A47-4E44-A23C-23D2CBD0E565}">
 		<Banks>
 			<Language ID="0">
-				<File Name="Audio_Soundbank" Hash="1284486420" Timestamp="131343881395573152"/>
+				<File Name="Audio_Soundbank" Hash="3077745058" Timestamp="131343956246372003"/>
 				<File Name="Character" Hash="1379170524" Timestamp="131342560265968099"/>
 				<File Name="Character_SoundBank" Hash="3619711527" Timestamp="131343386786817974"/>
 				<File Name="Computer_System" Hash="2685666661" Timestamp="131342560266007994"/>
@@ -71,7 +71,7 @@
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="2918231143" Timestamp="131343881395674625"/>
+				<File Name="" Hash="4236874439" Timestamp="131343956246480727"/>
 			</Language>
 		</XMLInfo>
 	</Platform>

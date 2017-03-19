@@ -7,10 +7,13 @@ public class SoundManager : MonoBehaviour {
 	[SerializeField]
 	private string soundbankName = "Soundbank1";
 
+	[SerializeField]
+	string backgroundMusic  = "Level_Music";
+
 	// Use this for initialization
 	void Start() {
 		Initialise();
-        PlayEvent("Level_Music", gameObject);
+        PlayEvent(backgroundMusic, gameObject);
 	}
 
     private void OnDestroy()

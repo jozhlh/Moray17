@@ -78,7 +78,7 @@ public class Pickup : MonoBehaviour {
     public void HidePopUp() {
         interactableCanvas.enabled = false;
         iconModel.SetActive(false);
-        SoundManager.PlayEvent("Item_PopDown", gameObject);
+        SoundManager.PlayEvent("Item_PopUp", gameObject);
     }
 
     /// <summary>
@@ -117,6 +117,7 @@ public class Pickup : MonoBehaviour {
 
         pickUpAnimation.ResumeAnimation();
         dropEffect.Play();
+		SoundManager.PlayEvent("Item_PutDown",gameObject);
     }
 
     /// Checks a target point to make sure its valid if it is not, it will move it back towards the player.
