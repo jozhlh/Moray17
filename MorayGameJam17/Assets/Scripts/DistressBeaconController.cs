@@ -26,6 +26,7 @@ public class DistressBeaconController : MonoBehaviour {
 		particleBeam.Play();
 		EventManager.OnCameraInPosition -= OnCameraInPosition;
 		StartCoroutine(PlayBeamAnimation());
+		SoundManager.StopAllEvents();
         SoundManager.PlayEvent("Sonar_Beam", gameObject);
     }
 
