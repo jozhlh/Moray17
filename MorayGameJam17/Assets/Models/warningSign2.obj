@@ -1,7 +1,7 @@
 # MagicaVoxel @ Ephtracy
 
 # material
-mtllib warningSign.mtl
+mtllib warningSign2.mtl
 usemtl palette
 
 # normals
@@ -13,7 +13,7 @@ vn 0 -1 0
 vn 0 1 0
 
 # texcoords
-vt 0.845703 0.5
+vt 0.146484 0.5
 vt 0.958984 0.5
 
 # verts

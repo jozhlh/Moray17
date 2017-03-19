@@ -20,6 +20,8 @@ public class Pickup : MonoBehaviour {
 
 	[SerializeField]
 	Canvas interactableCanvas = null;
+	[SerializeField]
+	GameObject iconModel = null;
 
 	Vector3 initialPosition = Vector3.zero;
 
@@ -37,7 +39,8 @@ public class Pickup : MonoBehaviour {
 	/// Saves initial pos and disables Popup
 	/// </summary>
 	private void Start() {
-		interactableCanvas.enabled = false;
+		//interactableCanvas.enabled = false;
+		HidePopUp();
 		initialPosition = transform.position;
 		name = garbageName;
 		dropEffect = GetComponentInChildren<ParticleSystem>();
@@ -56,6 +59,7 @@ public class Pickup : MonoBehaviour {
 	/// </summary>
 	public void ShowPopUp() {
 		interactableCanvas.enabled = true;
+		iconModel.SetActive(true);
 	}
 
 	/// <summary>
@@ -63,6 +67,7 @@ public class Pickup : MonoBehaviour {
 	/// </summary>
 	public void HidePopUp() {
 		interactableCanvas.enabled = false;
+		iconModel.SetActive(false);
 	}
 
 	/// <summary>
