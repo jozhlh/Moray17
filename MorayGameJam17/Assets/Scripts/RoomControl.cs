@@ -93,11 +93,13 @@ public class RoomControl : MonoBehaviour {
 	public void CheckItem() {
 		Pickup.ItemType presentedItem = player.CurrentItem().CheckItemType();
 		if (presentedItem == correctItem) {
-			FixRoom();
+            SoundManager.PlayEvent("Item_Port_Positive", gameObject);
+            FixRoom();
 		}
 		else {
-			// get a list of rooms to break and break them
-			int[] roomsToBreak = incorrectResponses[(int)presentedItem].roomsToBreak;
+            SoundManager.PlayEvent("Item_Port_Negative", gameObject);
+            // get a list of rooms to break and break them
+            int[] roomsToBreak = incorrectResponses[(int)presentedItem].roomsToBreak;
 			foreach (int roomNum in roomsToBreak) {
 				roomManager.BreakRoom(roomNum);
 			}
@@ -121,6 +123,7 @@ public class RoomControl : MonoBehaviour {
 		errorIcon.SetActive(true);
 		if (isFixed) {
 			EventManager.RoomBroken(roomName);
+            SoundManager.PlayEvent("Broken_Room", gameObject);
 		}
 		foreach (Renderer r in rend) {
 			r.material.mainTexture = roomManager.redTex;

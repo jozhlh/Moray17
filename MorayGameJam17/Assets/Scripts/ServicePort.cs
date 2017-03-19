@@ -27,7 +27,8 @@ public class ServicePort : MonoBehaviour {
 	public void ShowPopUp() {
 		interactableCanvas.enabled = true;
 		iconObject.SetActive(true);
-	}
+        SoundManager.PlayEvent("Item_PopUp", gameObject);
+    }
 
 	/// <summary>
 	/// Hides the popup.
@@ -35,5 +36,6 @@ public class ServicePort : MonoBehaviour {
 	public void HidePopUp() {
 		interactableCanvas.enabled = false;
 		iconObject.SetActive(false);
-	}
+        SoundManager.PlayEvent("Item_PopDown", gameObject);
+    }
 }

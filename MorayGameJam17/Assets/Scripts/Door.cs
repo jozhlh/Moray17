@@ -49,11 +49,13 @@ public class Door : MonoBehaviour {
 		startTime = Time.time;
 		startPosition = downTransform.position;
 		endPosition = upTransform.position;
+        SoundManager.PlayEvent("Craft_HydroDoor", gameObject);
 	}
 	public void OpenDoor() {
 		isMoving = true;
 		startTime = Time.time;
 		startPosition = upTransform.position;
 		endPosition = downTransform.position;
-	}
+        SoundManager.PlayEvent("Craft_HydroDoor", gameObject);
+    }
 }

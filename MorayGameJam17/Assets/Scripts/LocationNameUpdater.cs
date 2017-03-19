@@ -28,12 +28,21 @@ public class LocationNameUpdater : MonoBehaviour {
 	private void OnNameChange(EventManager.NameUpdateType newNameType, string newName) {
 		switch (newNameType) {
 			case EventManager.NameUpdateType.NewName:
-				locationText.text = newName;
+                // SoundManager.SetSwitch(gameObject, "Landscape_States", "Landscape_Shuttle_State");
+               // SoundManager.StopEvent("Landscape_Planet", 0, gameObject);
+                //SoundManager.PlayEvent("Landscape_Shuttle", gameObject);
+                locationText.text = newName;
 				break;
 			case EventManager.NameUpdateType.ShipName:
-				locationText.text = shipName;
+                //SoundManager.SetSwitch(gameObject, "Landscape_States", "Landscape_Shuttle_State");
+                SoundManager.StopEvent("Landscape_Planet", 0, gameObject);
+                SoundManager.PlayEvent("Landscape_Shuttle", gameObject);
+                locationText.text = shipName;
 				break;
 			case EventManager.NameUpdateType.WorldName:
+                // SoundManager.SetSwitch(gameObject, "Landscape_States", "Landscape_Outside_State");
+                SoundManager.StopEvent("Landscape_Shuttle", 0, gameObject);
+                SoundManager.PlayEvent("Landscape_Planet", gameObject);
 				locationText.text = worldName;
 				break;
 		}
