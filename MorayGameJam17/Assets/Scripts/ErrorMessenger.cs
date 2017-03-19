@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
 
 public class ErrorMessenger : MonoBehaviour {
 
@@ -12,6 +12,7 @@ public class ErrorMessenger : MonoBehaviour {
 	int currentMessage = 0;
 
 	private void Start() {
+		
 		foreach (ErrorMessage message in errorMessages) {
 			message.SetAlpha(0);
 		}
@@ -24,6 +25,7 @@ public class ErrorMessenger : MonoBehaviour {
 	private void OnDisable() {
 		EventManager.OnRoomBroken -= OnRoomError;		
 	}
+	
 
 	private void OnRoomError(string roomName) {
 		DisplayErrorMessage(roomName);		
