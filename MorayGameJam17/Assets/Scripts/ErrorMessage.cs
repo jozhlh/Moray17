@@ -47,9 +47,9 @@ public class ErrorMessage : MonoBehaviour {
 		newColor.a = val;
 		image.color = newColor;
 
-		newColor = background.color;
-		newColor.a = val;
-		background.color = newColor;
+		//newColor = background.color;
+		//newColor.a = val;
+		//background.color = newColor;
 	}
 
 	public void ResetPosition() {		
