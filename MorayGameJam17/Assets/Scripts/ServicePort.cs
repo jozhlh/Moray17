@@ -9,27 +9,12 @@ public class ServicePort : MonoBehaviour {
 	[SerializeField]
 	GameObject iconObject = null;
 
-	[SerializeField]
-	string roomName = "DefaultName";
-
 	/// <summary>
 	/// Disables Popup
 	/// </summary>
 	private void Start() {
 		//interactableCanvas.enabled = false;
 		HidePopUp();
-	}
-
-	private void OnTriggerEnter(Collider other) {
-		if (other.tag == "Player") {
-			EventManager.NameChanged(EventManager.NameUpdateType.NewName, roomName);
-		}
-	}
-
-	private void OnTriggerExit(Collider other) {
-		if (other.tag == "Player") {
-			EventManager.NameChanged(EventManager.NameUpdateType.ShipName);			
-		}
 	}
 
 	public bool IsFixed() {
@@ -51,6 +36,4 @@ public class ServicePort : MonoBehaviour {
 		interactableCanvas.enabled = false;
 		iconObject.SetActive(false);
 	}
-
-
 }
