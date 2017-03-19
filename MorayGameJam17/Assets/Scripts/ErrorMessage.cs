@@ -8,6 +8,8 @@ public class ErrorMessage : MonoBehaviour {
 
 	[SerializeField]
 	Image image = null;
+		
+	Image background = null;
 
 	Vector3 initialPosition;
 
@@ -17,6 +19,7 @@ public class ErrorMessage : MonoBehaviour {
 	float currentAlpha = 1.0f;
 
 	private void Start() {
+		background = GetComponent<Image>();
 		initialPosition = transform.position;
 	}
 
@@ -43,6 +46,10 @@ public class ErrorMessage : MonoBehaviour {
 		newColor = image.color;
 		newColor.a = val;
 		image.color = newColor;
+
+		newColor = background.color;
+		newColor.a = val;
+		background.color = newColor;
 	}
 
 	public void ResetPosition() {		

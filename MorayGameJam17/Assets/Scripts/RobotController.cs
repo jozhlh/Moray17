@@ -186,7 +186,7 @@ public class RobotController : MonoBehaviour {
 	/// </summary>
 	/// <returns></returns>
 	private bool OnTap() {
-		if (Input.GetMouseButtonDown(0)) {
+		if (Input.GetMouseButton(0)) {
 			return true;
 		}
 		return false;
@@ -197,7 +197,7 @@ public class RobotController : MonoBehaviour {
 	/// </summary>
 	/// <returns></returns>
 	private bool IsOverUi() {
-#if UNITY_ANDROID || UNITY_IOS
+#if (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
 		return EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
 		
 #else
