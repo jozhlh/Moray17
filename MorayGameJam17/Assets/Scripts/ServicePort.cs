@@ -52,5 +52,8 @@ public class ServicePort : MonoBehaviour {
 		iconObject.SetActive(false);
 	}
 
+	public string RoomName() {
+		return roomName;
+	}
 
 }

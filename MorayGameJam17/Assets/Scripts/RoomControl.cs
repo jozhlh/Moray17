@@ -15,6 +15,7 @@ public class RoomControl : MonoBehaviour {
 	//	[SerializeField]
 	private List<ItemResponse> incorrectResponses = null;
 	private RoomManager roomManager = null;
+	private ServicePort servicePort = null;
 	private bool isFixed = true;
 	int roomID;
 	private float greenTexDuration = 2.0f;
@@ -23,6 +24,7 @@ public class RoomControl : MonoBehaviour {
 	
 	public void Initialise(int id) {
 		roomManager = GetComponentInParent<RoomManager>();
+		servicePort = GetComponentInChildren<ServicePort>();
 		roomID = id;
 		int iterator = 0;
 		int maxRooms = roomManager.NumberOfRooms();
@@ -81,7 +83,7 @@ public class RoomControl : MonoBehaviour {
 			}
 		}
 		player.RespawnCurrentItem();
-		GetComponentInChildren<ServicePort>().HidePopUp();
+		servicePort.HidePopUp();
 	}
 
 	/// <summary>
@@ -97,6 +99,9 @@ public class RoomControl : MonoBehaviour {
 	/// </summary>
 	public void Break() {
 		errorIcon.SetActive(true);
+		if (isFixed) {
+			EventManager.RoomBroken(servicePort.RoomName());
+		}
 		foreach (Renderer r in rend) {
 			r.material.mainTexture = roomManager.redTex;
 		}
