@@ -7,22 +7,42 @@ public class RoomControl : MonoBehaviour {
 	GameObject errorIcon = null;
 
 	[SerializeField]
+	private RobotController player = null;
+
+	[SerializeField]
 	private int maxRoomsToBreak = 2;
 	[SerializeField]
 	private Pickup.ItemType correctItem = Pickup.ItemType.tryytium;
+
 	[SerializeField]
-	private RobotController player = null;
+	string roomName = "DefaultName";
+
 	//	[SerializeField]
 	private List<ItemResponse> incorrectResponses = null;
 	private RoomManager roomManager = null;
+	private ServicePort servicePort = null;
 	private bool isFixed = true;
 	int roomID;
 	private float greenTexDuration = 2.0f;
 
 	private Renderer[] rend = null;
-	
+
+
+	private void OnTriggerEnter(Collider other) {
+		if (other.tag == "Player") {
+			EventManager.NameChanged(EventManager.NameUpdateType.NewName, roomName);
+		}
+	}
+
+	private void OnTriggerExit(Collider other) {
+		if (other.tag == "Player") {
+			EventManager.NameChanged(EventManager.NameUpdateType.ShipName);
+		}
+	}
+
 	public void Initialise(int id) {
 		roomManager = GetComponentInParent<RoomManager>();
+		servicePort = GetComponentInChildren<ServicePort>();
 		roomID = id;
 		int iterator = 0;
 		int maxRooms = roomManager.NumberOfRooms();
@@ -81,7 +101,7 @@ public class RoomControl : MonoBehaviour {
 			}
 		}
 		player.RespawnCurrentItem();
-		GetComponentInChildren<ServicePort>().HidePopUp();
+		servicePort.HidePopUp();
 	}
 
 	/// <summary>
@@ -97,6 +117,9 @@ public class RoomControl : MonoBehaviour {
 	/// </summary>
 	public void Break() {
 		errorIcon.SetActive(true);
+		if (isFixed) {
+			EventManager.RoomBroken(roomName);
+		}
 		foreach (Renderer r in rend) {
 			r.material.mainTexture = roomManager.redTex;
 		}
