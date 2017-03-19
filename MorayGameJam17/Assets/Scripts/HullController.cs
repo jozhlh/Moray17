@@ -22,8 +22,10 @@ public class HullController : MonoBehaviour {
 
 	bool isMoving = false;
 
+	bool isUp = false;
 	void Start () {
-		hullModels.transform.position = upTransform.position;		
+		hullModels.transform.position = upTransform.position;
+		isUp = true;
 	}
 
 	private void Update() {
@@ -41,30 +43,35 @@ public class HullController : MonoBehaviour {
 		}
 	}
 
-	private void MoveUp() {
-		isMoving = true;
-		startTime = Time.time;
-		startPosition = downTransform.position;
-		endPosition = upTransform.position;
+	public void MoveUp() {
+		if (!isUp) {
+			isUp = true;
+			isMoving = true;
+			startTime = Time.time;
+			startPosition = downTransform.position;
+			endPosition = upTransform.position;
+		}
 	}
-	private void MoveDown() {
-		isMoving = true;
-		startTime = Time.time;
-		startPosition = upTransform.position;
-		endPosition = downTransform.position;
+	public void MoveDown() {
+		if (isUp) {
+			isUp = false;
+			isMoving = true;
+			startTime = Time.time;
+			startPosition = upTransform.position;
+			endPosition = downTransform.position;
+		}
 	}
 
 	private void OnTriggerEnter(Collider other) {
-		if(other.tag == "Player") {
+		if (other.tag == "Player") {
 			MoveUp();
 			EventManager.NameChanged(EventManager.NameUpdateType.ShipName);
 		}
 	}
-
 	private void OnTriggerExit(Collider other) {
 		if (other.tag == "Player") {
 			MoveDown();
-			EventManager.NameChanged(EventManager.NameUpdateType.WorldName);			
+			EventManager.NameChanged(EventManager.NameUpdateType.WorldName);
 		}
 	}
 
