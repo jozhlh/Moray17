@@ -2,23 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomControl : MonoBehaviour
-{
-	private Renderer[] rend = null;
+public class RoomControl : MonoBehaviour {
+	[SerializeField]
+	GameObject errorIcon = null;
 
 	[SerializeField]
 	private int maxRoomsToBreak = 2;
 	[SerializeField]
-	private Pickup.ItemType correctItem = Pickup.ItemType.item1;
+	private Pickup.ItemType correctItem = Pickup.ItemType.tryytium;
 	[SerializeField]
 	private RobotController player = null;
-//	[SerializeField]
+	//	[SerializeField]
 	private List<ItemResponse> incorrectResponses = null;
 	private RoomManager roomManager = null;
 	private bool isFixed = true;
 	int roomID;
 	private float greenTexDuration = 2.0f;
 
+	private Renderer[] rend = null;
+	
 	public void Initialise(int id) {
 		roomManager = GetComponentInParent<RoomManager>();
 		roomID = id;
@@ -52,16 +54,16 @@ public class RoomControl : MonoBehaviour
 			iterator++;
 		}
 
-		foreach (Renderer r in rend)
-		{
+		foreach (Renderer r in rend) {
 			r.material.mainTexture = roomManager.whiteTex;
 		}
-		
-		if (roomID == 0)
-		{
+
+		if (roomID == 0) {
 			Break();
 		}
-		else{
+		else {
+			errorIcon.SetActive(false);
+			// success the room is fixed
 			isFixed = true;
 		}
 	}
@@ -94,38 +96,35 @@ public class RoomControl : MonoBehaviour
 	/// Breaks the room.
 	/// </summary>
 	public void Break() {
-		foreach (Renderer r in rend)
-		{
+		errorIcon.SetActive(true);
+		foreach (Renderer r in rend) {
 			r.material.mainTexture = roomManager.redTex;
 		}
 		isFixed = false;
 	}
 
-	private void FixRoom()
-	{
-			// success the room is fixed
-			isFixed = true;
-			// Tell everyone the ship might be fixed.
-			EventManager.PossibleCompletion();
-			// Change to the greenTexture
-			StartCoroutine(ShowGreenTex());
+	private void FixRoom() {
+		errorIcon.SetActive(false);
+		// success the room is fixed
+		isFixed = true;
+		// Tell everyone the ship might be fixed.
+		EventManager.PossibleCompletion();
+		// Change to the greenTexture
+		StartCoroutine(ShowGreenTex());
 	}
 
-	private IEnumerator ShowGreenTex()
-	{
-		foreach (Renderer r in rend)
-		{
+	private IEnumerator ShowGreenTex() {
+		foreach (Renderer r in rend) {
 			r.material.mainTexture = roomManager.greenTex;
 		}
 
 		yield return new WaitForSeconds(greenTexDuration);
 
-		foreach (Renderer r in rend)
-		{
+		foreach (Renderer r in rend) {
 			r.material.mainTexture = roomManager.whiteTex;
 		}
 
 		yield return null;
 	}
-
+	
 }

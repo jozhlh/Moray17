@@ -2,15 +2,15 @@
 
 public class Pickup : MonoBehaviour {
 
-	public enum ItemType { item1, item2, item3, item4 };
+	public enum ItemType { tryytium, skudian, nusluathil, criasium, ublyx, zushese, vufrum, eshian, kreasten, qostralt };
 
 	[SerializeField]
-	PickUpIdleAnimation pickUpAnimation = null;
+	IdleAnimation pickUpAnimation = null;
 
 	[SerializeField]
 	string garbageName = "DefaultName";
 	[SerializeField]
-	private ItemType itemType = ItemType.item1;
+	private ItemType itemType = ItemType.tryytium;
 
 	[SerializeField]
 	string sensibleName = "DefaultName";
@@ -20,6 +20,8 @@ public class Pickup : MonoBehaviour {
 
 	[SerializeField]
 	Canvas interactableCanvas = null;
+	[SerializeField]
+	GameObject iconModel = null;
 
 	Vector3 initialPosition = Vector3.zero;
 
@@ -31,13 +33,17 @@ public class Pickup : MonoBehaviour {
 
 	bool hasRespawned = false;
 
+	private ParticleSystem dropEffect = null;
+
 	/// <summary>
 	/// Saves initial pos and disables Popup
 	/// </summary>
 	private void Start() {
-		interactableCanvas.enabled = false;
+		//interactableCanvas.enabled = false;
+		HidePopUp();
 		initialPosition = transform.position;
 		name = garbageName;
+		dropEffect = GetComponentInChildren<ParticleSystem>();
 	}
 
 	/// <summary>
@@ -53,6 +59,7 @@ public class Pickup : MonoBehaviour {
 	/// </summary>
 	public void ShowPopUp() {
 		interactableCanvas.enabled = true;
+		iconModel.SetActive(true);
 	}
 
 	/// <summary>
@@ -60,6 +67,7 @@ public class Pickup : MonoBehaviour {
 	/// </summary>
 	public void HidePopUp() {
 		interactableCanvas.enabled = false;
+		iconModel.SetActive(false);
 	}
 
 	/// <summary>
@@ -97,6 +105,7 @@ public class Pickup : MonoBehaviour {
 			droppedTargetPosition.z);
 
 		pickUpAnimation.ResumeAnimation();
+		dropEffect.Play();
 	}
 
 	/// Checks a target point to make sure its valid if it is not, it will move it back towards the player.

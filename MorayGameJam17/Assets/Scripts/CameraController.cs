@@ -43,7 +43,6 @@ public class CameraController : MonoBehaviour {
 				robot.transform.position.x + cameraOffset.x,
 				transform.position.y + cameraOffset.y,
 				robot.transform.position.z + cameraOffset.z);
-
 		}
 		else if (isMovingToDistressBeacon) {
 			float timeSinceStarted = Time.time - startTime;
@@ -55,8 +54,7 @@ public class CameraController : MonoBehaviour {
 			//When we've completed the lerp, we set isMovingToDistressBeacon to false
 			if (percentageComplete >= 1.0f) {
 				isMovingToDistressBeacon = false;
-				// Play The Beacon Animation.
-				EventManager.GameCompleted();
+				EventManager.CameraInPosition();
 			}
 		}
 	}
