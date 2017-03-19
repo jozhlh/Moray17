@@ -2892,6 +2892,10 @@
 									<Language>SFX</Language>
 									<AudioFile>SFX_SCI-FI_Something_01.L.wav</AudioFile>
 								</AudioFileSource>
+								<AudioFileSource Name="SFX_SCI-FI_ITEM_PICKUP_PutDown" ID="{A5560F41-EB4B-4859-AABC-18749290B71D}" ShortID="211433198">
+									<Language>SFX</Language>
+									<AudioFile>SFX_SCI-FI_ITEM_PICKUP_PutDown.wav</AudioFile>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="SFX_SCI-FI_Something_01_L" ID="{CB0169F6-364C-4461-A4DC-6D3E6272045F}" Platform="Linked"/>
@@ -2921,6 +2925,28 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="SFX_SCI-FI_ITEM_PopUp" ID="{B35489CB-65D2-4A67-9ACF-ACD5A1DB4968}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="PopDown_Item" ID="{08AA810D-4DC9-467A-9838-6050E9BB96CE}" ShortID="535551291" Type="SoundFX">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6C28020D-138C-45EB-8C98-EDDFAD0C7E87}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2495942C-A5B9-4415-A946-803B1F25675F}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_SCI-FI_ITEM_PICKUP_PutDown" ID="{4975590D-F636-4888-9EE4-CF1F5A3ACABF}" ShortID="984707866">
+									<Language>SFX</Language>
+									<AudioFile>SFX_SCI-FI_ITEM_PICKUP_PutDown.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="211433198"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_SCI-FI_ITEM_PICKUP_PutDown" ID="{4975590D-F636-4888-9EE4-CF1F5A3ACABF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

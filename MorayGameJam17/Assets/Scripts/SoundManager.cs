@@ -21,19 +21,19 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	// Play Event
-	public void PlayEvent(string eventName, GameObject go) {
+	public static void PlayEvent(string eventName, GameObject go) {
 		AkSoundEngine.PostEvent(eventName, go);
 	}
 
 	// Stop Event
-	public void StopEvent(string eventName, int fadeOut, GameObject go) {
+	public static void StopEvent(string eventName, int fadeOut, GameObject go) {
 		uint eventID;
 		eventID = AkSoundEngine.GetIDFromString(eventName);
 		AkSoundEngine.ExecuteActionOnEvent(eventID, AkActionOnEventType.AkActionOnEventType_Stop, go, fadeOut, AkCurveInterpolation.AkCurveInterpolation_Sine);
 	}
 
 	// Stop All Events
-	public void StopAllEvents() {
+	public static void StopAllEvents() {
 		AkSoundEngine.StopAll();
 	}
 

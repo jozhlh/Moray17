@@ -237,6 +237,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Item_PopDown" ID="{9730CCAD-5AED-4E41-BD94-89DB1931B162}">
+							<ChildrenList>
+								<Action Name="Play" ID="{A8B2E5D6-1FF9-43E4-8C85-4DB3E393BDCD}" ShortID="344223462" Type="Play" Scope="One" Global="false">
+									<ElementList>
+										<Element ID="{3E62DE8F-4842-4A76-BE5A-FBFBD0AA2F5F}" Global="false">
+											<ObjectRef Name="PopDown_Item" ID="{08AA810D-4DC9-467A-9838-6050E9BB96CE}" WorkUnitID="{03E817AD-851D-4544-9CE9-9CC3560E5AD5}"/>
+										</Element>
+									</ElementList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music" ID="{AA1CE2EF-4F0B-4965-AFBA-4641FAABE693}" ShortID="225707705">
