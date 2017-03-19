@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
 
 public class Pickup : MonoBehaviour {
 
@@ -47,9 +50,11 @@ public class Pickup : MonoBehaviour {
 		dropEffect = GetComponentInChildren<ParticleSystem>();
 	}
 
+#if UNITY_EDITOR
 	void OnDrawGizmos() {
 		Handles.Label(transform.position, sensibleName);
 	}
+#endif
 
 	/// <summary>
 	/// Height Offset for position above player, to stop clipping.
