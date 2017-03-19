@@ -7,11 +7,16 @@ public class RoomControl : MonoBehaviour {
 	GameObject errorIcon = null;
 
 	[SerializeField]
+	private RobotController player = null;
+
+	[SerializeField]
 	private int maxRoomsToBreak = 2;
 	[SerializeField]
 	private Pickup.ItemType correctItem = Pickup.ItemType.tryytium;
+
 	[SerializeField]
-	private RobotController player = null;
+	string roomName = "DefaultName";
+
 	//	[SerializeField]
 	private List<ItemResponse> incorrectResponses = null;
 	private RoomManager roomManager = null;
@@ -21,7 +26,20 @@ public class RoomControl : MonoBehaviour {
 	private float greenTexDuration = 2.0f;
 
 	private Renderer[] rend = null;
-	
+
+
+	private void OnTriggerEnter(Collider other) {
+		if (other.tag == "Player") {
+			EventManager.NameChanged(EventManager.NameUpdateType.NewName, roomName);
+		}
+	}
+
+	private void OnTriggerExit(Collider other) {
+		if (other.tag == "Player") {
+			EventManager.NameChanged(EventManager.NameUpdateType.ShipName);
+		}
+	}
+
 	public void Initialise(int id) {
 		roomManager = GetComponentInParent<RoomManager>();
 		servicePort = GetComponentInChildren<ServicePort>();
@@ -100,7 +118,7 @@ public class RoomControl : MonoBehaviour {
 	public void Break() {
 		errorIcon.SetActive(true);
 		if (isFixed) {
-			EventManager.RoomBroken(servicePort.RoomName());
+			EventManager.RoomBroken(roomName);
 		}
 		foreach (Renderer r in rend) {
 			r.material.mainTexture = roomManager.redTex;
