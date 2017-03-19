@@ -10,7 +10,8 @@ public class SoundManager : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		Initialise();
-		PlayEvent("PickUp", gameObject);
+		PlayEvent("Item_PopUp", gameObject);
+		
 	}
 
 	private void Initialise() {
@@ -38,12 +39,12 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	// Switch States
-	public void SetSwitch(GameObject player, string switchName, string switchState) {
+	public static void SetSwitch(GameObject player, string switchName, string switchState) {
 		AkSoundEngine.SetSwitch(switchName, switchState, player);
 	}
 
 	// Set RTPCs
-	public void SetRTPC(GameObject player, string rtpcName, float rtpcValue) {
+	public static void SetRTPC(GameObject player, string rtpcName, float rtpcValue) {
 		AkSoundEngine.SetRTPCValue(rtpcName, rtpcValue);
 	}
 }
