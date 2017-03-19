@@ -10,6 +10,9 @@ public class RobotController : MonoBehaviour {
 	Button dropItem =null;
 
 	[SerializeField]
+	private GameObject inventoryUi = null;
+
+	[SerializeField]
 	Text currentItemAlienText =null;
 
 	[SerializeField]
@@ -17,8 +20,8 @@ public class RobotController : MonoBehaviour {
 
 	// Controls the navigation of the bot on the navmesh
 	private NavMeshAgent agent_ = null;
-    private bool isMoving = false;
-    private float stopThreshold = 0.1f;
+	private bool isMoving = false;
+	private float stopThreshold = 0.1f;
 
 	private Pickup currentItem_ = null;
 
@@ -52,17 +55,17 @@ public class RobotController : MonoBehaviour {
 	/// </summary>
 	private void Update() {
 
-        if (isMoving)
-        {
-            if (agent_.velocity.magnitude < stopThreshold)
-            {
-                isMoving = false;
-                SoundManager.StopEvent("Player_Move_START", 1, gameObject);
-                SoundManager.PlayEvent("Player_Move_END", gameObject);
-            }
-        }
+		if (isMoving)
+		{
+			if (agent_.velocity.magnitude < stopThreshold)
+			{
+				isMoving = false;
+				SoundManager.StopEvent("Player_Move_START", 1, gameObject);
+				SoundManager.PlayEvent("Player_Move_END", gameObject);
+			}
+		}
 
-        if (OnTap()) {
+		if (OnTap()) {
 			// ray trace to check if touching a segment.
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -71,10 +74,10 @@ public class RobotController : MonoBehaviour {
 			if (Physics.Raycast(ray, out hit) && !IsOverUi()) {
 				if (hit.transform.tag == "Navable") {
 					agent_.destination = hit.point;
-                    if (!isMoving) {
-                        SoundManager.PlayEvent("Player_Move_START", gameObject);
-                        isMoving = true;
-                    }
+					if (!isMoving) {
+						SoundManager.PlayEvent("Player_Move_START", gameObject);
+						isMoving = true;
+					}
 				}
 			}
 		}
@@ -153,8 +156,8 @@ public class RobotController : MonoBehaviour {
 			collidedItem_.ItemPickedUp();
 			DropCurrentItem();
 			currentItem_ = collidedItem_;
-            SoundManager.PlayEvent("Item_PickUp", gameObject);
-        }
+			SoundManager.PlayEvent("Item_PickUp", gameObject);
+		}
 		ShowInventory();
 	}
 
@@ -186,7 +189,7 @@ public class RobotController : MonoBehaviour {
 	/// </summary>
 	/// <returns></returns>
 	private bool OnTap() {
-		if (Input.GetMouseButtonDown(0)) {
+		if (Input.GetMouseButton(0)) {
 			return true;
 		}
 		return false;
@@ -197,7 +200,7 @@ public class RobotController : MonoBehaviour {
 	/// </summary>
 	/// <returns></returns>
 	private bool IsOverUi() {
-#if !UNITY_EDITOR
+#if (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
 		return EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
 		
 #else
@@ -222,6 +225,7 @@ public class RobotController : MonoBehaviour {
 	/// </summary>
 	private void ShowInventory() {
 		if (currentItem_) {
+			inventoryUi.SetActive(true);
 			dropItem.interactable = true;
 			if (currentItem_.HasRespawned()) {
 				currentItemAlienText.enabled = false;
@@ -234,6 +238,10 @@ public class RobotController : MonoBehaviour {
 				currentItemAlienText.text = currentItem_.Name();
 			}
 		}
+		else
+		{
+			inventoryUi.SetActive(false);
+		}
 	}
 
 	/// <summary>
@@ -244,6 +252,7 @@ public class RobotController : MonoBehaviour {
 		currentItemAlienText.enabled = false;
 		currentItemSensibleText.enabled = true;
 		currentItemSensibleText.text = "Empty";
+		inventoryUi.SetActive(false);
 	}
 
 	/// <summary>
@@ -254,4 +263,8 @@ public class RobotController : MonoBehaviour {
 		return currentItem_;
 	}
 
+	public void HideInventory()
+	{
+		inventoryUi.SetActive(false);
+	}
 }

@@ -7,6 +7,6 @@ public class RestartLevel : MonoBehaviour {
 	/// Reloads the currently active level.
 	/// </summary>
 	public void Restart() {
-		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+		SceneManager.LoadSceneAsync("Splash_Scene");
 	}
 }
