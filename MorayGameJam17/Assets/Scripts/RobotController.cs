@@ -17,6 +17,8 @@ public class RobotController : MonoBehaviour {
 
 	// Controls the navigation of the bot on the navmesh
 	private NavMeshAgent agent_ = null;
+    private bool isMoving = false;
+    private float stopThreshold = 0.1f;
 
 	private Pickup currentItem_ = null;
 
@@ -49,7 +51,18 @@ public class RobotController : MonoBehaviour {
 	/// When the player taps the screen updates the target for the robot.	
 	/// </summary>
 	private void Update() {
-		if (OnTap()) {
+
+        if (isMoving)
+        {
+            if (agent_.velocity.magnitude < stopThreshold)
+            {
+                isMoving = false;
+                SoundManager.StopEvent("Player_Move_START", 1, gameObject);
+                SoundManager.PlayEvent("Player_Move_END", gameObject);
+            }
+        }
+
+        if (OnTap()) {
 			// ray trace to check if touching a segment.
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -58,6 +71,10 @@ public class RobotController : MonoBehaviour {
 			if (Physics.Raycast(ray, out hit) && !IsOverUi()) {
 				if (hit.transform.tag == "Navable") {
 					agent_.destination = hit.point;
+                    if (!isMoving) {
+                        SoundManager.PlayEvent("Player_Move_START", gameObject);
+                        isMoving = true;
+                    }
 				}
 			}
 		}
@@ -136,7 +153,8 @@ public class RobotController : MonoBehaviour {
 			collidedItem_.ItemPickedUp();
 			DropCurrentItem();
 			currentItem_ = collidedItem_;
-		}
+            SoundManager.PlayEvent("Item_PickUp", gameObject);
+        }
 		ShowInventory();
 	}
 

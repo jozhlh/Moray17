@@ -60,7 +60,8 @@ public class Pickup : MonoBehaviour {
 	public void ShowPopUp() {
 		interactableCanvas.enabled = true;
 		iconModel.SetActive(true);
-	}
+        SoundManager.PlayEvent("Item_PopUp", gameObject);
+    }
 
 	/// <summary>
 	/// Hides the popup.
@@ -68,7 +69,8 @@ public class Pickup : MonoBehaviour {
 	public void HidePopUp() {
 		interactableCanvas.enabled = false;
 		iconModel.SetActive(false);
-	}
+        SoundManager.PlayEvent("Item_PopDown", gameObject);
+    }
 
 	/// <summary>
 	/// Returns the currently available name.

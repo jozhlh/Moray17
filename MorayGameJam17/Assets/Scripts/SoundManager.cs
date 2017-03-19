@@ -10,11 +10,15 @@ public class SoundManager : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		Initialise();
-		PlayEvent("Item_PopUp", gameObject);
-		
+        PlayEvent("Level_Music", gameObject);
 	}
 
-	private void Initialise() {
+    private void OnDestroy()
+    {
+        StopAllEvents();
+    }
+
+    private void Initialise() {
 		// Import Initialisation Soundbank
 		AkSoundEngine.LoadBank("Init", AkSoundEngine.AK_DEFAULT_POOL_ID, out initBankID);
 		// Import Soundbank
