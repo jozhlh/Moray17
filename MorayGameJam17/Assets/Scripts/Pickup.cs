@@ -2,7 +2,7 @@
 
 public class Pickup : MonoBehaviour {
 
-	public enum ItemType { item1, item2, item3, item4 };
+	public enum ItemType { tryytium, skudian, nusluathil, criasium, ublyx, zushese, vufrum, eshian, kreasten, qostralt };
 
 	[SerializeField]
 	IdleAnimation pickUpAnimation = null;
@@ -10,7 +10,7 @@ public class Pickup : MonoBehaviour {
 	[SerializeField]
 	string garbageName = "DefaultName";
 	[SerializeField]
-	private ItemType itemType = ItemType.item1;
+	private ItemType itemType = ItemType.tryytium;
 
 	[SerializeField]
 	string sensibleName = "DefaultName";

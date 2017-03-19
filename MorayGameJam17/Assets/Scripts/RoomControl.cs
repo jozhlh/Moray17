@@ -9,7 +9,7 @@ public class RoomControl : MonoBehaviour {
 	[SerializeField]
 	private int maxRoomsToBreak = 2;
 	[SerializeField]
-	private Pickup.ItemType correctItem = Pickup.ItemType.item1;
+	private Pickup.ItemType correctItem = Pickup.ItemType.tryytium;
 	[SerializeField]
 	private RobotController player = null;
 	//	[SerializeField]
