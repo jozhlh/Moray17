@@ -26,6 +26,14 @@
 							<Position X="1" Y="1"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Menu_Music" ID="{02B69B78-A523-4A28-9172-06217DF96105}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Menu_Button_Select" ID="{612E6024-2036-4A9C-BFD3-06FC4C7C909D}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}"/>
+							<Position X="1" Y="3"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Craft_HydroDoor" ID="{DE248C87-1DA9-4F8B-A8EF-54D6F160443D}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}"/>
 							<Position X="2" Y="0"/>
 						</Module>
