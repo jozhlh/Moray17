@@ -40,6 +40,8 @@ public class RoomControl : MonoBehaviour {
 		}
 	}
 
+	
+
 	public void Initialise(int id) {
 		roomManager = GetComponentInParent<RoomManager>();
 		servicePort = GetComponentInChildren<ServicePort>();
