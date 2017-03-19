@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEditor;
 
 public class Pickup : MonoBehaviour {
 
@@ -44,6 +45,10 @@ public class Pickup : MonoBehaviour {
 		initialPosition = transform.position;
 		name = garbageName;
 		dropEffect = GetComponentInChildren<ParticleSystem>();
+	}
+
+	void OnDrawGizmos() {
+		Handles.Label(transform.position, sensibleName);
 	}
 
 	/// <summary>
