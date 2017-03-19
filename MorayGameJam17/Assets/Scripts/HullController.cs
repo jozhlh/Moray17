@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class HullController : MonoBehaviour {
+	[SerializeField]
+	GameObject dropButton = null;
 
 	[SerializeField]
 	GameObject hullModels = null;
@@ -66,11 +69,13 @@ public class HullController : MonoBehaviour {
 		if (other.tag == "Player") {
 			MoveUp();
 			EventManager.NameChanged(EventManager.NameUpdateType.ShipName);
+			dropButton.SetActive(false);
 		}
 	}
 	private void OnTriggerExit(Collider other) {
 		if (other.tag == "Player") {
 			MoveDown();
+			dropButton.SetActive(true);
 			EventManager.NameChanged(EventManager.NameUpdateType.WorldName);
 		}
 	}
