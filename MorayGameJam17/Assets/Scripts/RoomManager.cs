@@ -39,7 +39,7 @@ public class RoomManager : MonoBehaviour {
 		bool hasBrokenRoom = false;
 		foreach (RoomControl room in rooms) {
 			if (!room.IsRoomFixed()) {
-				hasBrokenRoom = true;			
+				hasBrokenRoom = true;
 			}
 		}
 		if (!hasBrokenRoom) {

@@ -12,50 +12,57 @@ public class Door : MonoBehaviour {
 	[SerializeField]
 	Transform upTransform = null;
 
-	private float startTime = 0;
+	private float startTime_ = 0;
 
-	private Vector3 startPosition = Vector3.zero;
+	private Vector3 startPosition_ = Vector3.zero;
 
-	private Vector3 endPosition = Vector3.zero;
+	private Vector3 endPosition_ = Vector3.zero;
 
-	bool isMoving = false;
-		
+	private bool isMoving_ = false;
+
 	void Update() {
-
-		//TODO:: Remove Debug
-		if (Input.GetKeyDown(KeyCode.A)) {
-			CloseDoor();
+		if (isMoving_) {
+			// transition between the 2 positions.
+			doorModel.transform.position = LittleLot.MathUtil.SmoothLerp(
+				startPosition_,
+				endPosition_,
+				startTime_,
+				transitionTime,
+				out isMoving_);
 		}
-		else if (Input.GetKeyDown(KeyCode.D)) {
+	}
+
+	private void OnTriggerEnter(Collider other) {
+		if (other.tag == "Player") {
 			OpenDoor();
 		}
+	}
 
-		if (isMoving) {
-			float timeSinceStarted = Time.time - startTime;
-			float percentageComplete = timeSinceStarted / transitionTime;
-
-			doorModel.transform.position = Vector3.Lerp(startPosition, endPosition,
-				Mathf.SmoothStep(0f, 1f, percentageComplete));
-
-			//When we've completed the lerp, we set isMoving to false
-			if (percentageComplete >= 1.0f) {
-				isMoving = false;
-			}
+	private void OnTriggerExit(Collider other) {
+		if (other.tag == "Player") {
+			CloseDoor();
 		}
 	}
-
+	
+	/// <summary>
+	/// Starts the close door animation and plays the sound.
+	/// </summary>
 	public void CloseDoor() {
-		isMoving = true;
-		startTime = Time.time;
-		startPosition = downTransform.position;
-		endPosition = upTransform.position;
-        SoundManager.PlayEvent("Craft_HydroDoor", gameObject);
+		isMoving_ = true;
+		startTime_ = Time.time;
+		startPosition_ = downTransform.position;
+		endPosition_ = upTransform.position;
+		SoundManager.PlayEvent("Craft_HydroDoor", gameObject);
 	}
+
+	/// <summary>
+	/// Starts the open door animation and plays the sound.
+	/// </summary>
 	public void OpenDoor() {
-		isMoving = true;
-		startTime = Time.time;
-		startPosition = upTransform.position;
-		endPosition = downTransform.position;
-        SoundManager.PlayEvent("Craft_HydroDoor", gameObject);
-    }
+		isMoving_ = true;
+		startTime_ = Time.time;
+		startPosition_ = upTransform.position;
+		endPosition_ = downTransform.position;
+		SoundManager.PlayEvent("Craft_HydroDoor", gameObject);
+	}
 }

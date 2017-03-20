@@ -7,7 +7,7 @@
 public class IdleAnimation : MonoBehaviour {
 
 	[SerializeField]
-	[Tooltip("Used for end rotation, position and scale values.")]
+	[Tooltip("Used for end rotation, position and scale values, Ensure rotation angles are positive...reasons.")]
 	Transform pingPongTarget = null;
 
 	[Header("Animation")]
@@ -49,13 +49,16 @@ public class IdleAnimation : MonoBehaviour {
 
 	private bool wasAnimating_ = true;
 
-
+	private float initialHeight_ = 0.0f;
+	
 	/// <summary>
 	/// Store initial start and end points, and ensures tag is correctly set.
 	/// </summary>
 	private void Start() {
+		initialHeight_ = transform.position.y;
 		SetupPingPongTargets();
 	}
+
 	/// <summary>
 	/// Update the animations.
 	/// Moving,rotating and scaling between values.
@@ -74,16 +77,9 @@ public class IdleAnimation : MonoBehaviour {
 		}
 	}
 
-	public void PauseAnimation() {
-		wasAnimating_ = isAnimated;
-		isAnimated = false;
-	}
-
-	public void ResumeAnimation() {
-		isAnimated = wasAnimating_;
-		SetupPingPongTargets();
-	}
-
+	/// <summary>
+	/// Stores the initial to and from targets for animations.
+	/// </summary>
 	private void SetupPingPongTargets() {
 		pingPongMoveTo_ = pingPongTarget.position;
 		pingPongMoveFrom_ = transform.position;
@@ -94,12 +90,34 @@ public class IdleAnimation : MonoBehaviour {
 		pingPongRotateTo_ = pingPongTarget.rotation.eulerAngles;
 		pingPongRotateFrom_ = transform.rotation.eulerAngles;
 	}
+
+	/// <summary>
+	/// Pauses the animation effects.
+	/// </summary>
+	public void PauseAnimation() {
+		wasAnimating_ = isAnimated;
+		isAnimated = false;
+	}
+
+	/// <summary>
+	/// Resets the height of the object and restarts the animation.
+	/// </summary>
+	public void ResumeAnimation() {
+		isAnimated = wasAnimating_;
+		Vector3 newPosition = transform.position;
+		// reset the height of the object to its initial height.
+		transform.position = new Vector3(newPosition.x, initialHeight_, newPosition.z);
+		// Update move to and from
+		pingPongMoveTo_ = pingPongTarget.position;
+		pingPongMoveFrom_ = transform.position;
+	}
+
 	/// <summary>
 	/// Moves the collectable towards the set target with lerp(smoothstep(pingpong))).
 	/// Gives a nice dampened animation effect back and forth.
 	/// </summary>
 	private void PingPongMoveToTarget() {
-		transform.position = Vector3Lerp(pingPongMoveFrom_, pingPongMoveTo_, moveToTargetInterval);
+		transform.position = LittleLot.MathUtil.SmoothPingPongLerp(pingPongMoveFrom_, pingPongMoveTo_, moveToTargetInterval);
 	}
 
 	/// <summary>
@@ -107,7 +125,7 @@ public class IdleAnimation : MonoBehaviour {
 	/// Gives a nice dampened animation effect back and forth.
 	/// </summary>
 	private void PingPongRotateToTarget() {
-		transform.rotation = Quaternion.Euler(Vector3Lerp(pingPongRotateFrom_, pingPongRotateTo_, rotateToTargetInterval));
+		transform.rotation = Quaternion.Euler(LittleLot.MathUtil.SmoothPingPongLerp(pingPongRotateFrom_, pingPongRotateTo_, rotateToTargetInterval));
 	}
 
 	/// <summary>
@@ -115,23 +133,7 @@ public class IdleAnimation : MonoBehaviour {
 	/// Gives a nice dampened animation effect back and forth.
 	/// </summary>
 	private void PingPongScaleToTarget() {
-		transform.localScale = Vector3Lerp(pingPongScaleFrom_, pingPongScaleTo_, scaleToTargetInterval);
-	}
-
-	/// <summary>
-	/// Lerps between the from and to vectors.
-	/// Back and forth using pingpong, whilst using smoothstep to give it nice dampening.
-	/// Within the interval time.
-	/// </summary>
-	/// <param name="from"> Point to lerp from. </param>
-	/// <param name="to"> Point to lerp towards. </param>
-	/// <param name="interval"> The amount of time in seconds it should take. </param>
-	private Vector3 Vector3Lerp(Vector3 from, Vector3 to, float interval) {
-		return Vector3.Lerp(from, to,
-			// Smooth step gives it nice dampening at start and end of bounce.
-			Mathf.SmoothStep(0f, 1f,
-			// Ensures it is a value between 0-1 for lerp but based on how long it should last.
-			Mathf.PingPong(Time.time / interval, 1f)));
+		transform.localScale = LittleLot.MathUtil.SmoothPingPongLerp(pingPongScaleFrom_, pingPongScaleTo_, scaleToTargetInterval);
 	}
 
 }

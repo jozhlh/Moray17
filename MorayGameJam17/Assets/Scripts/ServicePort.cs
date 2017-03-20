@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class ServicePort : MonoBehaviour {
 
@@ -9,16 +8,23 @@ public class ServicePort : MonoBehaviour {
 	[SerializeField]
 	GameObject iconObject = null;
 
+	RoomControl connectedRoom =null;
+
 	/// <summary>
 	/// Disables Popup
 	/// </summary>
 	private void Start() {
-		//interactableCanvas.enabled = false;
-		HidePopUp();
+		connectedRoom = GetComponentInParent<RoomControl>();
+		interactableCanvas.enabled = false;
+		iconObject.SetActive(false);		
 	}
-
+	
+	/// <summary>
+	/// Checks to see if the connected room is fixed.
+	/// </summary>
+	/// <returns> True if the room is fixed. </returns>
 	public bool IsFixed() {
-		return GetComponentInParent<RoomControl>().IsRoomFixed();		
+		return connectedRoom.IsRoomFixed();
 	}
 
 	/// <summary>
@@ -27,8 +33,8 @@ public class ServicePort : MonoBehaviour {
 	public void ShowPopUp() {
 		interactableCanvas.enabled = true;
 		iconObject.SetActive(true);
-        SoundManager.PlayEvent("Item_PopUp", gameObject);
-    }
+		SoundManager.PlayEvent("Item_PopUp", gameObject);
+	}
 
 	/// <summary>
 	/// Hides the popup.
@@ -36,6 +42,6 @@ public class ServicePort : MonoBehaviour {
 	public void HidePopUp() {
 		interactableCanvas.enabled = false;
 		iconObject.SetActive(false);
-        SoundManager.PlayEvent("Item_PopUp", gameObject);
-    }
+		SoundManager.PlayEvent("Item_PopUp", gameObject);
+	}
 }

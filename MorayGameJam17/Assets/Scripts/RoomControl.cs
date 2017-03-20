@@ -16,8 +16,7 @@ public class RoomControl : MonoBehaviour {
 
 	[SerializeField]
 	string roomName = "DefaultName";
-
-	//	[SerializeField]
+	
 	private List<ItemResponse> incorrectResponses = null;
 	private RoomManager roomManager = null;
 	private ServicePort servicePort = null;
@@ -39,8 +38,6 @@ public class RoomControl : MonoBehaviour {
 			EventManager.NameChanged(EventManager.NameUpdateType.ShipName);
 		}
 	}
-
-	
 
 	public void Initialise(int id) {
 		roomManager = GetComponentInParent<RoomManager>();
@@ -93,13 +90,13 @@ public class RoomControl : MonoBehaviour {
 	public void CheckItem() {
 		Pickup.ItemType presentedItem = player.CurrentItem().CheckItemType();
 		if (presentedItem == correctItem) {
-            SoundManager.PlayEvent("Item_Port_Positive", gameObject);
-            FixRoom();
+			SoundManager.PlayEvent("Item_Port_Positive", gameObject);
+			FixRoom();
 		}
 		else {
-            SoundManager.PlayEvent("Item_Port_Negative", gameObject);
-            // get a list of rooms to break and break them
-            int[] roomsToBreak = incorrectResponses[(int)presentedItem].roomsToBreak;
+			SoundManager.PlayEvent("Item_Port_Negative", gameObject);
+			// get a list of rooms to break and break them
+			int[] roomsToBreak = incorrectResponses[(int)presentedItem].roomsToBreak;
 			foreach (int roomNum in roomsToBreak) {
 				roomManager.BreakRoom(roomNum);
 			}
@@ -123,7 +120,7 @@ public class RoomControl : MonoBehaviour {
 		errorIcon.SetActive(true);
 		if (isFixed) {
 			EventManager.RoomBroken(roomName);
-            SoundManager.PlayEvent("Broken_Room", gameObject);
+			SoundManager.PlayEvent("Broken_Room", gameObject);
 		}
 		foreach (Renderer r in rend) {
 			r.material.mainTexture = roomManager.redTex;
@@ -154,5 +151,5 @@ public class RoomControl : MonoBehaviour {
 
 		yield return null;
 	}
-	
+
 }

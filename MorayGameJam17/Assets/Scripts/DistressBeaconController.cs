@@ -1,8 +1,9 @@
 ﻿using System.Collections;
-
 using UnityEngine;
 
+[RequireComponent(typeof(ParticleSystem))]
 public class DistressBeaconController : MonoBehaviour {
+
 	ParticleSystem particleBeam = null;
 
 	float waitForWinDelay = 3.0f;
@@ -20,19 +21,27 @@ public class DistressBeaconController : MonoBehaviour {
 	}
 
 	/// <summary>
-	/// Displays the win screen when the game is completed, and hides the HUD.
+	/// Displays the win screen when the game is completed.
+	/// Hides the HUD, and changes the audio over to just the distress beacon.
 	/// </summary>
 	private void OnCameraInPosition() {
-		particleBeam.Play();
+		// Removes the listener ensuring it doesnt accidentally get called twice.
 		EventManager.OnCameraInPosition -= OnCameraInPosition;
-		StartCoroutine(PlayBeamAnimation());
+
+		particleBeam.Play();
+
+		// stops all other music before starting the beam audio.
 		SoundManager.StopAllEvents();
-        SoundManager.PlayEvent("Sonar_Beam", gameObject);
-    }
+		SoundManager.PlayEvent("Sonar_Beam", gameObject);
 
+		StartCoroutine(DelayedGameCompletion());
+	}
 
-	private IEnumerator PlayBeamAnimation() {
-		// start beam animation
+	/// <summary>
+	/// Delays the game completion to allow for the beam animation to finish.
+	/// </summary>
+	private IEnumerator DelayedGameCompletion() {
+
 		yield return new WaitForSeconds(waitForWinDelay);
 		EventManager.GameCompleted();
 	}
