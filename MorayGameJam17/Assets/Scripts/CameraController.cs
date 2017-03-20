@@ -11,19 +11,18 @@ public class CameraController : MonoBehaviour {
 	[SerializeField]
 	float transitionTime = 3;
 
-	private float startTime =0;
+	private float startTime_ =0;
 
-	private Vector3 initialPosition = Vector3.zero;
+	private Vector3 initialPosition_ = Vector3.zero;
 
-	private Vector3 lerpStartPosition = Vector3.zero;
+	private Vector3 lerpStartPosition_ = Vector3.zero;
 
-	private bool isFollowingRobot = true;
+	private bool isFollowingRobot_ = true;
 
-	private bool isMovingToDistressBeacon = true;
+	private bool isMovingToDistressBeacon_ = true;
 
 	private void Start() {
-
-		initialPosition = gameObject.transform.position;
+		initialPosition_ = gameObject.transform.position;
 	}
 
 	private void OnEnable() {
@@ -38,33 +37,36 @@ public class CameraController : MonoBehaviour {
 	/// Just before rendering, updates the camera to follow the robot.
 	/// </summary>
 	private void LateUpdate() {
-		if (isFollowingRobot) {
+		if (isFollowingRobot_) {
 			transform.position = new Vector3(
 				robot.transform.position.x + cameraOffset.x,
 				transform.position.y + cameraOffset.y,
 				robot.transform.position.z + cameraOffset.z);
 		}
-		else if (isMovingToDistressBeacon) {
-			float timeSinceStarted = Time.time - startTime;
-			float percentageComplete = timeSinceStarted / transitionTime;
+		else if (isMovingToDistressBeacon_) {			
+			transform.position = LittleLot.MathUtil.SmoothLerp(
+				lerpStartPosition_,
+				initialPosition_,
+				startTime_,
+				transitionTime,
+				out isMovingToDistressBeacon_);
 
-			transform.position = Vector3.Lerp(lerpStartPosition, initialPosition,
-				Mathf.SmoothStep(0f, 1f, percentageComplete));
-
-			//When we've completed the lerp, we set isMovingToDistressBeacon to false
-			if (percentageComplete >= 1.0f) {
-				isMovingToDistressBeacon = false;
+			if (!isMovingToDistressBeacon_) {				
 				EventManager.CameraInPosition();
 			}
 		}
 	}
 
+	/// <summary>
+	/// Start the camera moving towards the distress beacon at its initial position.
+	/// When the ship has been fixed .
+	/// </summary>
 	private void OnShipFixed() {
-		isFollowingRobot = false;
-		isMovingToDistressBeacon = true;
+		isFollowingRobot_ = false;
+		isMovingToDistressBeacon_ = true;
 
-		startTime = Time.time;
-		lerpStartPosition = gameObject.transform.position;
+		startTime_ = Time.time;
+		lerpStartPosition_ = gameObject.transform.position;
 	}
 
 

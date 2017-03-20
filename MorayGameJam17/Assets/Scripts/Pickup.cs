@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -6,161 +7,140 @@ using UnityEditor;
 
 public class Pickup : MonoBehaviour {
 
-    public enum ItemType { tryytium, skudian, nusluathil, criasium, ublyx, zushese, vufrum, eshian, kreasten, qostralt };
+	public enum ItemType {
+		tryytium, skudian, nusluathil, criasium, ublyx, zushese, vufrum, eshian, kreasten,
+		qostralt };
 
-    [SerializeField]
-    IdleAnimation pickUpAnimation = null;
+	[SerializeField]
+	IdleAnimation pickUpAnimation = null;
 
-    [SerializeField]
-    string garbageName = "DefaultName";
-    [SerializeField]
-    private ItemType itemType = ItemType.tryytium;
+	[SerializeField]
+	string garbageName = "DefaultName";
 
-    [SerializeField]
-    string sensibleName = "DefaultName";
+	[SerializeField]
+	ItemType itemType = ItemType.tryytium;
 
-    [SerializeField]
-    float itemHeightOffsetWhenPickedUp = 1.0f;
+	[SerializeField]
+	string sensibleName = "DefaultName";
 
-    [SerializeField]
-    Canvas interactableCanvas = null;
-    [SerializeField]
-    GameObject iconModel = null;
+	[SerializeField]
+	float itemHeightOffsetWhenPickedUp = 1.0f;
 
-    Vector3 initialPosition = Vector3.zero;
+	[SerializeField]
+	Canvas interactableCanvas = null;
+	[SerializeField]
+	GameObject iconModel = null;
 
-    Vector3 droppedTargetPosition = Vector3.zero;
+	Vector3 initialPosition_ = Vector3.zero;
 
-    float minDropOffset = -1;
+	Vector3 droppedTargetPosition_ = Vector3.zero;
+	
+	bool hasRespawned_ = false;
 
-    float maxDropOffset = 1;
+	private ParticleSystem dropEffect_ = null;
 
-    bool hasRespawned = false;
-
-    private ParticleSystem dropEffect = null;
-
-    /// <summary>
-    /// Saves initial pos and disables Popup
-    /// </summary>
-    private void Start() {        
-        HidePopUp();
-        initialPosition = transform.position;
-        name = garbageName;
-        dropEffect = GetComponentInChildren<ParticleSystem>();
-    }
+	/// <summary>
+	/// Saves initial pos and disables Popup
+	/// </summary>
+	private void Start() {
+		HidePopUp();
+		initialPosition_ = transform.position;
+		name = garbageName;
+		dropEffect_ = GetComponentInChildren<ParticleSystem>();
+	}
 
 #if UNITY_EDITOR
-    void OnDrawGizmos() {
-        Handles.Label(transform.position, sensibleName);
-    }
+	/// <summary>
+	/// Draws Gizmo of item name in editor.
+	/// </summary>
+	void OnDrawGizmos() {
+		Handles.Label(transform.position, sensibleName);
+	}
 #endif
 
-    /// <summary>
-    /// Height Offset for position above player, to stop clipping.
-    /// </summary>
-    /// <returns></returns>
-    public float ItemheightOffset() {
-        return itemHeightOffsetWhenPickedUp;
-    }
+	/// <summary>
+	/// Height Offset for position above player, to stop clipping.
+	/// </summary>
+	/// <returns></returns>
+	public float ItemheightOffset() {
+		return itemHeightOffsetWhenPickedUp;
+	}
 
-    /// <summary>
-    /// Enables the popup.
-    /// </summary>
-    public void ShowPopUp() {
-        interactableCanvas.enabled = true;
-        iconModel.SetActive(true);
-        SoundManager.PlayEvent("Item_PopUp", gameObject);
-    }
+	/// <summary>
+	/// Enables the popup.
+	/// </summary>
+	public void ShowPopUp() {
+		interactableCanvas.enabled = true;
+		iconModel.SetActive(true);
+		SoundManager.PlayEvent("Item_PopUp", gameObject);
+	}
 
-    /// <summary>
-    /// Hides the popup.
-    /// </summary>
-    public void HidePopUp() {
-        interactableCanvas.enabled = false;
-        iconModel.SetActive(false);
-        SoundManager.PlayEvent("Item_PopDown", gameObject);
-    }
+	/// <summary>
+	/// Hides the popup.
+	/// </summary>
+	public void HidePopUp() {
+		interactableCanvas.enabled = false;
+		iconModel.SetActive(false);
+		SoundManager.PlayEvent("Item_PopUp", gameObject);
+	}
 
-    /// <summary>
-    /// Returns the currently available name.
-    /// Garbage name or variation, or the full name.
-    /// </summary>
-    /// <returns></returns>
-    public string Name() {
-        if (hasRespawned) {
-            return sensibleName;
-        }
-        else {
-            return garbageName;
-        }
-    }
+	/// <summary>
+	/// Returns the currently available name.
+	/// Garbage name or variation, or the full name.
+	/// </summary>
+	/// <returns></returns>
+	public string Name() {
+		if (hasRespawned_) {
+			return sensibleName;
+		}
+		else {
+			return garbageName;
+		}
+	}
 
-    public void ItemPickedUp() {
-        pickUpAnimation.PauseAnimation();
-    }
+	/// <summary>
+	/// Pauses the animation of the pickup item.
+	/// </summary>
+	public void ItemPickedUp() {
+		pickUpAnimation.PauseAnimation();
+	}
 
-    /// <summary>
-    /// Drops the item at a random position near the player.	
-    /// </summary>
-    public void ItemDropped() {
-        droppedTargetPosition = transform.position + new Vector3(
-            Random.Range(minDropOffset, maxDropOffset),
-            0,
-            Random.Range(minDropOffset, maxDropOffset));
+	/// <summary>
+	/// Drops the item at a random position near the player on the NavMesh.	
+	/// </summary>
+	public void ItemDropped() {
+		if (LittleLot.NavMeshUtil.RandomPointOnNavMesh(transform.position, 2, out droppedTargetPosition_)) {
+			droppedTargetPosition_.y += initialPosition_.y;
+			transform.position = droppedTargetPosition_;
+		}
 
-        droppedTargetPosition = CalculateMoveToTarget(droppedTargetPosition);
+		pickUpAnimation.ResumeAnimation();
+		dropEffect_.Play();
+		SoundManager.PlayEvent("Item_PutDown", gameObject);
+	}
 
-        transform.position = new Vector3(
-            droppedTargetPosition.x,
-            initialPosition.y,
-            droppedTargetPosition.z);
+	/// <summary>
+	/// Returns the type of the item	
+	/// </summary>
+	public ItemType CheckItemType() {
+		return itemType;
+	}
 
-        pickUpAnimation.ResumeAnimation();
-        dropEffect.Play();
-    }
+	/// <summary>
+	/// Respawns the item at its initial position.
+	/// </summary>
+	public void Respawn() {
+		transform.position = initialPosition_;
+		pickUpAnimation.ResumeAnimation();
+		hasRespawned_ = true;
+	}
 
-    /// Checks a target point to make sure its valid if it is not, it will move it back towards the player.
-    /// </summary>
-    /// <param name="targetPosition"> New Position to dop item to</param>
-    /// <returns></returns>
-    private Vector3 CalculateMoveToTarget(Vector3 targetPosition) {
-        Vector3 randomDirection = targetPosition - transform.position;
-        randomDirection.Normalize();
-
-        RaycastHit hit;
-        Ray ray = new Ray(transform.position, randomDirection);
-        // if its hit anything
-        if (Physics.Raycast(ray, out hit)) {
-            if (hit.transform.tag != "Navable") {
-                targetPosition = hit.point -= randomDirection;
-            }
-        }
-
-        return targetPosition;
-    }
-
-    /// <summary>
-    /// Returns the type of the item	
-    /// </summary>
-    public ItemType CheckItemType() {
-        return itemType;
-    }
-
-    /// <summary>
-    /// Respawns the item at its initial position.
-    /// </summary>
-    public void Respawn() {
-        transform.position = initialPosition;
-        pickUpAnimation.ResumeAnimation();
-        hasRespawned = true;
-    }
-
-    /// <summary>
-    /// Wether the item has been respawned yet.
-    /// </summary>
-    /// <returns> True if it has. </returns>
-    public bool HasRespawned() {
-        return hasRespawned;
-    }
+	/// <summary>
+	/// Wether the item has been respawned yet.
+	/// </summary>
+	/// <returns> True if it has. </returns>
+	public bool HasRespawned() {
+		return hasRespawned_;
+	}
 
 }

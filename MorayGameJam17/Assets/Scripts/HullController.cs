@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class HullController : MonoBehaviour {
+
 	[SerializeField]
 	GameObject dropButton = null;
 
@@ -17,51 +17,31 @@ public class HullController : MonoBehaviour {
 	[SerializeField]
 	Transform upTransform = null;
 
-	private float startTime = 0;
+	private float startTime_ = 0;
 
-	private Vector3 startPosition = Vector3.zero;
+	private Vector3 startPosition_ = Vector3.zero;
 
-	private Vector3 endPosition = Vector3.zero;
+	private Vector3 endPosition_ = Vector3.zero;
 
-	bool isMoving = false;
+	bool isMoving_ = false;
 
-	bool isUp = false;
-	void Start () {
+	bool isUp_ = false;
+
+	void Start() {
+		// put the ship model in the up position.
 		hullModels.transform.position = upTransform.position;
-		isUp = true;
+		isUp_ = true;
 	}
 
 	private void Update() {
-		if (isMoving) {
-			float timeSinceStarted = Time.time - startTime;
-			float percentageComplete = timeSinceStarted / transitionTime;
+		if (isMoving_) {
 
-			hullModels.transform.position = Vector3.Lerp(startPosition, endPosition,
-				Mathf.SmoothStep(0f, 1f, percentageComplete));
-
-			//When we've completed the lerp, we set isMoving to false
-			if (percentageComplete >= 1.0f) {
-				isMoving = false;
-			}
-		}
-	}
-
-	public void MoveUp() {
-		if (!isUp) {
-			isUp = true;
-			isMoving = true;
-			startTime = Time.time;
-			startPosition = downTransform.position;
-			endPosition = upTransform.position;
-		}
-	}
-	public void MoveDown() {
-		if (isUp) {
-			isUp = false;
-			isMoving = true;
-			startTime = Time.time;
-			startPosition = upTransform.position;
-			endPosition = downTransform.position;
+			hullModels.transform.position = LittleLot.MathUtil.SmoothLerp(
+				startPosition_,
+				endPosition_,
+				startTime_,
+				transitionTime,
+				out isMoving_);
 		}
 	}
 
@@ -80,4 +60,29 @@ public class HullController : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Starts the animation for moving the Spaceship outer hull out of view.
+	/// </summary>
+	public void MoveUp() {
+		if (!isUp_) {
+			isUp_ = true;
+			isMoving_ = true;
+			startTime_ = Time.time;
+			startPosition_ = downTransform.position;
+			endPosition_ = upTransform.position;
+		}
+	}
+
+	/// <summary>
+	/// Starts the animation for moving the Spaceship outer hull in to view.
+	/// </summary>
+	public void MoveDown() {
+		if (isUp_) {
+			isUp_ = false;
+			isMoving_ = true;
+			startTime_ = Time.time;
+			startPosition_ = upTransform.position;
+			endPosition_ = downTransform.position;
+		}
+	}
 }

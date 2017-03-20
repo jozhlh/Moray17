@@ -20,13 +20,12 @@ public class RobotController : MonoBehaviour {
 
 	// Controls the navigation of the bot on the navmesh
 	private NavMeshAgent agent_ = null;
-	private bool isMoving = false;
-	private float stopThreshold = 0.1f;
+	private bool isMoving_ = false;
+	private float stopThreshold_ = 0.1f;
 
 	private Pickup currentItem_ = null;
 
 	private Pickup collidedItem_ = null;
-
 
 	/// <summary>
 	/// Sets up the navmeshagent and Hides the Inventory.
@@ -55,30 +54,26 @@ public class RobotController : MonoBehaviour {
 	/// </summary>
 	private void Update() {
 
-		if (isMoving)
-		{
-			if (agent_.velocity.magnitude < stopThreshold)
-			{
-				isMoving = false;
+		if (isMoving_) {
+			if (agent_.velocity.magnitude < stopThreshold_) {
+				isMoving_ = false;
 				SoundManager.StopEvent("Player_Move_START", 1, gameObject);
 				SoundManager.PlayEvent("Player_Move_END", gameObject);
 			}
 		}
 
 		if (OnTap()) {
-			// ray trace to check if touching a segment.
+			// ray trace to check if touching a navmesh.
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
 			// if its hit anything
-			if (Physics.Raycast(ray, out hit) && !IsOverUi()) {
-				if (hit.transform.tag == "Navable") {
-					agent_.destination = hit.point;
-					if (!isMoving) {
-						SoundManager.PlayEvent("Player_Move_START", gameObject);
-						isMoving = true;
-					}
-				}
+			if (Physics.Raycast(ray, out hit) && !IsOverUi()) {				
+				agent_.destination = hit.point;
+				if (!isMoving_) {
+					SoundManager.PlayEvent("Player_Move_START", gameObject);
+					isMoving_ = true;
+				}				
 			}
 		}
 
@@ -142,7 +137,7 @@ public class RobotController : MonoBehaviour {
 			if (currentItem_) {
 				ServicePort currentPort = collidedGameObject.GetComponent<ServicePort>();
 				collidedGameObject.GetComponent<ServicePort>().HidePopUp();
-				
+
 			}
 		}
 	}
@@ -238,8 +233,7 @@ public class RobotController : MonoBehaviour {
 				currentItemAlienText.text = currentItem_.Name();
 			}
 		}
-		else
-		{
+		else {
 			inventoryUi.SetActive(false);
 		}
 	}
@@ -263,8 +257,10 @@ public class RobotController : MonoBehaviour {
 		return currentItem_;
 	}
 
-	public void HideInventory()
-	{
+	/// <summary>
+	/// Hides the Inventory Ui fom the Hud.
+	/// </summary>
+	public void HideInventory() {
 		inventoryUi.SetActive(false);
 	}
 }

@@ -24,6 +24,7 @@
 				<Event Id="46622052" Name="Broken_Room" ObjectPath="\Events\Default Work Unit\Ambient_Events\Broken_Room"/>
 				<Event Id="2408435514" Name="Craft_HydroDoor" ObjectPath="\Events\Default Work Unit\Ambient_Events\Craft_HydroDoor"/>
 				<Event Id="566396871" Name="Item_PickUp" ObjectPath="\Events\Default Work Unit\Ambient_Events\Character\Item_PickUp"/>
+				<Event Id="2129524276" Name="Item_PopDown" ObjectPath="\Events\Default Work Unit\UI\Item_PopDown"/>
 				<Event Id="796655887" Name="Item_PopUp" ObjectPath="\Events\Default Work Unit\UI\Item_PopUp"/>
 				<Event Id="3038503276" Name="Item_Port_Negative" ObjectPath="\Events\Default Work Unit\UI\Item_Port_Negative"/>
 				<Event Id="2855366340" Name="Item_Port_Positive" ObjectPath="\Events\Default Work Unit\UI\Item_Port_Positive"/>
@@ -31,6 +32,8 @@
 				<Event Id="4277939909" Name="Landscape_Planet" ObjectPath="\Events\Default Work Unit\Ambient_States\Landscape_Planet"/>
 				<Event Id="4004066390" Name="Landscape_Shuttle" ObjectPath="\Events\Default Work Unit\Ambient_States\Landscape_Shuttle"/>
 				<Event Id="1244594577" Name="Level_Music" ObjectPath="\Events\Default Work Unit\Music\Level_Music"/>
+				<Event Id="4007661982" Name="Menu_Button_Select" ObjectPath="\Events\Default Work Unit\UI\Menu_Button_Select"/>
+				<Event Id="4055567060" Name="Menu_Music" ObjectPath="\Events\Default Work Unit\Music\Menu_Music"/>
 				<Event Id="3120155140" Name="Player_Move_END" ObjectPath="\Events\Default Work Unit\Ambient_Events\Character\Player_Move_END"/>
 				<Event Id="1016620215" Name="Player_Move_START" ObjectPath="\Events\Default Work Unit\Ambient_Events\Character\Player_Move_START"/>
 				<Event Id="2077633936" Name="Sonar_Beam" ObjectPath="\Events\Default Work Unit\Ambient_Events\Sonar_Beam"/>
@@ -56,6 +59,10 @@
 					<ShortName>SFX_UI_VICTORY_2.wav</ShortName>
 					<Path>SFX\SFX_UI_VICTORY_2_9E69E797.wem</Path>
 				</File>
+				<File Id="115827830" Language="SFX">
+					<ShortName>MUSIC_MENU.wav</ShortName>
+					<Path>SFX\MUSIC_MENU_4B8CC0C5.wem</Path>
+				</File>
 				<File Id="115856118" Language="SFX">
 					<ShortName>Music_Layer_Melody_06_Verse.wav</ShortName>
 					<Path>SFX\Music_Layer_Melody_06_Verse_4B8CC0C5.wem</Path>
@@ -80,6 +87,10 @@
 					<ShortName>SFX_ERROR_ALERT_03.wav</ShortName>
 					<Path>SFX\SFX_ERROR_ALERT_03_9E69E797.wem</Path>
 				</File>
+				<File Id="211433198" Language="SFX">
+					<ShortName>SFX_SCI-FI_ITEM_PICKUP_PutDown.wav</ShortName>
+					<Path>SFX\SFX_SCI-FI_ITEM_PICKUP_PutDown_9E69E797.wem</Path>
+				</File>
 				<File Id="219065458" Language="SFX">
 					<ShortName>SFX_ROBOTIC_VOICE_05.wav</ShortName>
 					<Path>SFX\SFX_ROBOTIC_VOICE_05_9E69E797.wem</Path>
@@ -87,6 +98,10 @@
 				<File Id="234583049" Language="SFX">
 					<ShortName>SFX_SCI-FI_ROBOT_MOVEMENT_INOUT_1.wav</ShortName>
 					<Path>SFX\SFX_SCI-FI_ROBOT_MOVEMENT_INOUT_1_1B91245E.wem</Path>
+				</File>
+				<File Id="305698870" Language="SFX">
+					<ShortName>SCIFI_beeps and sweeps_BUTTON_01.wav</ShortName>
+					<Path>SFX\SCIFI_beeps and sweeps_BUTTON_01_9E69E797.wem</Path>
 				</File>
 				<File Id="312008064" Language="SFX">
 					<ShortName>220181__gameaudio__computer-beep-1.wav</ShortName>

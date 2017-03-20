@@ -14,8 +14,11 @@
 						<ObjectRef Name="Level_Music" ID="{F7099DB9-80E2-47B7-A535-48E5B15B4E95}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Item_Port_Negative" ID="{166D9351-5D15-4A01-AA4C-01066FE41072}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Landscape_Shuttle" ID="{BB28812A-E59B-4A1B-92C7-2EB9120CAC17}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Menu_Music" ID="{02B69B78-A523-4A28-9172-06217DF96105}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Menu_Button_Select" ID="{612E6024-2036-4A9C-BFD3-06FC4C7C909D}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Player_Move_START" ID="{16B7FC00-8456-4C76-936A-7AD6C93D8969}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Item_PickUp" ID="{979DF678-7111-4D1C-9F8C-811A36F33EF4}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Item_PopDown" ID="{9730CCAD-5AED-4E41-BD94-89DB1931B162}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Broken_Room" ID="{65F95DCB-3220-4F33-A79B-81458E1857E6}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Craft_HydroDoor" ID="{DE248C87-1DA9-4F8B-A8EF-54D6F160443D}" WorkUnitID="{FAD2F690-59F8-456F-BF28-34CD478DCB38}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
