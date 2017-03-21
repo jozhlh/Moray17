@@ -30,18 +30,21 @@ public class HullController : MonoBehaviour {
 	void Start() {
 		// put the ship model in the up position.
 		hullModels.transform.position = upTransform.position;
+		hullModels.SetActive(false);
 		isUp_ = true;
 	}
-
+	
 	private void Update() {
 		if (isMoving_) {
-
 			hullModels.transform.position = LittleLot.MathUtil.SmoothLerp(
 				startPosition_,
 				endPosition_,
 				startTime_,
 				transitionTime,
 				out isMoving_);
+			if(isUp_ && !isMoving_) {
+				hullModels.SetActive(false);
+			}
 		}
 	}
 
@@ -59,6 +62,7 @@ public class HullController : MonoBehaviour {
 			EventManager.NameChanged(EventManager.NameUpdateType.WorldName);
 		}
 	}
+
 
 	/// <summary>
 	/// Starts the animation for moving the Spaceship outer hull out of view.
@@ -78,6 +82,7 @@ public class HullController : MonoBehaviour {
 	/// </summary>
 	public void MoveDown() {
 		if (isUp_) {
+			hullModels.SetActive(true);
 			isUp_ = false;
 			isMoving_ = true;
 			startTime_ = Time.time;

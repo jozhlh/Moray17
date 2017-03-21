@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4285315996192956}
-  - component: {fileID: 198299312364566444}
-  - component: {fileID: 199603794611429524}
   - component: {fileID: 114597792260369312}
+  - component: {fileID: 199603794611429524}
+  - component: {fileID: 198299312364566444}
   m_Layer: 0
   m_Name: Beam
   m_TagString: Untagged
@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 937ba0b6b1a562941845673e37f28323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitForWinDelay: 3
 --- !u!198 &198299312364566444
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -139,12 +140,12 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -101800277
+  randomSeed: 2050259061
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
-      scalar: 7
+      scalar: 1000
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -618,7 +619,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 100
+      scalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2776,12 +2777,12 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -79594551
+  randomSeed: 134258302
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
-      scalar: 15
+      scalar: 100
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3811,7 +3812,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     y:
-      scalar: 2
+      scalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4217,9 +4218,9 @@ ParticleSystem:
     inWorldSpace: 0
     dampen: 1
   NoiseModule:
-    enabled: 0
+    enabled: 1
     strength:
-      scalar: 1
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4297,7 +4298,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     strengthZ:
-      scalar: 1
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4335,12 +4336,12 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
-    separateAxes: 0
+    separateAxes: 1
     frequency: 0.5
     damping: 1
-    octaves: 1
-    octaveMultiplier: 0.5
-    octaveScale: 2
+    octaves: 4
+    octaveMultiplier: 0.6
+    octaveScale: 1.34
     quality: 2
     scrollSpeed:
       scalar: 0

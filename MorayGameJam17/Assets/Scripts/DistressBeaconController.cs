@@ -3,10 +3,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(ParticleSystem))]
 public class DistressBeaconController : MonoBehaviour {
+	[SerializeField]
+	float waitForWinDelay = 4.0f;
 
-	ParticleSystem particleBeam = null;
-
-	float waitForWinDelay = 3.0f;
+	ParticleSystem particleBeam = null;	
 
 	private void Start() {
 		particleBeam = GetComponent<ParticleSystem>();

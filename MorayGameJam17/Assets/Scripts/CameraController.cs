@@ -26,11 +26,11 @@ public class CameraController : MonoBehaviour {
 	}
 
 	private void OnEnable() {
-		EventManager.OnShipFixed += OnShipFixed;
+		EventManager.OnShipFixed += StartMovingToDistressBeacon;
 	}
 
 	private void OnDisable() {
-		EventManager.OnShipFixed -= OnShipFixed;
+		EventManager.OnShipFixed -= StartMovingToDistressBeacon;
 	}
 
 	/// <summary>
@@ -61,7 +61,7 @@ public class CameraController : MonoBehaviour {
 	/// Start the camera moving towards the distress beacon at its initial position.
 	/// When the ship has been fixed .
 	/// </summary>
-	private void OnShipFixed() {
+	private void StartMovingToDistressBeacon() {
 		isFollowingRobot_ = false;
 		isMovingToDistressBeacon_ = true;
 
