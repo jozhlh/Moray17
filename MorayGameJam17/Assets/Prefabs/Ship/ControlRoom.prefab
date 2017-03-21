@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4898449446339164}
   - component: {fileID: 33762725381247066}
   - component: {fileID: 23527812766806682}
-  - component: {fileID: 64966689767599408}
+  - component: {fileID: 65034844994692812}
   - component: {fileID: 114800232070102796}
   m_Layer: 0
   m_Name: ErrorIcon
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 4416104123155110}
   - component: {fileID: 33585636838876276}
   - component: {fileID: 23999112719306754}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: UseIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 222871797087710278}
   - component: {fileID: 114882014196698026}
   - component: {fileID: 114856550809226670}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 223071973258345784}
   - component: {fileID: 114132423002693670}
   - component: {fileID: 114676446655594868}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,8 +431,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64966689767599408
-MeshCollider:
+--- !u!65 &65034844994692812
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -441,10 +441,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 426fea8a0385848b3b50521ee6add08b, type: 3}
+  m_Size: {x: 40, y: 30.000002, z: 2.0000021}
+  m_Center: {x: 0.000030763447, y: 15, z: 0.00000044703484}
 --- !u!65 &65241350613956278
 BoxCollider:
   m_ObjectHideFlags: 1

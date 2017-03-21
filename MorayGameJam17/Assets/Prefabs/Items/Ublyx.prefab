@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4006250186976822}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: AnimationTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 222614269108061594}
   - component: {fileID: 114388906338706754}
   - component: {fileID: 114165574420786754}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,8 +71,9 @@ GameObject:
   - component: {fileID: 4485548059161768}
   - component: {fileID: 33158974169007464}
   - component: {fileID: 23869285089146036}
+  - component: {fileID: 64563024554733782}
   - component: {fileID: 114284686582212598}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: PickUpModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +91,7 @@ GameObject:
   - component: {fileID: 223673773191258630}
   - component: {fileID: 114293699656975126}
   - component: {fileID: 114401464647051832}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: PickUpCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +123,7 @@ GameObject:
   - component: {fileID: 4159611662547672}
   - component: {fileID: 135027318659193314}
   - component: {fileID: 114059989417979454}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Ublyx
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -305,6 +306,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1984000471704804}
   m_Mesh: {fileID: 4300000, guid: 4c0056923d2d841089f9bdddbc155d2c, type: 3}
+--- !u!64 &64563024554733782
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1590013426988606}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 91a4c86e838ece141bd58a64b0b90c9f, type: 3}
 --- !u!114 &114059989417979454
 MonoBehaviour:
   m_ObjectHideFlags: 1

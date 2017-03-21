@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4606984094095014}
   - component: {fileID: 33370012007660702}
   - component: {fileID: 23043506950244888}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4730307754493046}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: grabIcon2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 222186713880787336}
   - component: {fileID: 114898639078798790}
   - component: {fileID: 114275136941366378}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 223674198259514572}
   - component: {fileID: 114723571134230780}
   - component: {fileID: 114727505406511258}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: PickUpCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 4946353229468010}
   - component: {fileID: 33514136329167324}
   - component: {fileID: 23990656719166108}
+  - component: {fileID: 64234512648461682}
   - component: {fileID: 114434982967191104}
   m_Layer: 0
   m_Name: PickUpModel
@@ -304,6 +305,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1884468389905872}
+  m_Mesh: {fileID: 4300000, guid: ffb3a643486a89f4f86007d3e229a57c, type: 3}
+--- !u!64 &64234512648461682
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1884468389905872}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: ffb3a643486a89f4f86007d3e229a57c, type: 3}
 --- !u!114 &114275136941366378
 MonoBehaviour:

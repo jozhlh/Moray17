@@ -99,15 +99,21 @@ public class WwiseSoundBankWindow : EditorWindow {
 
 		//get soundbank location in the Wwise project for the current platform target
 		string sourceSoundBankFolder = Path.Combine(wwiseProjectFolder, AkBasePathGetter.GetPlatformBasePath());
+		
+		//get soundbank location in the Wwise project for the current platform target
+		sourceSoundBankFolder = Path.Combine(wwiseProjectFolder + Path.DirectorySeparatorChar, "GeneratedSoundBanks");
+		sourceSoundBankFolder = Path.Combine(sourceSoundBankFolder + Path.DirectorySeparatorChar, wwisePlatformString );
+		Debug.Log(sourceSoundBankFolder);
 
 		//get soundbank destination in the Unity project for the current platform target
-		string destinationSoundBankFolder = Path.Combine(Application.dataPath + "\\StreamingAssets",
+		string destinationSoundBankFolder = Path.Combine(Application.dataPath + Path.DirectorySeparatorChar + "StreamingAssets",
 			Path.Combine(WwiseSetupWizard.Settings.SoundbankPath, wwisePlatformString));
 
 		// loop through soundbanks and copy them over.
-		foreach (string soundBank in soundBanks) {
+		foreach (string soundBank in soundBanks) {			
 			string sourcefile = Path.Combine(sourceSoundBankFolder, soundBank);
 			string destinationfile = Path.Combine(destinationSoundBankFolder, soundBank);
+			
 			FileUtil.CopyFileOrDirectory(sourcefile, destinationfile);
 
 		}

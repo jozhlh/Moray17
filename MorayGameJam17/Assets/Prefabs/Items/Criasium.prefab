@@ -38,8 +38,9 @@ GameObject:
   - component: {fileID: 4441438824263074}
   - component: {fileID: 33809229324373392}
   - component: {fileID: 23266416814297364}
+  - component: {fileID: 64093452809263466}
   - component: {fileID: 114377696349197470}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: PickUpModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +57,7 @@ GameObject:
   - component: {fileID: 4707695581358826}
   - component: {fileID: 135390588399608368}
   - component: {fileID: 114920643917427568}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Criasium
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -74,7 +75,7 @@ GameObject:
   - component: {fileID: 223400134627732900}
   - component: {fileID: 114770528857965462}
   - component: {fileID: 114815780491068920}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: PickUpCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +107,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4428144449956842}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: AnimationTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +125,7 @@ GameObject:
   - component: {fileID: 222033655856303208}
   - component: {fileID: 114581438295206798}
   - component: {fileID: 114755609896379976}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,6 +305,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1375775841265984}
+  m_Mesh: {fileID: 4300000, guid: e361a35c4ad48cd4cb50e9f3665c712b, type: 3}
+--- !u!64 &64093452809263466
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1375775841265984}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: e361a35c4ad48cd4cb50e9f3665c712b, type: 3}
 --- !u!114 &114377696349197470
 MonoBehaviour:

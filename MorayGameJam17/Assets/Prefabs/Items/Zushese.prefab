@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 223220288778627384}
   - component: {fileID: 114148238829372162}
   - component: {fileID: 114983389476605604}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: PickUpCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,8 +56,9 @@ GameObject:
   - component: {fileID: 4668328328172366}
   - component: {fileID: 33320978756729168}
   - component: {fileID: 23170909863377668}
+  - component: {fileID: 64456951006924214}
   - component: {fileID: 114344454739426904}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: PickUpModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +75,7 @@ GameObject:
   - component: {fileID: 4158874226796974}
   - component: {fileID: 135703718865509194}
   - component: {fileID: 114604844547141806}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Zushese
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -109,7 +110,7 @@ GameObject:
   - component: {fileID: 222991839223911684}
   - component: {fileID: 114137474526468528}
   - component: {fileID: 114099563376171240}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +140,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4800724200613540}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: AnimationTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,6 +306,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1403197332592516}
   m_Mesh: {fileID: 4300000, guid: 4c0056923d2d841089f9bdddbc155d2c, type: 3}
+--- !u!64 &64456951006924214
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1634571103193734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 0f99ca1e7852e7b4db1ef781b727c919, type: 3}
 --- !u!114 &114099563376171240
 MonoBehaviour:
   m_ObjectHideFlags: 1
