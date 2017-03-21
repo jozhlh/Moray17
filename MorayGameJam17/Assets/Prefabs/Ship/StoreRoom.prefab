@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33004207161666526}
   - component: {fileID: 23245793684204850}
   - component: {fileID: 64284559123123934}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,8 +39,9 @@ GameObject:
   - component: {fileID: 4683366695467226}
   - component: {fileID: 33810744416664590}
   - component: {fileID: 23476296050146604}
+  - component: {fileID: 64012496598854548}
   - component: {fileID: 114785686116815428}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: ErrorIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +58,7 @@ GameObject:
   - component: {fileID: 4967256248278294}
   - component: {fileID: 114159370739035532}
   - component: {fileID: 65943630412503810}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: ServicePort
   m_TagString: Port
   m_Icon: {fileID: 0}
@@ -75,7 +76,7 @@ GameObject:
   - component: {fileID: 222910278855657898}
   - component: {fileID: 114180739978297770}
   - component: {fileID: 114482651673346656}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +93,7 @@ GameObject:
   - component: {fileID: 4594915355799904}
   - component: {fileID: 114680105674637212}
   - component: {fileID: 54546643868029706}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: StoreRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +110,8 @@ GameObject:
   - component: {fileID: 4523970187522616}
   - component: {fileID: 33902766792469058}
   - component: {fileID: 23900530039322018}
-  m_Layer: 2
+  - component: {fileID: 64245469320326122}
+  m_Layer: 0
   m_Name: UseIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +126,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4522966933370358}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: IdleTag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +143,7 @@ GameObject:
   - component: {fileID: 4637718524545502}
   - component: {fileID: 33010665423848128}
   - component: {fileID: 23658258574065152}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +161,7 @@ GameObject:
   - component: {fileID: 223689310849512396}
   - component: {fileID: 114965579099559142}
   - component: {fileID: 114471153718791206}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,6 +433,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &64012496598854548
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1257359996642096}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 1
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 426fea8a0385848b3b50521ee6add08b, type: 3}
+--- !u!64 &64245469320326122
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1646135152616418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 1
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 0baaa05348c564f85809f86e1f67bbc0, type: 3}
 --- !u!64 &64284559123123934
 MeshCollider:
   m_ObjectHideFlags: 1

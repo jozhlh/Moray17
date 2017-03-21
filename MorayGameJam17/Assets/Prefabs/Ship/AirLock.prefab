@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4306019711760848}
   - component: {fileID: 114391086873642270}
   - component: {fileID: 54478672705826356}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: AirLock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,8 +38,9 @@ GameObject:
   - component: {fileID: 4805246944633740}
   - component: {fileID: 33046018978357936}
   - component: {fileID: 23209526159438458}
+  - component: {fileID: 64937209696945284}
   - component: {fileID: 114462964164453342}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: ErrorIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +58,7 @@ GameObject:
   - component: {fileID: 222170865725762114}
   - component: {fileID: 114195127722485318}
   - component: {fileID: 114721025029296900}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +73,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4017804396736766}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: IdleTag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +90,7 @@ GameObject:
   - component: {fileID: 4042974750177442}
   - component: {fileID: 33836746717913878}
   - component: {fileID: 23600363085050268}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +108,7 @@ GameObject:
   - component: {fileID: 223279721397976778}
   - component: {fileID: 114024510380597912}
   - component: {fileID: 114480427087393964}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +125,8 @@ GameObject:
   - component: {fileID: 4173091688587958}
   - component: {fileID: 33662197180828826}
   - component: {fileID: 23561894712845464}
-  m_Layer: 2
+  - component: {fileID: 64634812515175130}
+  m_Layer: 0
   m_Name: UseIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +143,7 @@ GameObject:
   - component: {fileID: 4919930012746618}
   - component: {fileID: 33604012712716256}
   - component: {fileID: 23697538121171598}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +160,7 @@ GameObject:
   - component: {fileID: 4881189123180312}
   - component: {fileID: 114083466263849174}
   - component: {fileID: 65569839021896768}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: ServicePort
   m_TagString: Port
   m_Icon: {fileID: 0}
@@ -215,8 +217,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4919930012746618}
-  - {fileID: 4805246944633740}
   - {fileID: 4881189123180312}
+  - {fileID: 4805246944633740}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
@@ -232,7 +234,7 @@ Transform:
   m_Children:
   - {fileID: 4017804396736766}
   m_Father: {fileID: 4306019711760848}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4881189123180312
 Transform:
@@ -248,7 +250,7 @@ Transform:
   - {fileID: 4173091688587958}
   - {fileID: 224454763191440874}
   m_Father: {fileID: 4306019711760848}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
 --- !u!4 &4919930012746618
 Transform:
@@ -430,6 +432,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &64634812515175130
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1660686541523140}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 1
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 0baaa05348c564f85809f86e1f67bbc0, type: 3}
+--- !u!64 &64937209696945284
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1081531602561006}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 1
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 426fea8a0385848b3b50521ee6add08b, type: 3}
 --- !u!65 &65569839021896768
 BoxCollider:
   m_ObjectHideFlags: 1

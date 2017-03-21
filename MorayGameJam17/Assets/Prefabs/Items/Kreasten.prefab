@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 223665753419167824}
   - component: {fileID: 114470302709941864}
   - component: {fileID: 114155211832217536}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: PickUpCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,8 +54,9 @@ GameObject:
   - component: {fileID: 4839890127143998}
   - component: {fileID: 33581627246957622}
   - component: {fileID: 23135608537281738}
+  - component: {fileID: 64535703989868716}
   - component: {fileID: 114584246866114468}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: PickUpModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,6 +73,7 @@ GameObject:
   - component: {fileID: 4385089957116852}
   - component: {fileID: 33466296313081768}
   - component: {fileID: 23623461519032924}
+  - component: {fileID: 64198622168870840}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -89,7 +91,7 @@ GameObject:
   - component: {fileID: 4988625644834002}
   - component: {fileID: 135291161150294292}
   - component: {fileID: 114318231848444740}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Kreasten
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -107,7 +109,7 @@ GameObject:
   - component: {fileID: 222927100755521488}
   - component: {fileID: 114487794643073694}
   - component: {fileID: 114697711165315574}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +124,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4251110820636632}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: AnimationTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,6 +306,34 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1358808811712900}
+  m_Mesh: {fileID: 4300000, guid: 7e0bf473d1f3bfe4fa691f1a102b648d, type: 3}
+--- !u!64 &64198622168870840
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1402602831856194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 1
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 4c0056923d2d841089f9bdddbc155d2c, type: 3}
+--- !u!64 &64535703989868716
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1358808811712900}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 7e0bf473d1f3bfe4fa691f1a102b648d, type: 3}
 --- !u!114 &114155211832217536
 MonoBehaviour:

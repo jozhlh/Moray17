@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 223705510787342282}
   - component: {fileID: 114768004834328228}
   - component: {fileID: 114209164352000466}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: PickUpCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 222422770822577172}
   - component: {fileID: 114561026475607158}
   - component: {fileID: 114350331701682772}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,8 +89,9 @@ GameObject:
   - component: {fileID: 4277279585261636}
   - component: {fileID: 33666323611123560}
   - component: {fileID: 23587019690974510}
+  - component: {fileID: 64448162168648780}
   - component: {fileID: 114171334889271664}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: PickUpModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +106,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4940683185387822}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: AnimationTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,6 +123,7 @@ GameObject:
   - component: {fileID: 4098646184858440}
   - component: {fileID: 33397163683722660}
   - component: {fileID: 23279145351067114}
+  - component: {fileID: 64185339351039384}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -139,7 +141,7 @@ GameObject:
   - component: {fileID: 4605431550756412}
   - component: {fileID: 135437208395089838}
   - component: {fileID: 114654837055132940}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Tryytium
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -181,7 +183,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1993574595225400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.42, y: 2.15, z: 21.93}
+  m_LocalPosition: {x: 18.12, y: 2.15, z: 18.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4277279585261636}
@@ -304,6 +306,34 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1834596663323244}
+  m_Mesh: {fileID: 4300000, guid: 7a7b66ca7aa897e4faa32978d9e79593, type: 3}
+--- !u!64 &64185339351039384
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967316263379178}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 1
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 4c0056923d2d841089f9bdddbc155d2c, type: 3}
+--- !u!64 &64448162168648780
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1834596663323244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 7a7b66ca7aa897e4faa32978d9e79593, type: 3}
 --- !u!114 &114171334889271664
 MonoBehaviour:

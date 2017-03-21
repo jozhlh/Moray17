@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4532355124108782}
   - component: {fileID: 114470090177569358}
   - component: {fileID: 65450215275740786}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: ServicePort
   m_TagString: Port
   m_Icon: {fileID: 0}
@@ -38,8 +38,9 @@ GameObject:
   - component: {fileID: 4496932441707308}
   - component: {fileID: 33075194594396030}
   - component: {fileID: 23910741983039140}
+  - component: {fileID: 64324112424601872}
   - component: {fileID: 114891520779743852}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: ErrorIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +57,7 @@ GameObject:
   - component: {fileID: 4038210447900432}
   - component: {fileID: 114057435603953800}
   - component: {fileID: 54665320075946334}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Bathroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +74,7 @@ GameObject:
   - component: {fileID: 4372381858003230}
   - component: {fileID: 33187415610664474}
   - component: {fileID: 23135902294660816}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +91,7 @@ GameObject:
   - component: {fileID: 4992412159888026}
   - component: {fileID: 33337912652018596}
   - component: {fileID: 23022551607494362}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +106,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4540640361139850}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: IdleTag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +124,7 @@ GameObject:
   - component: {fileID: 222101511920325526}
   - component: {fileID: 114216032863384338}
   - component: {fileID: 114061933847419638}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +141,8 @@ GameObject:
   - component: {fileID: 4596323708170694}
   - component: {fileID: 33100044450258890}
   - component: {fileID: 23845126706790054}
-  m_Layer: 2
+  - component: {fileID: 64423175759724470}
+  m_Layer: 0
   m_Name: UseIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +157,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4635652718990086}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Room_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +175,7 @@ GameObject:
   - component: {fileID: 223190451832434798}
   - component: {fileID: 114959592449524542}
   - component: {fileID: 114542823624310234}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,8 +194,8 @@ Transform:
   m_Children:
   - {fileID: 4372381858003230}
   - {fileID: 4635652718990086}
-  - {fileID: 4496932441707308}
   - {fileID: 4532355124108782}
+  - {fileID: 4496932441707308}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
@@ -222,7 +224,7 @@ Transform:
   m_Children:
   - {fileID: 4540640361139850}
   m_Father: {fileID: 4038210447900432}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4532355124108782
 Transform:
@@ -238,7 +240,7 @@ Transform:
   - {fileID: 4596323708170694}
   - {fileID: 224821887708145638}
   m_Father: {fileID: 4038210447900432}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
 --- !u!4 &4540640361139850
 Transform:
@@ -459,6 +461,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &64324112424601872
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1124454156770874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 1
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 426fea8a0385848b3b50521ee6add08b, type: 3}
+--- !u!64 &64423175759724470
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518392552234900}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 1
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 0baaa05348c564f85809f86e1f67bbc0, type: 3}
 --- !u!65 &65450215275740786
 BoxCollider:
   m_ObjectHideFlags: 1

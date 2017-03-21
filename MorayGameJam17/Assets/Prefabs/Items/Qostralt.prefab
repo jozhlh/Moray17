@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 223550001755587042}
   - component: {fileID: 114018558966580648}
   - component: {fileID: 114827355717370400}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: PickUpCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 222062865924204880}
   - component: {fileID: 114936237378628060}
   - component: {fileID: 114194983837205878}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4470171341916434}
   - component: {fileID: 33264889190254402}
   - component: {fileID: 23321764216249220}
+  - component: {fileID: 64996587794803026}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -91,8 +92,9 @@ GameObject:
   - component: {fileID: 4141808419490410}
   - component: {fileID: 33832533099993542}
   - component: {fileID: 23429789905312368}
+  - component: {fileID: 64973824089478580}
   - component: {fileID: 114348846092143526}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: PickUpModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +109,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4674154515506362}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: AnimationTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +126,7 @@ GameObject:
   - component: {fileID: 4826768180435158}
   - component: {fileID: 135356810740739384}
   - component: {fileID: 114519057196512104}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Qostralt
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -305,6 +307,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578431463081552}
   m_Mesh: {fileID: 4300000, guid: d9a9be4c75b2f1a47888a1267437bdae, type: 3}
+--- !u!64 &64973824089478580
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578431463081552}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: d9a9be4c75b2f1a47888a1267437bdae, type: 3}
+--- !u!64 &64996587794803026
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1466652497090972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 1
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 4c0056923d2d841089f9bdddbc155d2c, type: 3}
 --- !u!114 &114018558966580648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -525,7 +555,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -97561814
+  randomSeed: 1370387393
   InitialModule:
     serializedVersion: 3
     enabled: 1

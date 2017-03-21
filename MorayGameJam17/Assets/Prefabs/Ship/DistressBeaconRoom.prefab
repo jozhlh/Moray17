@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4927065361629132}
   - component: {fileID: 114893139454527068}
   - component: {fileID: 54155637305733556}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: DistressBeaconRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4236364418852912}
   - component: {fileID: 33097680340580330}
   - component: {fileID: 23363745895497608}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,8 +55,9 @@ GameObject:
   - component: {fileID: 4919433461565358}
   - component: {fileID: 33603545623945408}
   - component: {fileID: 23666264095058584}
+  - component: {fileID: 64130521498339292}
   - component: {fileID: 114312554389608952}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: ErrorIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +74,8 @@ GameObject:
   - component: {fileID: 4285329971573482}
   - component: {fileID: 33647256995085892}
   - component: {fileID: 23153880813939250}
-  m_Layer: 2
+  - component: {fileID: 64924054499472106}
+  m_Layer: 0
   m_Name: UseIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +92,7 @@ GameObject:
   - component: {fileID: 4688386945561576}
   - component: {fileID: 114161584765956722}
   - component: {fileID: 65701788692302580}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: ServicePort
   m_TagString: Port
   m_Icon: {fileID: 0}
@@ -107,7 +109,7 @@ GameObject:
   - component: {fileID: 4574996567869428}
   - component: {fileID: 33554130243470114}
   - component: {fileID: 23809680695739784}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +127,7 @@ GameObject:
   - component: {fileID: 222075260263764000}
   - component: {fileID: 114316056708695742}
   - component: {fileID: 114618420694889920}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +145,7 @@ GameObject:
   - component: {fileID: 223179056273399590}
   - component: {fileID: 114013289397003110}
   - component: {fileID: 114354946707676416}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +160,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4701965749069224}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: IdleTag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +220,7 @@ Transform:
   - {fileID: 4285329971573482}
   - {fileID: 224648246113350648}
   m_Father: {fileID: 4927065361629132}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
 --- !u!4 &4701965749069224
 Transform:
@@ -245,7 +247,7 @@ Transform:
   m_Children:
   - {fileID: 4701965749069224}
   m_Father: {fileID: 4927065361629132}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4927065361629132
 Transform:
@@ -258,8 +260,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4574996567869428}
-  - {fileID: 4919433461565358}
   - {fileID: 4688386945561576}
+  - {fileID: 4919433461565358}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
@@ -430,6 +432,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &64130521498339292
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129801481341648}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 1
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 426fea8a0385848b3b50521ee6add08b, type: 3}
+--- !u!64 &64924054499472106
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1235658296221234}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 1
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 0baaa05348c564f85809f86e1f67bbc0, type: 3}
 --- !u!65 &65701788692302580
 BoxCollider:
   m_ObjectHideFlags: 1

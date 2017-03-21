@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33750207094792892}
   - component: {fileID: 23366558152692644}
   - component: {fileID: 64024723243518706}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4566640325873540}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Corrider_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
+  m_Convex: 1
+  m_InflateMesh: 1
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 339bc2b4a73464d618158f7cb3b82319, type: 3}
