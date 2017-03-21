@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4496932441707308}
   - component: {fileID: 33075194594396030}
   - component: {fileID: 23910741983039140}
-  - component: {fileID: 64324112424601872}
+  - component: {fileID: 65248183657916922}
   - component: {fileID: 114891520779743852}
   m_Layer: 0
   m_Name: ErrorIcon
@@ -141,7 +141,6 @@ GameObject:
   - component: {fileID: 4596323708170694}
   - component: {fileID: 33100044450258890}
   - component: {fileID: 23845126706790054}
-  - component: {fileID: 64423175759724470}
   m_Layer: 0
   m_Name: UseIcon
   m_TagString: Untagged
@@ -219,7 +218,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1124454156770874}
   m_LocalRotation: {x: 0.25000006, y: -0.24999997, z: 0.066987306, w: 0.9330127}
-  m_LocalPosition: {x: -3.7025478, y: 5.6099997, z: 0.85300636}
+  m_LocalPosition: {x: -3.44, y: 5.6099997, z: 0.4}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.10000001}
   m_Children:
   - {fileID: 4540640361139850}
@@ -461,8 +460,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64324112424601872
-MeshCollider:
+--- !u!65 &65248183657916922
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -471,24 +470,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 1
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 426fea8a0385848b3b50521ee6add08b, type: 3}
---- !u!64 &64423175759724470
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1518392552234900}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 1
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 0baaa05348c564f85809f86e1f67bbc0, type: 3}
+  m_Size: {x: 40, y: 30.000002, z: 2.0000021}
+  m_Center: {x: 0.000015504658, y: 15, z: 0.00000044703484}
 --- !u!65 &65450215275740786
 BoxCollider:
   m_ObjectHideFlags: 1

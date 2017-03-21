@@ -1,20 +1,27 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
+class MovingCameraPoints {
+	public Transform cameraPosition =null;
+	public float transitionTime = 12.0f;
+}
+
 public class CreditsRolling : MonoBehaviour {
 	[SerializeField]
 	Camera sceneCamera = null;
-
 	[SerializeField]
-	float transitionTime = 12.0f;
-
-	[SerializeField]
-	Transform finalCameraPosition = null;
+	MovingCameraPoints[] cameraPoints;
 
 	private Vector3 startPosition_ = Vector3.zero;
+	private Vector3 endPosition_ = Vector3.zero;
 
 	private float startTime_ =0;
+	private float transitionTime_ = 0;
+
 
 	private bool isRollingCredits_ = false;
+
+	private int currentCamera_ =0;
 
 	private void OnEnable() {
 		EventManager.OnGameCompletion += StartRollingCredits;
@@ -29,10 +36,20 @@ public class CreditsRolling : MonoBehaviour {
 		if (isRollingCredits_) {
 			sceneCamera.transform.position = LittleLot.MathUtil.SmoothLerp(
 					startPosition_,
-					finalCameraPosition.position,
+					endPosition_,
 					startTime_,
-					transitionTime,
-					out isRollingCredits_);			
+					transitionTime_,
+					out isRollingCredits_);
+			if (!isRollingCredits_) {
+				currentCamera_++;
+				if(currentCamera_ < cameraPoints.Length) {
+					isRollingCredits_ = true;
+					startTime_ = Time.time;
+					transitionTime_ = cameraPoints[currentCamera_].transitionTime;
+					endPosition_ = cameraPoints[currentCamera_].cameraPosition.position;
+					startPosition_ = sceneCamera.transform.position;
+				}
+			}		
 		}
 	}
 
@@ -42,6 +59,8 @@ public class CreditsRolling : MonoBehaviour {
 	private void StartRollingCredits() {
 		isRollingCredits_ = true;
 		startTime_ = Time.time;
+		transitionTime_ = cameraPoints[currentCamera_].transitionTime;
+		endPosition_ = cameraPoints[currentCamera_].cameraPosition.position;
 		startPosition_ = sceneCamera.transform.position;
 	}
 }

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4130883419255872}
   - component: {fileID: 33922552393613624}
   - component: {fileID: 23468271033815160}
-  - component: {fileID: 64209621138898544}
+  - component: {fileID: 65742432739972406}
   - component: {fileID: 114606793815055266}
   m_Layer: 0
   m_Name: ErrorIcon
@@ -57,7 +57,6 @@ GameObject:
   - component: {fileID: 4605733792974718}
   - component: {fileID: 33572246674405192}
   - component: {fileID: 23685473014783992}
-  - component: {fileID: 64502267800151186}
   m_Layer: 0
   m_Name: UseIcon
   m_TagString: Untagged
@@ -432,8 +431,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64209621138898544
-MeshCollider:
+--- !u!65 &65742432739972406
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -442,24 +441,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 1
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 426fea8a0385848b3b50521ee6add08b, type: 3}
---- !u!64 &64502267800151186
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1171003480543916}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 1
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 0baaa05348c564f85809f86e1f67bbc0, type: 3}
+  m_Size: {x: 40, y: 30.000002, z: 2.0000021}
+  m_Center: {x: 0.000030763447, y: 15.0000305, z: -0.000030070543}
 --- !u!65 &65924686635361828
 BoxCollider:
   m_ObjectHideFlags: 1
