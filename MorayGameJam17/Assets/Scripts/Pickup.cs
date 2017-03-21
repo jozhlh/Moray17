@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -29,6 +30,8 @@ public class Pickup : MonoBehaviour {
 	[SerializeField]
 	Canvas interactableCanvas = null;
 	[SerializeField]
+	Text itemNameText =null;
+	[SerializeField]
 	GameObject iconModel = null;
 
 	Vector3 initialPosition_ = Vector3.zero;
@@ -47,14 +50,15 @@ public class Pickup : MonoBehaviour {
 		initialPosition_ = transform.position;
 		name = garbageName;
 		dropEffect_ = GetComponentInChildren<ParticleSystem>();
+		itemNameText.text = sensibleName;
 	}
 
 #if UNITY_EDITOR
 	/// <summary>
 	/// Draws Gizmo of item name in editor.
 	/// </summary>
-	void OnDrawGizmos() {
-		Handles.Label(transform.position, sensibleName);
+	void OnValidate() {		
+		itemNameText.text = sensibleName;
 	}
 #endif
 
@@ -71,6 +75,9 @@ public class Pickup : MonoBehaviour {
 	/// </summary>
 	public void ShowPopUp() {
 		interactableCanvas.enabled = true;
+		if (hasRespawned_) {
+			itemNameText.enabled = true;
+		}		
 		iconModel.SetActive(true);
 		SoundManager.PlayEvent("Item_PopUp", gameObject);
 	}
@@ -80,6 +87,7 @@ public class Pickup : MonoBehaviour {
 	/// </summary>
 	public void HidePopUp() {
 		interactableCanvas.enabled = false;
+		itemNameText.enabled = false;
 		iconModel.SetActive(false);
 		SoundManager.PlayEvent("Item_PopUp", gameObject);
 	}
