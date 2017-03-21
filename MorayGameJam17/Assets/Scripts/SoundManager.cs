@@ -8,9 +8,6 @@ public class SoundManager : MonoBehaviour {
 	[SerializeField]
 	string backgroundMusic  = "Level_Music";
 	
-	private uint bankID;
-	private uint initBankID;
-	
 	private void Start() {
 		Initialise();
 		PlayEvent(backgroundMusic, gameObject);
@@ -24,6 +21,9 @@ public class SoundManager : MonoBehaviour {
 	/// Setup WWise and load Sound Banks.
 	/// </summary>
 	private void Initialise() {
+		uint bankID;
+		uint initBankID;
+
 		// Import Initialisation Soundbank
 		AkSoundEngine.LoadBank("Init", AkSoundEngine.AK_DEFAULT_POOL_ID, out initBankID);
 		// Import Soundbank

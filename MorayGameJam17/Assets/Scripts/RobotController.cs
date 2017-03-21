@@ -134,8 +134,7 @@ public class RobotController : MonoBehaviour {
 		}
 		else if (collidedGameObject.tag == "Port") {
 			// remove the popup and remove the link to it
-			if (currentItem_) {
-				ServicePort currentPort = collidedGameObject.GetComponent<ServicePort>();
+			if (currentItem_) {				
 				collidedGameObject.GetComponent<ServicePort>().HidePopUp();
 
 			}
