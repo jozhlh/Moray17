@@ -23,6 +23,9 @@ public class DebugUi : MonoBehaviour {
 	[SerializeField]
 	Button fakeWin = null;
 	
+	[SerializeField]
+	Button closeDebug = null;
+
 	bool isPanelVisible = false;
 
 	/// <summary>
@@ -34,7 +37,8 @@ public class DebugUi : MonoBehaviour {
 		
 		reloadScene.onClick.AddListener(ReloadScene);
 				
-		fakeWin.onClick.AddListener(FakeWin);	
+		fakeWin.onClick.AddListener(FakeWin);
+		closeDebug.onClick.AddListener(CloseDebugPanel);
 	}
 
 	/// <summary>
@@ -43,7 +47,8 @@ public class DebugUi : MonoBehaviour {
 	private void OnDestroy() {
 		restartGame.onClick.RemoveListener(RestartGame);
 		reloadScene.onClick.RemoveListener(ReloadScene);		
-		fakeWin.onClick.AddListener(FakeWin);	
+		fakeWin.onClick.RemoveListener(FakeWin);
+		closeDebug.onClick.RemoveListener(CloseDebugPanel);
 	}
 
 	/// <summary>
