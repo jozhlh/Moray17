@@ -1,6 +1,14 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Framework of Common Use Classes and functions for Unity.
+/// @StewMcc 09/04/2017
+/// </summary>
 namespace LittleLot {
+
+	/// <summary>
+	/// Simple Utilities class that exposes some common math functions.
+	/// </summary>
 	public class MathUtil : MonoBehaviour {
 
 		/// <summary>
@@ -41,7 +49,7 @@ namespace LittleLot {
 		/// <param name="transitionTime"> The maximum amount of time it should take to complete. </param>		
 		/// <returns> New position between points. </returns>
 		public static Vector3 SmoothPingPongLerp(Vector3 startPosition, Vector3 endPosition, float transitionTime) {
-			
+
 			// lerped animation between 2 points.
 			return Vector3.Lerp(startPosition, endPosition,
 				Mathf.SmoothStep(0f, 1f, Mathf.PingPong(Time.time / transitionTime, 1f)));

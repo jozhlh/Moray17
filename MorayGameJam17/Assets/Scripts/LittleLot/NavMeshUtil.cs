@@ -1,7 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
-
+/// <summary>
+/// Framework of Common Use Classes and functions for Unity.
+/// @StewMcc 09/04/2017
+/// </summary>
 namespace LittleLot {
+
+	/// <summary>
+	/// Simple Utilities class that exposes some common NavMesh functions.
+	/// </summary>
 	public class NavMeshUtil : MonoBehaviour {
 
 		/// <summary>
