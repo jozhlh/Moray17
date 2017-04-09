@@ -12,11 +12,12 @@ namespace LittleLot {
 	/// Singleton LoadingSceneManager.
 	/// Used for starting and finishing the loading animation.
 	/// As well as destroying the instance of the LoadingSceneManager game object.
+	/// 
+	/// On LoadingRoot, in Loading scene, everything should be under the root game object.
+	/// Requires Screen -Space Canvases to be used, and set to loading system layer.
+	/// Listen to the OnStartFinishLoadingAnimation for when to start the final animation of the loading scene.
 	/// </summary>
 	public class LoadingSceneManager : Singleton<LoadingSceneManager> {
-
-		[SerializeField]
-		Animator loadingAnimator = null;
 
 		[SerializeField]
 		float initialAnimationTime = 0.5f;
@@ -47,7 +48,7 @@ namespace LittleLot {
 		/// <returns> IEnumerator WaitForSeconds, with the seconds of the Animation. </returns>
 		public static IEnumerator StartFinishLoadingAnimation() {
 			// start the finish animation.
-			instance.loadingAnimator.SetBool("finishAnimation", true);
+			EventManagerLoadingSystem.FinishLoadingAnimation();
 
 			// wait for the animation finish.
 			yield return new WaitForSeconds(instance.finishAnimationTime);

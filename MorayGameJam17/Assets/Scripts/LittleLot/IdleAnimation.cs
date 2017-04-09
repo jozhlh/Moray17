@@ -13,51 +13,51 @@ namespace LittleLot {
 
 		[SerializeField]
 		[Tooltip("Used for end rotation, position and scale values, Ensure rotation angles are positive...reasons.")]
-		Transform pingPongTarget = null;
+		protected Transform pingPongTarget = null;
 
 		[Header("Animation")]
 		[SerializeField]
-		bool isAnimated = true;
+		protected bool isAnimated = true;
 
 		[SerializeField]
-		bool isMoving = true;
+		protected bool isMoving = true;
 
 		[SerializeField]
 		[Tooltip("The amount of time in seconds it should take to move to the target.")]
-		float moveToTargetInterval =2.0f;
+		protected float moveToTargetInterval =2.0f;
 
 		[SerializeField]
-		bool isScaling = true;
+		protected bool isScaling = true;
 
 		[SerializeField]
 		[Tooltip("The amount of time in seconds it should take to scale to the targets scale.")]
-		float scaleToTargetInterval =2.0f;
+		protected float scaleToTargetInterval =2.0f;
 
 		[SerializeField]
-		bool isRotating = true;
+		protected bool isRotating = true;
 
 		[SerializeField]
 		[Tooltip("The amount of time in seconds it should take to rotate to the targets rotation.")]
-		float rotateToTargetInterval =2.0f;
+		protected float rotateToTargetInterval =2.0f;
 
-		private Vector3 pingPongMoveTo_;
+		protected Vector3 pingPongMoveTo_;
 
-		private Vector3 pingPongMoveFrom_;
+		protected Vector3 pingPongMoveFrom_;
 
-		private Vector3 pingPongScaleTo_;
+		protected Vector3 pingPongScaleTo_;
 
-		private Vector3 pingPongScaleFrom_;
+		protected Vector3 pingPongScaleFrom_;
 
-		private Vector3 pingPongRotateTo_;
+		protected Vector3 pingPongRotateTo_;
 
-		private Vector3 pingPongRotateFrom_;
+		protected Vector3 pingPongRotateFrom_;
 
-		private bool wasAnimating_ = true;
+		protected bool wasAnimating_ = true;
 
 		/// <summary>
 		/// Store initial start and end points.
 		/// </summary>
-		private void Start() {
+		protected void Start() {
 			SetupPingPongTargets();
 		}
 
@@ -65,7 +65,7 @@ namespace LittleLot {
 		/// Update the animations.
 		/// Moving,rotating and scaling between values.
 		/// </summary>
-		private void Update() {
+		protected void Update() {
 			if (isAnimated && pingPongTarget) {
 				if (isMoving) {
 					PingPongMoveToTarget();
@@ -77,20 +77,6 @@ namespace LittleLot {
 					PingPongScaleToTarget();
 				}
 			}
-		}
-
-		/// <summary>
-		/// Stores the initial to and from targets for animations.
-		/// </summary>
-		private void SetupPingPongTargets() {
-			pingPongMoveTo_ = pingPongTarget.position;
-			pingPongMoveFrom_ = transform.position;
-
-			pingPongScaleTo_ = pingPongTarget.localScale;
-			pingPongScaleFrom_ = transform.localScale;
-
-			pingPongRotateTo_ = pingPongTarget.rotation.eulerAngles;
-			pingPongRotateFrom_ = transform.rotation.eulerAngles;
 		}
 
 		/// <summary>
@@ -109,10 +95,24 @@ namespace LittleLot {
 		}
 
 		/// <summary>
+		/// Stores the initial to and from targets for animations.
+		/// </summary>
+		protected void SetupPingPongTargets() {
+			pingPongMoveTo_ = pingPongTarget.position;
+			pingPongMoveFrom_ = transform.position;
+
+			pingPongScaleTo_ = pingPongTarget.localScale;
+			pingPongScaleFrom_ = transform.localScale;
+
+			pingPongRotateTo_ = pingPongTarget.rotation.eulerAngles;
+			pingPongRotateFrom_ = transform.rotation.eulerAngles;
+		}
+
+		/// <summary>
 		/// Moves the collectable towards the set target with lerp(smoothstep(pingpong))).
 		/// Gives a nice dampened animation effect back and forth.
 		/// </summary>
-		private void PingPongMoveToTarget() {
+		protected void PingPongMoveToTarget() {
 			transform.position = MathUtil.SmoothPingPongLerp(pingPongMoveFrom_, pingPongMoveTo_, moveToTargetInterval);
 		}
 
@@ -120,7 +120,7 @@ namespace LittleLot {
 		/// Rotates the collectable towards the set target with lerp(smoothstep(pingpong))).
 		/// Gives a nice dampened animation effect back and forth.
 		/// </summary>
-		private void PingPongRotateToTarget() {
+		protected void PingPongRotateToTarget() {
 			transform.rotation = Quaternion.Euler(MathUtil.SmoothPingPongLerp(pingPongRotateFrom_, pingPongRotateTo_, rotateToTargetInterval));
 		}
 
@@ -128,7 +128,7 @@ namespace LittleLot {
 		/// Scales the collectable towards the set target with lerp(smoothstep(pingpong))).
 		/// Gives a nice dampened animation effect back and forth.
 		/// </summary>
-		private void PingPongScaleToTarget() {
+		protected void PingPongScaleToTarget() {
 			transform.localScale = MathUtil.SmoothPingPongLerp(pingPongScaleFrom_, pingPongScaleTo_, scaleToTargetInterval);
 		}
 

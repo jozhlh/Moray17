@@ -43,3 +43,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: LoadingSystem
+    uniqueID: 3115589029
+    locked: 0

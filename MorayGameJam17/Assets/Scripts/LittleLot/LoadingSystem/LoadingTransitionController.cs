@@ -11,6 +11,8 @@ namespace LittleLot {
 
 	/// <summary>
 	/// Transition controller for Loading screens and fade screens.
+	/// To Ensure scene objects don't show up whilst still loading,
+	///  use EnableOnSceneLoaded script on scene root.
 	/// </summary>
 	public class LoadingTransitionController : Singleton<LoadingTransitionController> {
 
@@ -48,10 +50,12 @@ namespace LittleLot {
 		/// Loads the scene additively using the Loading System.
 		/// Uses the default LoadingScreen scene for transitions.
 		/// Falls back to Async load if the loading system doesn't exist.
+		/// 
+		/// Requires LoadingScene to be defined and added to the BuildSettings.
 		/// </summary>
 		/// <param name="sceneName"> The name of the scene to load. </param>
 		public static void AnimatedLoadSceneAsync(string sceneName) {
-			AnimatedLoadSceneAsync(sceneName, "LoadingScreen");
+			AnimatedLoadSceneAsync(sceneName, "LoadingScene");
 		}
 
 		/// <summary>

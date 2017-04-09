@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+
+using LittleLot;
 
 /// <summary>
 /// Simple Debug menu that show when 5 fingers held down, or F12 pressed.
@@ -66,7 +67,7 @@ public class DebugUi : MonoBehaviour {
 	/// </summary>
 	private void RestartGame() {
 		CloseDebugPanel();
-		SceneManager.LoadSceneAsync("Splash_Scene");
+		LoadingTransitionController.AnimatedLoadSceneAsync("Splash_Scene");
 	}
 
 	/// <summary>
@@ -74,7 +75,8 @@ public class DebugUi : MonoBehaviour {
 	/// </summary>
 	private void ReloadScene() {
 		CloseDebugPanel();
-		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+		LoadingTransitionController.AnimatedLoadSceneAsync(LoadingTransitionController.GetActiveScene());
+		
 	}
 
 	/// <summary>

@@ -17,6 +17,9 @@ public class LocationNameUpdater : MonoBehaviour {
 		locationText_.text = shipName;
 	}
 	private void OnEnable() {
+		if (!locationText_) {
+			locationText_ = GetComponent<Text>();
+		}
 		EventManager.OnNameChanged += OnNameChange;
 	}
 

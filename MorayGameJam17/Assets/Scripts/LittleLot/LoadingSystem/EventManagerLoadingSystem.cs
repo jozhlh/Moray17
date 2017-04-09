@@ -18,6 +18,11 @@ namespace LittleLot {
 		public static event EventHandlerLoadingSystem OnLoadingFinished;
 
 		/// <summary>
+		/// Event to listen to for when to start the final animation of the loading screen.
+		/// </summary>
+		public static event EventHandlerLoadingSystem OnStartFinishLoadingAnimation;
+
+		/// <summary>
 		/// Should be called when the new level has finished loading.
 		/// </summary>
 		public static void FinishedLoading() {
@@ -26,6 +31,18 @@ namespace LittleLot {
 				OnLoadingFinished();
 			}
 		}
+
+		/// <summary>
+		/// Should be called to start any final animations for the loading screen.
+		/// </summary>
+		public static void FinishLoadingAnimation() {
+			// notify all listeners to event.
+			if (OnStartFinishLoadingAnimation != null) {
+				OnStartFinishLoadingAnimation();
+			}
+		}
+
+
 
 	}
 }

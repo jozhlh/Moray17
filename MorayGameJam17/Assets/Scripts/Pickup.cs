@@ -13,7 +13,7 @@ public class Pickup : MonoBehaviour {
 		qostralt };
 
 	[SerializeField]
-	IdleAnimation pickUpAnimation = null;
+	PickupIdleAnimation pickUpAnimation = null;
 
 	[SerializeField]
 	string garbageName = "DefaultName";
