@@ -57,8 +57,10 @@ public class Pickup : MonoBehaviour {
 	/// <summary>
 	/// Draws Gizmo of item name in editor.
 	/// </summary>
-	void OnValidate() {		
-		itemNameText.text = sensibleName;
+	void OnValidate() {
+		if (itemNameText) {
+			itemNameText.text = sensibleName;
+		}
 	}
 #endif
 
