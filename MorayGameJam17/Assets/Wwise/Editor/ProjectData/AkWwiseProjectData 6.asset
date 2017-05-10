@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3d599c66e39cb8489b436cff1051ce7, type: 3}
-  m_Name: AkWwiseProjectData
+  m_Name: AkWwiseProjectData 6
   m_EditorClassIdentifier: 
   CurrentPluginConfig: 
   EventWwu:
@@ -331,12 +331,7 @@ MonoBehaviour:
         ObjectType: 7
       ID: -929260333
       Guid: 33db29476c36ff41bae1e293ef56572f
-  ExpandedItems:
-  - /MorayGameJam17_WwiseProject
-  - /MorayGameJam17_WwiseProject/SoundBanks
-  - /MorayGameJam17_WwiseProject/SoundBanks/Default Work Unit
-  - /MorayGameJam17_WwiseProject/States
-  - /MorayGameJam17_WwiseProject/States/Default Work Unit
+  ExpandedItems: []
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1
