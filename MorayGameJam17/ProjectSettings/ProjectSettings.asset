@@ -140,10 +140,10 @@ PlayerSettings:
   protectGraphicsMemory: 0
   useHDRDisplay: 0
   applicationIdentifier:
-    Android: com.TranscendentGames.LostInTransition
+    Android: com.TranscendentGames.ALostRobot
     Standalone: unity.TranscendentGames.ALostRobot
     Tizen: com.TranscendentGames.LostInTransition
-    iOS: com.TranscendentGames.LostInTransition
+    iOS: com.TranscendentGames.ALostRobot
     tvOS: com.TranscendentGames.LostInTransition
   buildNumber:
     iOS: 0
@@ -159,7 +159,7 @@ PlayerSettings:
   ForceSDCardPermission: 0
   CreateWallpaper: 0
   APKExpansionFiles: 0
-  keepLoadedShadersAlive: 0
+  keepLoadedShadersAlive: 1
   StripUnusedMeshComponents: 1
   VertexChannelCompressionMask:
     serializedVersion: 2
@@ -224,7 +224,7 @@ PlayerSettings:
   AndroidKeyaliasName: 
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
-  androidEnableBanner: 1
+  androidEnableBanner: 0
   m_AndroidBanners:
   - width: 320
     height: 180
@@ -513,7 +513,8 @@ PlayerSettings:
     4: 
     7: 
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    Android: 0
   incrementalIl2cppBuild: {}
   additionalIl2CppArgs: 
   apiCompatibilityLevelPerPlatform: {}
