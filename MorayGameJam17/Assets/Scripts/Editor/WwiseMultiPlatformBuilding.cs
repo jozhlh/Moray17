@@ -48,6 +48,42 @@ public class WwiseSoundBankWindow : EditorWindow {
 		GUILayout.EndHorizontal();
 	}
 
+	public void UcbTransferDefaultSoundBanks() {
+		// Add the default sound banks.
+		foreach (string soundBank in defaultSoundBanks) {
+			soundBanks.Add(soundBank);
+		}
+		//get Wwise project file (.wproj) path
+		string wwiseProjFile = Path.Combine(Application.dataPath, WwiseSetupWizard.Settings.WwiseProjectPath).Replace('/', '\\');
+
+		//get Wwise project root folder path
+		string wwiseProjectFolder = wwiseProjFile.Remove(wwiseProjFile.LastIndexOf(Path.DirectorySeparatorChar));
+
+		//get Wwise platform string (the string isn't the same as unity for some platforms)
+		string wwisePlatformString = UnityToWwisePlatformString(EditorUserBuildSettings.activeBuildTarget.ToString());
+
+		//get soundbank location in the Wwise project for the current platform target
+		string sourceSoundBankFolder = Path.Combine(wwiseProjectFolder, AkBasePathGetter.GetPlatformBasePath());
+
+		//get soundbank location in the Wwise project for the current platform target
+		sourceSoundBankFolder = Path.Combine(wwiseProjectFolder + Path.DirectorySeparatorChar, "GeneratedSoundBanks");
+		sourceSoundBankFolder = Path.Combine(sourceSoundBankFolder + Path.DirectorySeparatorChar, wwisePlatformString);
+		Debug.Log(sourceSoundBankFolder);
+
+		//get soundbank destination in the Unity project for the current platform target
+		string destinationSoundBankFolder = Path.Combine(Application.dataPath + Path.DirectorySeparatorChar + "StreamingAssets",
+			Path.Combine(WwiseSetupWizard.Settings.SoundbankPath, wwisePlatformString));
+
+		// loop through soundbanks and copy them over.
+		foreach (string soundBank in soundBanks) {
+			string sourcefile = Path.Combine(sourceSoundBankFolder, soundBank);
+			string destinationfile = Path.Combine(destinationSoundBankFolder, soundBank);
+
+			FileUtil.CopyFileOrDirectory(sourcefile, destinationfile);
+
+		}
+	}
+
 	/// <summary>
 	/// Expose the Build version Manager in the editor.
 	/// Simplifies the proccess and ensures everything is on the same style.
@@ -99,10 +135,10 @@ public class WwiseSoundBankWindow : EditorWindow {
 
 		//get soundbank location in the Wwise project for the current platform target
 		string sourceSoundBankFolder = Path.Combine(wwiseProjectFolder, AkBasePathGetter.GetPlatformBasePath());
-		
+
 		//get soundbank location in the Wwise project for the current platform target
 		sourceSoundBankFolder = Path.Combine(wwiseProjectFolder + Path.DirectorySeparatorChar, "GeneratedSoundBanks");
-		sourceSoundBankFolder = Path.Combine(sourceSoundBankFolder + Path.DirectorySeparatorChar, wwisePlatformString );
+		sourceSoundBankFolder = Path.Combine(sourceSoundBankFolder + Path.DirectorySeparatorChar, wwisePlatformString);
 		Debug.Log(sourceSoundBankFolder);
 
 		//get soundbank destination in the Unity project for the current platform target
@@ -110,10 +146,10 @@ public class WwiseSoundBankWindow : EditorWindow {
 			Path.Combine(WwiseSetupWizard.Settings.SoundbankPath, wwisePlatformString));
 
 		// loop through soundbanks and copy them over.
-		foreach (string soundBank in soundBanks) {			
+		foreach (string soundBank in soundBanks) {
 			string sourcefile = Path.Combine(sourceSoundBankFolder, soundBank);
 			string destinationfile = Path.Combine(destinationSoundBankFolder, soundBank);
-			
+
 			FileUtil.CopyFileOrDirectory(sourcefile, destinationfile);
 
 		}
@@ -155,7 +191,6 @@ public class WwiseSoundBankWindow : EditorWindow {
 		return true;
 	}
 
-
 	private static string UnityToWwisePlatformString(string unityPlatormString) {
 		if (unityPlatormString == BuildTarget.StandaloneWindows.ToString()
 			||
@@ -174,7 +209,7 @@ public class WwiseSoundBankWindow : EditorWindow {
 #if UNITY_5
 		else if (unityPlatormString == BuildTarget.iOS.ToString())
 #else
-		else if(unityPlatormString == BuildTarget.iPhone.ToString())
+		else if (unityPlatormString == BuildTarget.iPhone.ToString())
 #endif
 			return "iOS";
 #if !UNITY_5_5_OR_NEWER
@@ -206,7 +241,7 @@ public class WwiseSoundBankWindow : EditorWindow {
 #if UNITY_5
 		else if (unityPlatormString == BuildTarget.iOS.ToString())
 #else
-		else if(unityPlatormString == BuildTarget.iPhone.ToString())
+		else if (unityPlatormString == BuildTarget.iPhone.ToString())
 #endif
 			return "ipa";
 
