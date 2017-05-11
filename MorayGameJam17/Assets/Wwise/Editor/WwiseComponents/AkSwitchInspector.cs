@@ -14,16 +14,14 @@ using System.Reflection;
 [CustomEditor(typeof(AkSwitch))]
 public class AkSwitchInspector : AkBaseInspector
 {
-    SerializedProperty m_groupGuid;
-    SerializedProperty m_valueGuid;
 	SerializedProperty m_groupID;
 	SerializedProperty m_valueID;
 
-    AkUnityEventHandlerInspector m_UnityEventHandlerInspector = new AkUnityEventHandlerInspector();
+	AkUnityEventHandlerInspector m_UnityEventHandlerInspector = new AkUnityEventHandlerInspector();
 
-    void OnEnable()
-    {
-        m_UnityEventHandlerInspector.Init(serializedObject);
+	void OnEnable()
+	{
+		m_UnityEventHandlerInspector.Init(serializedObject);
 
 		m_groupID = serializedObject.FindProperty ("groupID");
 		m_valueID = serializedObject.FindProperty ("valueID");
@@ -35,7 +33,7 @@ public class AkSwitchInspector : AkBaseInspector
 		//Needed by the base class to know which type of component its working with
 		m_typeName		= "Switch";
 		m_objectType	= AkWwiseProjectData.WwiseObjectType.SWITCH;
-    }
+	}
 
 	public override void OnInspectorGUI()
 	{

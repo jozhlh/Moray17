@@ -36,7 +36,7 @@ public class HullController : MonoBehaviour {
 	
 	private void Update() {
 		if (isMoving_) {
-			hullModels.transform.position = LittleLot.MathUtil.SmoothLerp(
+			hullModels.transform.position = MathUtil.SmoothLerp(
 				startPosition_,
 				endPosition_,
 				startTime_,

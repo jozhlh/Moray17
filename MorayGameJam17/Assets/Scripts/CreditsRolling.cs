@@ -10,7 +10,7 @@ public class CreditsRolling : MonoBehaviour {
 	[SerializeField]
 	Camera sceneCamera = null;
 	[SerializeField]
-	MovingCameraPoints[] cameraPoints;
+	MovingCameraPoints[] cameraPoints = null;
 
 	private Vector3 startPosition_ = Vector3.zero;
 	private Vector3 endPosition_ = Vector3.zero;
@@ -34,7 +34,7 @@ public class CreditsRolling : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		if (isRollingCredits_) {
-			sceneCamera.transform.position = LittleLot.MathUtil.SmoothLerp(
+			sceneCamera.transform.position = MathUtil.SmoothLerp(
 					startPosition_,
 					endPosition_,
 					startTime_,

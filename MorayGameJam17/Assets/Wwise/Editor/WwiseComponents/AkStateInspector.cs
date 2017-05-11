@@ -12,9 +12,7 @@ using System;
 [CanEditMultipleObjects]
 [CustomEditor(typeof(AkState))]
 public class AkStateInspector : AkBaseInspector
-{	
-	SerializedProperty m_groupGuid;
-	SerializedProperty m_valueGuid;
+{		
 	SerializedProperty m_groupID;
 	SerializedProperty m_valueID;
 

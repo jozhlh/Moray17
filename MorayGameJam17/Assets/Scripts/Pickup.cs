@@ -119,7 +119,7 @@ public class Pickup : MonoBehaviour {
 	/// Drops the item at a random position near the player on the NavMesh.	
 	/// </summary>
 	public void ItemDropped() {
-		if (LittleLot.NavMeshUtil.RandomPointOnNavMesh(transform.position, 2, out droppedTargetPosition_)) {
+		if (NavMeshUtil.RandomPointOnNavMesh(transform.position, 2, out droppedTargetPosition_)) {
 			droppedTargetPosition_.y += initialPosition_.y;
 			transform.position = droppedTargetPosition_;
 		}

@@ -233,7 +233,7 @@ public class AkAmbientInspector : AkEventInspector
 			bool isEventUsedBeforeHandle = (Event.current.type == EventType.used);
 			
 			Handles.color = Color.green;
-			Handles.DrawCapFunction capFunc = Handles.SphereCap;
+			Handles.CapFunction capFunc = Handles.SphereHandleCap;
 			Handles.ScaleValueHandle(0, pos, Quaternion.identity, handleSize, capFunc, 0);
 			
 			if (curPointIndex == i)
@@ -348,7 +348,7 @@ public class AkAmbientInspector : AkEventInspector
 		if(Vector3.SqrMagnitude(SceneView.lastActiveSceneView.camera.transform.position - in_position) > in_radius*in_radius)
 		{
 			Handles.color = new Color(1.0f, 0.0f, 0.0f, 0.1f);
-			Handles.SphereCap(0, in_position, Quaternion.identity, in_radius*2.0f);
+			Handles.SphereHandleCap(0, in_position, Quaternion.identity, in_radius*2.0f,EventType.Repaint);
 		}
 		else
 		{
