@@ -58,6 +58,9 @@
 												<AudioFileSource Name="Robot_Movement_TRACKS_L" ID="{80C7C3B9-1C7B-4F5E-BED8-1E48653CA029}" ShortID="754470137">
 													<Language>SFX</Language>
 													<AudioFile>Robot_Movement_TRACKS.L.wav</AudioFile>
+													<ConvertedFileIDList>
+														<File ID="754470137"/>
+													</ConvertedFileIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -228,6 +231,9 @@
 															</PropertyList>
 															<Language>SFX</Language>
 															<AudioFile>SFX_SCI-FI_ROBOT_MOVEMENT_INOUT_4.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="907956858"/>
+															</ConvertedFileIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
@@ -253,6 +259,9 @@
 															</PropertyList>
 															<Language>SFX</Language>
 															<AudioFile>SFX_SCI-FI_ROBOT_MOVEMENT_INOUT_5.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="940103110"/>
+															</ConvertedFileIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
@@ -300,6 +309,9 @@
 															</PropertyList>
 															<Language>SFX</Language>
 															<AudioFile>Robot_Movement_END.L.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="865596875"/>
+															</ConvertedFileIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
@@ -325,6 +337,9 @@
 															</PropertyList>
 															<Language>SFX</Language>
 															<AudioFile>Robot_Movement_START.L.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="432756880"/>
+															</ConvertedFileIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>

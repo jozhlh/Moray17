@@ -47,12 +47,9 @@ public class WwiseSoundBankWindow : EditorWindow {
 		}
 		GUILayout.EndHorizontal();
 	}
-
-	public static void UcbTransferDefaultSoundBanks() {
-		// Add the default sound banks.
-		foreach (string soundBank in defaultSoundBanks) {
-			soundBanks.Add(soundBank);
-		}
+	#if UNITY_CLOUD_BUILD
+	public static void UcbTransferDefaultSoundBanks(UnityEngine.CloudBuild.BuildManifestObject manifest) {
+		
 		//get Wwise project file (.wproj) path
 		string wwiseProjFile = Path.Combine(Application.dataPath, WwiseSetupWizard.Settings.WwiseProjectPath).Replace('/', '\\');
 
@@ -75,7 +72,7 @@ public class WwiseSoundBankWindow : EditorWindow {
 			Path.Combine(WwiseSetupWizard.Settings.SoundbankPath, wwisePlatformString));
 
 		// loop through soundbanks and copy them over.
-		foreach (string soundBank in soundBanks) {
+		foreach (string soundBank in defaultSoundBanks) {
 			string sourcefile = Path.Combine(sourceSoundBankFolder, soundBank);
 			string destinationfile = Path.Combine(destinationSoundBankFolder, soundBank);
 
@@ -83,7 +80,7 @@ public class WwiseSoundBankWindow : EditorWindow {
 
 		}
 	}
-
+#endif
 	/// <summary>
 	/// Expose the Build version Manager in the editor.
 	/// Simplifies the proccess and ensures everything is on the same style.
