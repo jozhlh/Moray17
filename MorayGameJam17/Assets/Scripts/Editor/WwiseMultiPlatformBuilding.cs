@@ -48,7 +48,7 @@ public class WwiseSoundBankWindow : EditorWindow {
 		GUILayout.EndHorizontal();
 	}
 
-	public void UcbTransferDefaultSoundBanks() {
+	public static void UcbTransferDefaultSoundBanks() {
 		// Add the default sound banks.
 		foreach (string soundBank in defaultSoundBanks) {
 			soundBanks.Add(soundBank);
