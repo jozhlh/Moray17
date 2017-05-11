@@ -1,2 +1,3 @@
-# Wwise Asset folder gitignore
-/ProjectData/
+# Wwise gitignore
+*.akd
+/.cache/
