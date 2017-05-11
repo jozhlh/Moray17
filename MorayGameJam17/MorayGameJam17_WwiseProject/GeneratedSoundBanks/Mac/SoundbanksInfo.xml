@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="120">
 	<RootPaths>
-		<ProjectRoot>D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>D:\Source\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Source\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Source\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\GeneratedSoundBanks\Mac\</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Source\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\GeneratedSoundBanks\Mac\</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>

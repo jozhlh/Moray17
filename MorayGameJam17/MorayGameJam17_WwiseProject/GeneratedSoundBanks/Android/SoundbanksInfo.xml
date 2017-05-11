@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Android" BasePlatform="Android" SchemaVersion="11" SoundbankVersion="120">
 	<RootPaths>
-		<ProjectRoot>D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\GeneratedSoundBanks\Android\</SoundBanksRoot>
+		<ProjectRoot>D:\Source\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Source\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\.cache\Android\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Source\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\GeneratedSoundBanks\Android\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Github\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\GeneratedSoundBanks\Android\</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Source\Moray17\MorayGameJam17\MorayGameJam17_WwiseProject\GeneratedSoundBanks\Android\</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
